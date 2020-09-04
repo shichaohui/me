@@ -44,7 +44,8 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
+import { Options, Vue } from 'vue-class-component'
 import avatarImg from '@/assets/images/avatar.jpg'
 import githubImg from '@/assets/images/github.svg'
 import gameImg from '@/assets/images/game.svg'
@@ -52,9 +53,7 @@ import brvahImg from '@/assets/images/brvah.png'
 import jianShuImg from '@/assets/images/jianshu.svg'
 import jueJinImg from '@/assets/images/juejin.svg'
 
-export default {
-  name: 'HomePage',
-  props: {},
+@Options({
   data() {
     return {
       profile: {
@@ -110,7 +109,7 @@ export default {
     }
   },
   methods: {
-    showProject(url) {
+    showProject(url: string) {
       if (/^https?:\/\/.+/.test(url)) {
         window.location.href = url
       } else {
@@ -118,7 +117,8 @@ export default {
       }
     }
   }
-}
+})
+export default class HomePage extends Vue {}
 </script>
 
 <style scoped lang="scss">

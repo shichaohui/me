@@ -4,24 +4,19 @@
   </svg>
 </template>
 
-<script>
-const requireAll = requireContext => requireContext.keys().map(requireContext)
-const req = require.context('../assets/icons', false, /\.svg$/)
-requireAll(req)
+<script lang="ts">
+import { Options, Vue } from 'vue-class-component'
 
-export default {
-  name: 'SvgIcon',
+const icons = require.context('../assets/icons', false, /\.svg$/)
+icons.keys().map(icons)
+
+@Options({
   props: {
-    name: {
-      type: String,
-      required: true
-    },
-    className: {
-      type: String,
-      default: ''
-    }
+    name: String,
+    className: String
   }
-}
+})
+export default class SvgIcon extends Vue {}
 </script>
 
 <style scoped>

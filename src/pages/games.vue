@@ -1,14 +1,15 @@
 <template>
   <div>
-    Game
+    Games
+    <HelloWorld msg="abcd dgags dgaee" />
   </div>
 </template>
 
-<script>
-export default {
-  name: 'GamesPage',
-  props: {}
-}
+<script lang="ts">
+import { Options, Vue } from 'vue-class-component'
+
+@Options({})
+export default class GamesPage extends Vue {}
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->

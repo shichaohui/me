@@ -1,14 +1,14 @@
 <template>
   <div>
-    Note
+    Notes
   </div>
 </template>
 
-<script>
-export default {
-  name: 'NotesPage',
-  props: {}
-}
+<script lang="ts">
+import { Options, Vue } from 'vue-class-component'
+
+@Options({})
+export default class NotesPage extends Vue {}
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
