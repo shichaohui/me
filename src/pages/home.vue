@@ -123,9 +123,7 @@ export default {
 
 <style scoped lang="scss">
 .content {
-  width: 100%;
-  position: absolute;
-  top: 15%;
+  margin-top: 10%;
   display: flex;
   align-items: center;
   justify-content: center;
