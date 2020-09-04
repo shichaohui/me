@@ -16,7 +16,7 @@ export default {
       type: String,
       required: true
     },
-    class: {
+    className: {
       type: String,
       default: ''
     }

@@ -1,12 +1,13 @@
 import { createApp } from 'vue'
 import App from './App.vue'
-import router from './router.js'
+import router from './router'
+import { registerComponents } from './components'
 
-import SvgIcon from './components/SvgIcon.vue'
+import './style'
 
 const app = createApp(App)
 
-app.component('svg-icon', SvgIcon)
+registerComponents(app)
 
 app.use(router)
 
