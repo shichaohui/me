@@ -47,11 +47,11 @@
 <script lang="ts">
 import { Options, Vue } from 'vue-class-component'
 import avatarImg from '@/assets/images/avatar.jpg'
-import githubImg from '@/assets/images/github.svg'
-import gameImg from '@/assets/images/game.svg'
-import brvahImg from '@/assets/images/brvah.png'
-import jianShuImg from '@/assets/images/jianshu.svg'
-import jueJinImg from '@/assets/images/juejin.svg'
+import githubImg from '@/assets/images/project/github.svg'
+import gameImg from '@/assets/images/project/game.svg'
+import brvahImg from '@/assets/images/project/brvah.png'
+import jianShuImg from '@/assets/images/project/jianshu.svg'
+import jueJinImg from '@/assets/images/project/juejin.svg'
 
 @Options({
   data() {
@@ -72,7 +72,7 @@ import jueJinImg from '@/assets/images/juejin.svg'
         '微信小游戏',
         '微信小程序',
         'Taro',
-        'Vue.js'
+        'Vue'
       ],
       projectList: [
         {

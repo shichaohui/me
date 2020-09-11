@@ -1,5 +1,5 @@
 <template>
-  <svg class="svg-icon" :class="className" aria-hidden="true">
+  <svg class="SvgIcon" :class="className" aria-hidden="true">
     <use :xlink:href="`#icon-${name}`" />
   </svg>
 </template>
@@ -20,7 +20,7 @@ export default class SvgIcon extends Vue {}
 </script>
 
 <style scoped>
-.svg-icon {
+.SvgIcon {
   width: 1em;
   height: 1em;
   vertical-align: -0.15em;
