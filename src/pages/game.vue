@@ -67,7 +67,7 @@ export default class GamesPage extends Vue {
 
 .game {
   width: 66%;
-  box-shadow: 0 2px 5px 5px rgba($color: #000000, $alpha: 0.1);
+  box-shadow: 0 2px 5px 5px rgba($color: white, $alpha: 0.3);
   background-color: white;
   margin-top: 20px;
   margin-right: auto;
@@ -75,6 +75,7 @@ export default class GamesPage extends Vue {
   margin-left: auto;
   padding: 15px;
   text-align: center;
+  border-radius: 8px;
 
   a {
     text-decoration: none;

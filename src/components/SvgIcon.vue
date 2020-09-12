@@ -24,7 +24,7 @@ export default class SvgIcon extends Vue {}
   width: 1em;
   height: 1em;
   vertical-align: -0.15em;
-  fill: #2c3e50;
+  fill: currentColor;
   overflow: hidden;
 }
 </style>

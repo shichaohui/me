@@ -1,10 +1,6 @@
 <template>
   <div class="internalGame">
-    <div
-      ref="road"
-      class="road"
-      :style="{ marginLeft: `${roadMarginLeft}px` }"
-    />
+    <div ref="road" class="road" :style="{ marginLeft: `${roadMarginLeft}px` }" />
     <div ref="cloudContainer" class="cloudContainer">
       <img
         class="cloud"
@@ -134,7 +130,7 @@ export default class InternalGame extends Vue {
     this.isPlaying = true
 
     this.gameIntervalId = setInterval(this.gameInterval, 16)
-    this.generateCloudIntervalId = setTimeout(this.generateCloud, 0)
+    // this.generateCloudIntervalId = setTimeout(this.generateCloud, 0)
     this.generateObstacleIntervalId = setTimeout(this.generateObstacle, 0)
     this.generateFoodIntervalId = setTimeout(this.generateFood, 5000)
 
@@ -145,7 +141,7 @@ export default class InternalGame extends Vue {
   // 游戏间隔刷新函数
   gameInterval() {
     this.moveRoad()
-    this.moveCloud()
+    // this.moveCloud()
     this.moveObstacle()
     this.moveFood()
     this.checkGameState()
@@ -187,18 +183,12 @@ export default class InternalGame extends Vue {
     const { cloudContainer, player } = this.$refs
     this.cloudList.push({
       height: (Math.random() + 0.5) * player.clientHeight,
-      marginTop:
-        Math.random() * (cloudContainer.clientHeight - player.clientHeight),
+      marginTop: Math.random() * (cloudContainer.clientHeight - player.clientHeight),
       marginLeft: cloudContainer.clientWidth,
-      speed:
-        Math.random() * (this.cloudMaxSpeed - this.cloudMinSpeed) +
-        this.cloudMinSpeed
+      speed: Math.random() * (this.cloudMaxSpeed - this.cloudMinSpeed) + this.cloudMinSpeed
     })
     // 最少 2500ms 最多 (1500+2500)ms 生成一个障碍物
-    this.generateCloudIntervalId = setTimeout(
-      this.generateCloud,
-      Math.random() * 1500 + 2500
-    )
+    this.generateCloudIntervalId = setTimeout(this.generateCloud, Math.random() * 1500 + 2500)
   }
 
   // 生成障碍物
@@ -211,10 +201,7 @@ export default class InternalGame extends Vue {
       isScored: false
     })
     // 最少 2000ms 最多 (1000+2000)ms 生成一个障碍物
-    this.generateObstacleIntervalId = setTimeout(
-      this.generateObstacle,
-      Math.random() * 1000 + 2000
-    )
+    this.generateObstacleIntervalId = setTimeout(this.generateObstacle, Math.random() * 1000 + 2000)
   }
 
   // 生成食物
@@ -226,10 +213,7 @@ export default class InternalGame extends Vue {
       isScored: false
     })
     // 最少 5000ms 最多 (5000+5000)ms 生成一个食物
-    this.generateFoodIntervalId = setTimeout(
-      this.generateFood,
-      Math.random() * 5000 + 5000
-    )
+    this.generateFoodIntervalId = setTimeout(this.generateFood, Math.random() * 5000 + 5000)
   }
 
   // 跳跃
@@ -272,9 +256,7 @@ export default class InternalGame extends Vue {
     for (let i = this.obstacleList.length - 1; i >= 0; i--) {
       const obstacle = this.obstacleList[i]
       // 判断游戏是否结束
-      const obstacleRect = this.zoomOutBound(
-        obstacleContainer.children[i].getBoundingClientRect()
-      )
+      const obstacleRect = this.zoomOutBound(obstacleContainer.children[i].getBoundingClientRect())
       const isIntersect = !(
         playerRect.right < obstacleRect.left ||
         playerRect.left > obstacleRect.right ||
@@ -300,9 +282,7 @@ export default class InternalGame extends Vue {
     for (let i = this.foodList.length - 1; i >= 0; i--) {
       const food = this.foodList[i]
       // 判断是否得分
-      const foodRect = this.zoomOutBound(
-        foodContainer.children[i].getBoundingClientRect()
-      )
+      const foodRect = this.zoomOutBound(foodContainer.children[i].getBoundingClientRect())
       const isIntersect = !(
         playerRect.right < foodRect.left ||
         playerRect.left > foodRect.right ||
@@ -420,7 +400,7 @@ export default class InternalGame extends Vue {
   padding: 5px 10px;
   font-size: 18px;
   transform: translateX(-100%);
-  background-color: rgba(255, 255, 255, 0.3);
+  background-color: rgba(255, 255, 255, 0.5);
   border-radius: 5px;
 }
 

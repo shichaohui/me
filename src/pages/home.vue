@@ -129,11 +129,13 @@ export default class HomePage extends Vue {
 .profileBox {
   display: flex;
   justify-content: center;
+  color: white;
 
   .avatar {
     width: 150px;
     height: 150px;
     border-radius: 50%;
+    border: 2px solid silver;
   }
 
   .profile {
@@ -161,10 +163,8 @@ export default class HomePage extends Vue {
 
   .label {
     font-size: 14px;
-    background-color: #f2f4f4;
-    border: 1px solid currentColor;
+    background-color: seashell;
     border-radius: 10px;
-    box-shadow: 0px 1px 1px 1px currentColor;
     padding: 0px 8px;
     margin: 0 5px;
   }

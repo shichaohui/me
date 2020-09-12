@@ -4,22 +4,21 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0" />
-    <link rel="icon" href="<%= BASE_URL %>home.svg" />
+    <link rel="icon" href="<%= BASE_URL %>images/home.svg" />
+    <link rel="stylesheet" href="<%= BASE_URL %>css/index.css" />
     <title><%= htmlWebpackPlugin.options.title %></title>
-    <style>
-      body {
-        background-color: #f0f3f4;
-        margin: 0px;
-      }
-    </style>
   </head>
   <body>
     <noscript>
       <strong
-        >We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work
-        properly without JavaScript enabled. Please enable it to continue.
+        >We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without
+        JavaScript enabled. Please enable it to continue.
       </strong>
     </noscript>
+
+    <canvas id="bg-canvas"></canvas>
+    <script src="<%= BASE_URL %>js/bg.js"></script>
+
     <div id="app"></div>
     <!-- built files will be auto injected -->
   </body>
