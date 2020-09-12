@@ -4,7 +4,12 @@ function resolve(dir) {
   return path.join(__dirname, dir)
 }
 
+const isProduction = process.env.NODE_ENV === 'production'
+
 module.exports = {
+  publicPath: isProduction ? '/me' : '/',
+  outputDir: isProduction ? 'dist/me' : 'dist/local',
+  productionSourceMap: !isProduction,
   chainWebpack: config => {
     // 修改页面标题
     config.plugin('html').tap(args => {

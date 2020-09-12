@@ -35,7 +35,7 @@ export default class GamesPage extends Vue {
       name: '七彩蹦蹦',
       logo: ColorUpLogo,
       desc: '基于 Cocos Creator 开发的躲避障碍物的微信小游戏。',
-      url: '/games/ColorUp/index.html',
+      url: `https://shichaohui.github.io/games/ColorUp/index.html`,
       codeUrl: 'https://github.com/shichaohui/ColorUp'
     }
   ]

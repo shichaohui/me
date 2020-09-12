@@ -84,7 +84,7 @@ export default class HomePage extends Vue {
       name: '游戏',
       image: gameImg,
       imageBg: 'transparent',
-      url: '/games'
+      url: '/game'
     },
     {
       name: 'BRVAH',
