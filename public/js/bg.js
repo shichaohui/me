@@ -24,7 +24,6 @@ window.onload = function() {
   c.fillRect(0, 0, w, h)
 
   const mouse = { x: false, y: false }
-  const lastMouse = {}
 
   class Segment {
     constructor(parent, l, a, first) {
@@ -66,7 +65,7 @@ window.onload = function() {
   }
 
   class Tentacle {
-    constructor(x, y, l, n, a) {
+    constructor(x, y, l, n) {
       this.x = x
       this.y = y
       this.l = l
@@ -75,9 +74,7 @@ window.onload = function() {
       this.rand = Math.random()
       this.segments = [new Segment(this, this.l / this.n, 0, true)]
       for (let i = 1; i < this.n; i++) {
-        this.segments.push(
-          new Segment(this.segments[i - 1], this.l / this.n, 0, false)
-        )
+        this.segments.push(new Segment(this.segments[i - 1], this.l / this.n, 0, false))
       }
     }
     move(lastTarget, target) {
@@ -113,12 +110,7 @@ window.onload = function() {
         for (let i = 0; i < this.n; i++) {
           this.segments[i].show()
         }
-        c.strokeStyle =
-          'hsl(' +
-          (this.rand * 60 + 180) +
-          ',100%,' +
-          (this.rand * 60 + 25) +
-          '%)'
+        c.strokeStyle = 'hsl(' + (this.rand * 60 + 180) + ',100%,' + (this.rand * 60 + 25) + '%)'
         c.lineWidth = this.rand * 2
         c.lineCap = 'round'
         c.lineJoin = 'round'
@@ -151,13 +143,7 @@ window.onload = function() {
 
   for (let i = 0; i < numt; i++) {
     tent.push(
-      new Tentacle(
-        Math.random() * w,
-        Math.random() * h,
-        Math.random() * (maxl - minl) + minl,
-        n,
-        Math.random() * 2 * Math.PI
-      )
+      new Tentacle(Math.random() * w, Math.random() * h, Math.random() * (maxl - minl) + minl, n)
     )
   }
   function draw() {
@@ -168,13 +154,11 @@ window.onload = function() {
     } else {
       target.errx =
         w / 2 +
-        ((h / 2 - q) * Math.sqrt(2) * Math.cos(t)) /
-          (Math.pow(Math.sin(t), 2) + 1) -
+        ((h / 2 - q) * Math.sqrt(2) * Math.cos(t)) / (Math.pow(Math.sin(t), 2) + 1) -
         target.x
       target.erry =
         h / 2 +
-        ((h / 2 - q) * Math.sqrt(2) * Math.cos(t) * Math.sin(t)) /
-          (Math.pow(Math.sin(t), 2) + 1) -
+        ((h / 2 - q) * Math.sqrt(2) * Math.cos(t) * Math.sin(t)) / (Math.pow(Math.sin(t), 2) + 1) -
         target.y
     }
 
@@ -208,16 +192,13 @@ window.onload = function() {
   canvas.addEventListener(
     'mousemove',
     function(e) {
-      lastMouse.x = mouse.x
-      lastMouse.y = mouse.y
-
       mouse.x = e.pageX - this.offsetLeft
       mouse.y = e.pageY - this.offsetTop
     },
     false
   )
 
-  canvas.addEventListener('mouseleave', function(e) {
+  canvas.addEventListener('mouseleave', function() {
     mouse.x = false
     mouse.y = false
   })
@@ -231,8 +212,8 @@ window.onload = function() {
   }
 
   window.addEventListener('resize', function() {
-    ;(w = canvas.width = window.innerWidth),
-      (h = canvas.height = window.innerHeight)
+    w = canvas.width = window.innerWidth
+    h = canvas.height = window.innerHeight
     loop()
   })
 
