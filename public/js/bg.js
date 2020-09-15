@@ -205,8 +205,8 @@ window.onload = function() {
 
   function loop() {
     window.requestAnimFrame(loop)
-    // c.fillStyle="rgba(30,30,30,0.1)";
-    // c.fillRect(0, 0, w, h);
+    c.fillStyle = 'rgba(30,30,30,0.1)'
+    c.fillRect(0, 0, w, h)
     c.clearRect(0, 0, w, h)
     draw()
   }
@@ -218,5 +218,5 @@ window.onload = function() {
   })
 
   loop()
-  setInterval(loop, 1000 / 60)
+  setInterval(loop, 1000 / 30)
 }
