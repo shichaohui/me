@@ -29,22 +29,16 @@ export default class HomePage extends Vue {
   ]
   projectList = [
     {
-      name: 'GitHub',
-      image: githubImg,
-      imageBg: '#212428',
-      url: 'https://github.com/shichaohui'
-    },
-    {
       name: '游戏',
       image: gameImg,
       imageBg: '#3CDFE7',
       url: '/game'
     },
     {
-      name: 'BRVAH',
-      image: brvahImg,
-      imageBg: 'transparent',
-      url: 'https://github.com/CymChad/BaseRecyclerViewAdapterHelper'
+      name: 'GitHub',
+      image: githubImg,
+      imageBg: '#212428',
+      url: 'https://github.com/shichaohui'
     },
     {
       name: '简书',
@@ -57,6 +51,12 @@ export default class HomePage extends Vue {
       image: jueJinImg,
       imageBg: '#0061ff',
       url: 'https://juejin.im/user/57df619f5bbb50005e6c072a'
+    },
+    {
+      name: 'BRVAH',
+      image: brvahImg,
+      imageBg: 'transparent',
+      url: 'https://github.com/CymChad/BaseRecyclerViewAdapterHelper'
     }
   ]
 
