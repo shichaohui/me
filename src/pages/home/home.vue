@@ -1,40 +1,39 @@
 <template>
   <div class="content">
-    <div class="profileBox">
+    <div class="row">
       <img class="avatar" :src="profile.avatar" />
-      <div class="profile">
+      <div class="column">
         <div>
-          <div class="name">{{ profile.name }}</div>
-          <div>{{ profile.slogan }}</div>
+          <span class="fullname">{{ profile.fullname }}</span>
+          <span class="nickname">（{{ profile.nickname }}）</span>
         </div>
-        <div>
-          <div>
-            <svg-icon name="email" />
-            {{ profile.email }}
-          </div>
-          <div>
-            <svg-icon name="wechat" />
-            {{ profile.wechat }}
-          </div>
-          <div>
-            <svg-icon name="location" />
-            {{ profile.city }}
-          </div>
+        <div class="slogan">{{ profile.slogan }}</div>
+        <div class="profileItem">
+          <svg-icon class="icon" name="email" />
+          <span class="text">{{ profile.email }}</span>
+        </div>
+        <div class="profileItem">
+          <svg-icon class="icon" name="wechat" />
+          <span class="text">{{ profile.wechat }}</span>
+        </div>
+        <div class="profileItem">
+          <svg-icon class="icon" name="location" />
+          <span class="text">{{ profile.city }}</span>
         </div>
       </div>
     </div>
     <div class="labelBox">
       <span v-for="label in labelList" :key="label" class="label">{{ label }}</span>
     </div>
-    <div class="projectBox">
+    <div class="projectList">
       <div
         v-for="project in projectList"
         :key="project.name"
         class="project"
         @click="viewProject(project.url)"
       >
-        <img :src="project.image" :style="{ background: project.imageBg }" />
-        <div class="overlay">{{ project.name }}</div>
+        <img class="image" :src="project.image" :style="{ background: project.imageBg }" />
+        <div class="name">{{ project.name }}</div>
       </div>
     </div>
   </div>

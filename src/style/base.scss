@@ -11,3 +11,44 @@
   /*IE*/
   filter: FlipV;
 }
+
+.row,
+.column {
+  display: flex;
+
+  &.contentCenter {
+    justify-content: center;
+  }
+
+  &.contentAround {
+    justify-content: space-around;
+  }
+
+  &.contentBetween {
+    justify-content: space-between;
+  }
+
+  &.contentEvenly {
+    justify-content: space-evenly;
+  }
+
+  &.itemCenter {
+    align-items: center;
+  }
+
+  &.itemStart {
+    align-items: flex-start;
+  }
+
+  &.itemEnd {
+    align-items: flex-end;
+  }
+}
+
+.row {
+  flex-direction: row;
+}
+
+.column {
+  flex-direction: column;
+}

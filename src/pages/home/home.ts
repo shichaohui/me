@@ -9,7 +9,8 @@ import jueJinImg from '@/assets/images/project/juejin.svg'
 @Options({})
 export default class HomePage extends Vue {
   profile = {
-    name: '石朝辉（StoneHui）',
+    fullname: '石朝辉',
+    nickname: 'StoneHui',
     email: '464206200@qq.com',
     wechat: 'StoneHui_',
     city: '广东广州',
@@ -30,13 +31,13 @@ export default class HomePage extends Vue {
     {
       name: 'GitHub',
       image: githubImg,
-      imageBg: 'transparent',
+      imageBg: '#212428',
       url: 'https://github.com/shichaohui'
     },
     {
       name: '游戏',
       image: gameImg,
-      imageBg: 'transparent',
+      imageBg: '#3CDFE7',
       url: '/game'
     },
     {
@@ -48,7 +49,7 @@ export default class HomePage extends Vue {
     {
       name: '简书',
       image: jianShuImg,
-      imageBg: 'transparent',
+      imageBg: '#FFFFFF',
       url: 'https://www.jianshu.com/u/2cbd13c2ceb8'
     },
     {
