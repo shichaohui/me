@@ -51,13 +51,13 @@ export default class HomePage extends Vue {
       image: jueJinImg,
       imageBg: '#0061ff',
       url: 'https://juejin.im/user/57df619f5bbb50005e6c072a'
-    },
-    {
-      name: 'BRVAH',
-      image: brvahImg,
-      imageBg: 'transparent',
-      url: 'https://github.com/CymChad/BaseRecyclerViewAdapterHelper'
     }
+    // {
+    //   name: 'BRVAH',
+    //   image: brvahImg,
+    //   imageBg: 'transparent',
+    //   url: 'https://github.com/CymChad/BaseRecyclerViewAdapterHelper'
+    // }
   ]
 
   // 查看项目
