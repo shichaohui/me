@@ -8,6 +8,7 @@ node_js:
 
 before_install:
   - composer config --global github-oauth.github.com "$GITHUB_TOKEN"
+
 install:
   - yarn
 
@@ -16,8 +17,9 @@ script:
 
 deploy:
   provider: pages
-  skip_cleanup: true
-  token: $GITHUB_TOKEN
+  github_token: $GITHUB_TOKEN
   local_dir: dist/me
+  skip_cleanup: true
+  keep_history: true
   on:
     branch: master
