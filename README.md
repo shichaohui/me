@@ -2,4 +2,4 @@
 
 The personal homepage of me.
 
-https://shichaohui.github.io/me
+https://shichaohui.github.io
