@@ -2,14 +2,14 @@ import { Options, Vue } from 'vue-class-component'
 import avatarImg from '@/assets/images/avatar.jpg'
 import githubImg from '@/assets/images/project/github.svg'
 import gameImg from '@/assets/images/project/game.svg'
-import brvahImg from '@/assets/images/project/brvah.png'
+// import brvahImg from '@/assets/images/project/brvah.png'
 import jianShuImg from '@/assets/images/project/jianshu.svg'
 import jueJinImg from '@/assets/images/project/juejin.svg'
 
 @Options({})
-export default class HomePage extends Vue {
+export default class Home extends Vue {
   profile = {
-    fullname: '石朝辉',
+    fullName: '石朝辉',
     nickname: 'StoneHui',
     email: '464206200@qq.com',
     wechat: 'StoneHui_',

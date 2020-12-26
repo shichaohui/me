@@ -19,11 +19,11 @@
 </template>
 
 <script lang="ts">
-import GamePage from './game'
-export default GamePage
+import Game from './Game'
+export default Game
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss" scoped>
-@import './game.scss';
+@import './Game.scss';
 </style>

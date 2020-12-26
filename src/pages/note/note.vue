@@ -3,11 +3,11 @@
 </template>
 
 <script lang="ts">
-import NotePage from './note'
-export default NotePage
+import Note from './Note'
+export default Note
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-@import './note.scss';
+@import './Note.scss';
 </style>

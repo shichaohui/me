@@ -4,7 +4,7 @@
       <img class="avatar" :src="profile.avatar" />
       <div class="column">
         <div>
-          <span class="fullname">{{ profile.fullname }}</span>
+          <span class="fullName">{{ profile.fullname }}</span>
           <span class="nickname">（{{ profile.nickname }}）</span>
         </div>
         <div class="slogan">{{ profile.slogan }}</div>
@@ -40,10 +40,10 @@
 </template>
 
 <script lang="ts">
-import HomePage from './home'
+import HomePage from './Home'
 export default HomePage
 </script>
 
 <style scoped lang="scss">
-@import './home.scss';
+@import './Home.scss';
 </style>

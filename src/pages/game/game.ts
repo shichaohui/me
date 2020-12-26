@@ -2,14 +2,8 @@ import { Options, Vue } from 'vue-class-component'
 import ColorUpLogo from '@/assets/images/game/logos/ColorUp.jpg'
 
 @Options({})
-export default class GamesPage extends Vue {
-  gameList: {
-    name: string
-    logo: string
-    desc: string
-    url: string
-    codeUrl: string
-  }[] = [
+export default class Game extends Vue {
+  gameList: GameTypes.Game[] = [
     {
       name: '七彩蹦蹦',
       logo: ColorUpLogo,
