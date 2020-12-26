@@ -7,7 +7,7 @@ import jianShuImg from '@/assets/images/project/jianshu.svg'
 import jueJinImg from '@/assets/images/project/juejin.svg'
 
 @Options({})
-export default class Home extends Vue {
+export default class Index extends Vue {
   profile = {
     fullName: '石朝辉',
     nickname: 'StoneHui',

@@ -40,10 +40,10 @@
 </template>
 
 <script lang="ts">
-import HomePage from './Home'
-export default HomePage
+import Index from './Index'
+export default Index
 </script>
 
 <style scoped lang="scss">
-@import './Home.scss';
+@import './Index.scss';
 </style>

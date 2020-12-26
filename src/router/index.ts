@@ -1,12 +1,12 @@
 import { createRouter, RouteRecordRaw, createWebHashHistory } from 'vue-router'
-import Home from '@/pages/home/Home.vue'
-import Game from '@/pages/game/Game.vue'
-import Note from '@/pages/note/Note.vue'
+import Index from '@/pages/index/Index.vue'
+import GameList from '@/pages/game/GameList.vue'
+import NoteList from '@/pages/note/NoteList.vue'
 
 const routes: RouteRecordRaw[] = [
-  { name: 'home', path: '/', component: Home },
-  { name: 'game', path: '/game', component: Game },
-  { name: 'note', path: '/note', component: Note }
+  { name: 'index', path: '/', component: Index },
+  { name: 'gameList', path: '/game', component: GameList },
+  { name: 'noteList', path: '/note', component: NoteList }
 ]
 
 const router = createRouter({

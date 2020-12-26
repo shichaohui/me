@@ -2,7 +2,7 @@ import { Options, Vue } from 'vue-class-component'
 import ColorUpLogo from '@/assets/images/game/logos/ColorUp.jpg'
 
 @Options({})
-export default class Game extends Vue {
+export default class GameList extends Vue {
   gameList: GameTypes.Game[] = [
     {
       name: '七彩蹦蹦',
