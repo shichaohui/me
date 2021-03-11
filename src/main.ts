@@ -1,15 +1,13 @@
 import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'
-import { registerComponents } from './components'
+import components from './components'
 
 import './style'
 
 const app = createApp(App)
 
-registerComponents(app)
-
-app.use(router)
+app.use(components).use(router)
 
 router.isReady().then(() => {
   app.mount('#app')
