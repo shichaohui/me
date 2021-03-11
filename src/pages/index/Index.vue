@@ -1,10 +1,10 @@
 <template>
   <div class="content">
-    <div class="row">
+    <div class="row itemCenter">
       <img class="avatar" :src="profile.avatar" />
       <div class="column">
         <div>
-          <span class="fullName">{{ profile.fullname }}</span>
+          <span class="fullName">{{ profile.fullName }}</span>
           <span class="nickname">（{{ profile.nickname }}）</span>
         </div>
         <div class="slogan">{{ profile.slogan }}</div>
