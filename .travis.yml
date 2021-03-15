@@ -26,6 +26,5 @@ deploy:
   keep_history: true
   on:
     tags: true
-    branch: master
   tag: latest
   condition: '$TRAVIS_TAG =~ ^prd-\d+\.\d+\.\d+$'
