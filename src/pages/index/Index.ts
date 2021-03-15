@@ -14,8 +14,7 @@ export default class Index extends Vue {
     email: '464206200@qq.com',
     wechat: 'StoneHui_',
     city: '广东广州',
-    avatar: avatarImg,
-    slogan: '做程序员，而不是 Android 程序员！'
+    avatar: avatarImg
   }
   labelList = [
     'Android',

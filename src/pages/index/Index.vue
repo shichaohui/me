@@ -7,7 +7,6 @@
           <span class="fullName">{{ profile.fullName }}</span>
           <span class="nickname">（{{ profile.nickname }}）</span>
         </div>
-        <div class="slogan">{{ profile.slogan }}</div>
         <div class="profileItem">
           <svg-icon class="icon" name="email" />
           <span class="text">{{ profile.email }}</span>
