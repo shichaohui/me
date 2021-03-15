@@ -1,48 +1,33 @@
 <template>
   <div class="content">
-    <div class="row itemCenter">
-      <img class="avatar" :src="profile.avatar" />
-      <div class="column">
-        <div>
-          <span class="fullName">{{ profile.fullName }}</span>
-          <span class="nickname">（{{ profile.nickname }}）</span>
-        </div>
-        <div class="profileItem">
-          <svg-icon class="icon" name="email" />
-          <span class="text">{{ profile.email }}</span>
-        </div>
-        <div class="profileItem">
-          <svg-icon class="icon" name="wechat" />
-          <span class="text">{{ profile.wechat }}</span>
-        </div>
-        <div class="profileItem">
-          <svg-icon class="icon" name="location" />
-          <span class="text">{{ profile.city }}</span>
-        </div>
-      </div>
-    </div>
-    <div class="labelBox">
-      <span v-for="label in labelList" :key="label" class="label">{{ label }}</span>
-    </div>
-    <div class="projectList">
-      <div
-        v-for="project in projectList"
-        :key="project.name"
-        class="project"
-        @click="viewProject(project.url)"
-      >
-        <img class="image" :src="project.image" :style="{ background: project.imageBg }" />
-        <div class="name">{{ project.name }}</div>
-      </div>
-    </div>
+    <profile />
+    <labels />
+    <projects />
   </div>
 </template>
 
 <script lang="ts">
-import Index from './Index'
-export default Index
+import { Options, Vue } from 'vue-class-component'
+import Profile from './components/Profile.vue'
+import Labels from './components/Labels.vue'
+import Projects from './components/Projects.vue'
+
+@Options({
+  components: {
+    profile: Profile,
+    labels: Labels,
+    projects: Projects
+  }
+})
+export default class Index extends Vue {}
 </script>
 
 <style scoped lang="scss">
-@import './Index.scss';
+.content {
+  margin: 10% 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
 </style>

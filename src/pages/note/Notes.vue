@@ -3,11 +3,11 @@
 </template>
 
 <script lang="ts">
-import NoteList from './NoteList'
-export default NoteList
+import { Options, Vue } from 'vue-class-component'
+
+@Options({})
+export default class Note extends Vue {}
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-@import './NoteList.scss';
-</style>
+<style scoped></style>
