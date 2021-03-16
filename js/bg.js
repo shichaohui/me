@@ -131,8 +131,8 @@ window.onload = function() {
     }
   }
 
-  const maxl = 300
-  const minl = 50
+  const maxl = 150
+  const minl = 100
   const n = 30
   const numt = 500
   const tent = []
@@ -189,19 +189,19 @@ window.onload = function() {
     lastTarget.y = target.y
   }
 
-  canvas.addEventListener(
-    'mousemove',
-    function(e) {
-      mouse.x = e.pageX - this.offsetLeft
-      mouse.y = e.pageY - this.offsetTop
-    },
-    false
-  )
+  // canvas.addEventListener(
+  //   'mousemove',
+  //   function(e) {
+  //     mouse.x = e.pageX - this.offsetLeft
+  //     mouse.y = e.pageY - this.offsetTop
+  //   },
+  //   false
+  // )
 
-  canvas.addEventListener('mouseleave', function() {
-    mouse.x = false
-    mouse.y = false
-  })
+  // canvas.addEventListener('mouseleave', function() {
+  //   mouse.x = false
+  //   mouse.y = false
+  // })
 
   function loop() {
     window.requestAnimFrame(loop)
