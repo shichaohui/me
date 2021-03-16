@@ -23,18 +23,21 @@
 </template>
 
 <script lang="ts">
-import { Options, Vue } from 'vue-class-component'
+import { defineComponent } from 'vue'
 import avatarImg from '@/assets/images/avatar.png'
 
-@Options({})
-export default class Index extends Vue {
-  fullName = '石朝辉'
-  nickname = 'StoneHui'
-  email = '464206200@qq.com'
-  wechat = 'StoneHui_'
-  city = '广东广州'
-  avatar = avatarImg
-}
+export default defineComponent({
+  setup() {
+    return {
+      fullName: '石朝辉',
+      nickname: 'StoneHui',
+      email: '464206200@qq.com',
+      wechat: 'StoneHui_',
+      city: '广东广州',
+      avatar: avatarImg
+    }
+  }
+})
 </script>
 
 <style scoped lang="scss">

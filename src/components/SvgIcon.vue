@@ -5,18 +5,17 @@
 </template>
 
 <script lang="ts">
-import { Options, Vue } from 'vue-class-component'
+import { defineComponent } from 'vue'
 
 const icons = require.context('../assets/icons', false, /\.svg$/)
 icons.keys().map(icons)
 
-@Options({
+export default defineComponent({
   props: {
     name: String,
     className: String
   }
 })
-export default class SvgIcon extends Vue {}
 </script>
 
 <style scoped>

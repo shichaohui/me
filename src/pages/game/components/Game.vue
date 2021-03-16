@@ -1,23 +1,28 @@
 <template>
   <div class="game">
     <div>
-      <img class="logo" :src="game.logo" />
-      <span class="name">{{ game.name }}</span>
+      <img class="logo" :src="logo" />
+      <span class="name">{{ name }}</span>
     </div>
-    <p>{{ game.desc }}</p>
-    <a :href="game.codeUrl">源码</a>
+    <p>{{ desc }}</p>
+    <a :href="codeUrl">源码</a>
     |
-    <a :href="game.url">试玩 Web 版</a>
+    <a :href="url">试玩 Web 版</a>
   </div>
 </template>
 
 <script lang="ts">
-import { Options, Vue } from 'vue-class-component'
+import { defineComponent } from 'vue'
 
-@Options({
-  props: ['game']
+export default defineComponent({
+  props: ['game'],
+  setup(props) {
+    const game = props.game as GameTypes.Game
+    return {
+      ...game
+    }
+  }
 })
-export default class GameList extends Vue {}
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->

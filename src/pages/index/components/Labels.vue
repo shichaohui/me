@@ -5,22 +5,26 @@
 </template>
 
 <script lang="ts">
-import { Options, Vue } from 'vue-class-component'
+import { defineComponent } from 'vue'
 
-@Options({})
-export default class Index extends Vue {
-  labelList = [
-    'Android',
-    'Kotlin',
-    'Flutter',
-    'React',
-    'Taro',
-    'Vue',
-    '微信小程序',
-    '微信小游戏',
-    'Cocos Creator'
-  ]
-}
+export default defineComponent({
+  setup() {
+    const labelList = [
+      'Android',
+      'Kotlin',
+      'Flutter',
+      'React',
+      'Taro',
+      'Vue',
+      '微信小程序',
+      '微信小游戏',
+      'Cocos Creator'
+    ]
+    return {
+      labelList
+    }
+  }
+})
 </script>
 
 <style scoped lang="scss">

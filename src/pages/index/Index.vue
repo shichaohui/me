@@ -7,19 +7,18 @@
 </template>
 
 <script lang="ts">
-import { Options, Vue } from 'vue-class-component'
+import { defineComponent } from 'vue'
 import Profile from './components/Profile.vue'
 import Labels from './components/Labels.vue'
 import Projects from './components/Projects.vue'
 
-@Options({
+export default defineComponent({
   components: {
     profile: Profile,
     labels: Labels,
     projects: Projects
   }
 })
-export default class Index extends Vue {}
 </script>
 
 <style scoped lang="scss">

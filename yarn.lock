@@ -9300,9 +9300,9 @@ vm-browserify@^1.0.1:
   integrity sha1-eGQcSIuObKkadfUR56OzKobl3aA=
 
 vue-class-component@^8.0.0-0:
-  version "8.0.0-alpha.6"
-  resolved "https://registry.yarnpkg.com/vue-class-component/-/vue-class-component-8.0.0-alpha.6.tgz#395ec86e58001680306278fcef60e1ffe705a5bd"
-  integrity sha512-bxugtly8bzgt0du09LjJnK6X5v8nhMi5ABw4KKy50Rv/UdaAZDCrThp6kBbtBXocMf4EnhlfRVf/N4g4CPDc/Q==
+  version "8.0.0-rc.1"
+  resolved "https://npm.yzops.net/vue-class-component/-/vue-class-component-8.0.0-rc.1.tgz#db692cd97656eb9a08206c03d0b7398cdb1d9420"
+  integrity sha1-22ks2XZW65oIIGwD0Lc5jNsdlCA=
 
 vue-eslint-parser@^7.0.0, vue-eslint-parser@^7.1.0:
   version "7.1.0"

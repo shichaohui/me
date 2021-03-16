@@ -13,50 +13,59 @@
 </template>
 
 <script lang="ts">
-import { Options, Vue } from 'vue-class-component'
+import { defineComponent } from 'vue'
+import { useRouter } from 'vue-router'
+
 import githubImg from '@/assets/images/project/github.svg'
 import gameImg from '@/assets/images/project/game.svg'
 import jianShuImg from '@/assets/images/project/jianshu.svg'
 import jueJinImg from '@/assets/images/project/juejin.svg'
 
-@Options({})
-export default class Index extends Vue {
-  projectList = [
-    {
-      name: '游戏',
-      image: gameImg,
-      imageBg: '#3CDFE7',
-      url: '/games'
-    },
-    {
-      name: 'GitHub',
-      image: githubImg,
-      imageBg: '#212428',
-      url: 'https://github.com/shichaohui'
-    },
-    {
-      name: '简书',
-      image: jianShuImg,
-      imageBg: '#FFFFFF',
-      url: 'https://www.jianshu.com/u/2cbd13c2ceb8'
-    },
-    {
-      name: '掘金',
-      image: jueJinImg,
-      imageBg: '#0061ff',
-      url: 'https://juejin.im/user/57df619f5bbb50005e6c072a'
-    }
-  ]
+export default defineComponent({
+  setup() {
+    const router = useRouter()
 
-  // 查看项目
-  viewProject(url: string) {
-    if (/^https?:\/\/.+/.test(url)) {
-      window.location.href = url
-    } else {
-      this.$router.push({ path: url })
+    const projectList = [
+      {
+        name: '游戏',
+        image: gameImg,
+        imageBg: '#3CDFE7',
+        url: '/games'
+      },
+      {
+        name: 'GitHub',
+        image: githubImg,
+        imageBg: '#212428',
+        url: 'https://github.com/shichaohui'
+      },
+      {
+        name: '简书',
+        image: jianShuImg,
+        imageBg: '#FFFFFF',
+        url: 'https://www.jianshu.com/u/2cbd13c2ceb8'
+      },
+      {
+        name: '掘金',
+        image: jueJinImg,
+        imageBg: '#0061ff',
+        url: 'https://juejin.im/user/57df619f5bbb50005e6c072a'
+      }
+    ]
+
+    // 查看项目
+    function viewProject(url: string) {
+      if (/^https?:\/\/.+/.test(url)) {
+        window.location.href = url
+      } else {
+        router.push({ path: url })
+      }
+    }
+    return {
+      projectList,
+      viewProject
     }
   }
-}
+})
 </script>
 
 <style scoped lang="scss">
