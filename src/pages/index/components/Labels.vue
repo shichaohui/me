@@ -13,11 +13,12 @@ export default class Index extends Vue {
     'Android',
     'Kotlin',
     'Flutter',
-    'Cocos Creator',
-    '微信小游戏',
-    '微信小程序',
+    'React',
     'Taro',
-    'Vue'
+    'Vue',
+    '微信小程序',
+    '微信小游戏',
+    'Cocos Creator'
   ]
 }
 </script>
@@ -37,6 +38,7 @@ export default class Index extends Vue {
     padding: 2px 8px;
     margin: 15px 5px 0;
     white-space: nowrap;
+    box-shadow: 0 0 2px black inset;
   }
 }
 </style>

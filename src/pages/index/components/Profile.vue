@@ -24,7 +24,7 @@
 
 <script lang="ts">
 import { Options, Vue } from 'vue-class-component'
-import avatarImg from '@/assets/images/avatar.jpg'
+import avatarImg from '@/assets/images/avatar.png'
 
 @Options({})
 export default class Index extends Vue {
@@ -42,8 +42,9 @@ export default class Index extends Vue {
   width: 120px;
   height: 120px;
   border-radius: 50%;
-  border: 2px solid silver;
+  border: 1px solid silver;
   margin-right: 15px;
+  box-shadow: 0 0 5px silver inset;
 }
 
 .fullName {
