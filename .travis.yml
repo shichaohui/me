@@ -26,4 +26,4 @@ deploy:
   keep_history: true
   on:
     tags: true
-    condition: '$TRAVIS_TAG =~ ^prd-\d+\.\d+\.\d+$'
+    condition: $TRAVIS_TAG =~ ^prd-\d+\.\d+\.\d+$
