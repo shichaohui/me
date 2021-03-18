@@ -1,8 +1,8 @@
 <template>
   <div class="game">
     <div>
-      <img class="logo" :src="logo" />
-      <span class="name">{{ name }}</span>
+      <img class="logo" :src="logo" :alt="name" />
+      <h1 class="name">{{ name }}</h1>
     </div>
     <p>{{ desc }}</p>
     <a :href="codeUrl">源码</a>
@@ -52,6 +52,8 @@ export default defineComponent({
   }
 
   .name {
+    display: inline;
+    font-weight: normal;
     font-size: 22px;
     margin-left: 10px;
     vertical-align: middle;

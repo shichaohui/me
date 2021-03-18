@@ -3,8 +3,8 @@
     <img class="avatar" :src="avatar" />
     <div class="column">
       <div>
-        <span class="fullName">{{ fullName }}</span>
-        <span class="nickname">（{{ nickname }}）</span>
+        <h1 class="fullName">{{ fullName }}</h1>
+        <h2 class="nickname">（{{ nickname }}）</h2>
       </div>
       <div class="item">
         <svg-icon class="icon" name="email" />
@@ -51,14 +51,18 @@ export default defineComponent({
 }
 
 .fullName {
-  font-size: 20px;
+  display: inline;
+  font-size: 22px;
   font-weight: 500;
   color: #ffffff;
+  font-weight: normal;
 }
 
 .nickname {
+  display: inline;
   font-size: 18px;
   color: #e6e6e6;
+  font-weight: normal;
 }
 
 .item {

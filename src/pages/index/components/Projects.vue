@@ -6,7 +6,12 @@
       class="project"
       @click="viewProject(project.url)"
     >
-      <img class="image" :src="project.image" :style="{ background: project.imageBg }" />
+      <img
+        class="image"
+        :src="project.image"
+        :style="{ background: project.imageBg }"
+        :alt="project.desc"
+      />
       <div class="name">{{ project.name }}</div>
     </div>
   </div>
@@ -28,24 +33,28 @@ export default defineComponent({
     const projectList = [
       {
         name: '游戏',
+        desc: '石朝辉的小游戏',
         image: gameImg,
         imageBg: '#3CDFE7',
         url: '/games'
       },
       {
         name: 'GitHub',
+        desc: '石朝辉的GitHub',
         image: githubImg,
         imageBg: '#212428',
         url: 'https://github.com/shichaohui'
       },
       {
         name: '简书',
+        desc: '石朝辉的简书',
         image: jianShuImg,
         imageBg: '#FFFFFF',
         url: 'https://www.jianshu.com/u/2cbd13c2ceb8'
       },
       {
         name: '掘金',
+        desc: '石朝辉的掘金',
         image: jueJinImg,
         imageBg: '#0061ff',
         url: 'https://juejin.im/user/57df619f5bbb50005e6c072a'

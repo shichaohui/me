@@ -11,9 +11,12 @@ module.exports = {
   outputDir: isProduction ? 'dist/me' : 'dist/local',
   productionSourceMap: !isProduction,
   chainWebpack: config => {
-    // 修改页面标题
+    // 修改页面标题 & SEO 优化
     config.plugin('html').tap(args => {
-      args[0].title = '石朝辉'
+      args[0].title = '石朝辉（StoneHui）'
+      args[0].description = '石朝辉（StoneHui）的个人网站'
+      args[0].keywords = '石朝辉, StoneHui, Android, React, Vue, Flutter, Taro'
+      args[0].author = 'StoneHui'
       return args
     })
     config.module
