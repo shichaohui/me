@@ -23,10 +23,19 @@ export default defineComponent({
 
 <style scoped lang="scss">
 .content {
-  margin: 10% 0px;
+  height: 100vh;
+  padding: 10% 0px;
+  box-sizing: border-box;
   display: flex;
   align-items: center;
-  justify-content: center;
   flex-direction: column;
+  overflow: scroll;
+
+  &::-webkit-scrollbar {
+    width: 0 !important;
+    height: 0 !important;
+    display: none;
+    background: transparent;
+  }
 }
 </style>

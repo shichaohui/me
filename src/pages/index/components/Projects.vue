@@ -25,6 +25,7 @@ import githubImg from '@/assets/images/project/github.svg'
 import gameImg from '@/assets/images/project/game.svg'
 import jianShuImg from '@/assets/images/project/jianshu.svg'
 import jueJinImg from '@/assets/images/project/juejin.svg'
+import csdnImg from '@/assets/images/project/csdn.png'
 
 export default defineComponent({
   setup() {
@@ -46,6 +47,13 @@ export default defineComponent({
         url: 'https://github.com/shichaohui'
       },
       {
+        name: '掘金',
+        desc: '石朝辉的掘金',
+        image: jueJinImg,
+        imageBg: '#0061ff',
+        url: 'https://juejin.im/user/57df619f5bbb50005e6c072a'
+      },
+      {
         name: '简书',
         desc: '石朝辉的简书',
         image: jianShuImg,
@@ -53,11 +61,11 @@ export default defineComponent({
         url: 'https://www.jianshu.com/u/2cbd13c2ceb8'
       },
       {
-        name: '掘金',
-        desc: '石朝辉的掘金',
-        image: jueJinImg,
-        imageBg: '#0061ff',
-        url: 'https://juejin.im/user/57df619f5bbb50005e6c072a'
+        name: 'CSDN',
+        desc: '石朝辉的CSDN',
+        image: csdnImg,
+        imageBg: '#FFFFFF',
+        url: 'https://blog.csdn.net/u014165119'
       }
     ]
 
