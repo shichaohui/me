@@ -6,22 +6,12 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
+import { labelList } from '@/datas/profile'
 
 export default defineComponent({
   setup() {
-    const labelList = [
-      'Android',
-      'Kotlin',
-      'Flutter',
-      'React',
-      'Taro',
-      'Vue',
-      '微信小程序',
-      '微信小游戏',
-      'Cocos Creator'
-    ]
     return {
-      labelList
+      labelList: [...labelList]
     }
   }
 })

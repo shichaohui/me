@@ -24,17 +24,12 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-import avatarImg from '@/assets/images/avatar.png'
+import { userInfo } from '@/datas/profile'
 
 export default defineComponent({
   setup() {
     return {
-      fullName: '石朝辉',
-      nickname: 'StoneHui',
-      email: '464206200@qq.com',
-      wechat: 'StoneHui_',
-      city: '广东广州',
-      avatar: avatarImg
+      ...userInfo
     }
   }
 })

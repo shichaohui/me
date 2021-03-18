@@ -20,54 +20,11 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
 import { useRouter } from 'vue-router'
-
-import githubImg from '@/assets/images/project/github.svg'
-import gameImg from '@/assets/images/project/game.svg'
-import jianShuImg from '@/assets/images/project/jianshu.svg'
-import jueJinImg from '@/assets/images/project/juejin.svg'
-import csdnImg from '@/assets/images/project/csdn.png'
+import { projectList } from '@/datas/profile'
 
 export default defineComponent({
   setup() {
     const router = useRouter()
-
-    const projectList = [
-      {
-        name: '游戏',
-        desc: '石朝辉的小游戏',
-        image: gameImg,
-        imageBg: '#3CDFE7',
-        url: '/games'
-      },
-      {
-        name: 'GitHub',
-        desc: '石朝辉的GitHub',
-        image: githubImg,
-        imageBg: '#212428',
-        url: 'https://github.com/shichaohui'
-      },
-      {
-        name: '掘金',
-        desc: '石朝辉的掘金',
-        image: jueJinImg,
-        imageBg: '#0061ff',
-        url: 'https://juejin.im/user/57df619f5bbb50005e6c072a'
-      },
-      {
-        name: '简书',
-        desc: '石朝辉的简书',
-        image: jianShuImg,
-        imageBg: '#FFFFFF',
-        url: 'https://www.jianshu.com/u/2cbd13c2ceb8'
-      },
-      {
-        name: 'CSDN',
-        desc: '石朝辉的CSDN',
-        image: csdnImg,
-        imageBg: '#FFFFFF',
-        url: 'https://blog.csdn.net/u014165119'
-      }
-    ]
 
     // 查看项目
     function viewProject(url: string) {
@@ -77,8 +34,9 @@ export default defineComponent({
         router.push({ path: url })
       }
     }
+
     return {
-      projectList,
+      projectList: [...projectList],
       viewProject
     }
   }
