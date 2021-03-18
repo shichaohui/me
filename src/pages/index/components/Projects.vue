@@ -96,7 +96,6 @@ export default defineComponent({
 
   .project {
     width: 100px;
-    height: 150px;
     margin: 10px 20px;
     background-color: rgba($color: #ffffff, $alpha: 0.65);
     border-radius: 10px;
@@ -113,11 +112,11 @@ export default defineComponent({
 
     .name {
       @include multi-lines-ellipsis(2);
-      margin: auto;
       text-align: center;
       width: 100%;
       color: #000000;
       font-weight: 500;
+      padding: 10px 0 5px;
     }
   }
 }

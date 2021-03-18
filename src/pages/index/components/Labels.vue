@@ -39,7 +39,7 @@ export default defineComponent({
     font-size: 14px;
     background-color: seashell;
     border-radius: 20px;
-    padding: 2px 8px;
+    padding: 2px 8px 1px;
     margin: 15px 5px 0;
     white-space: nowrap;
     box-shadow: 0 0 2px black inset;
