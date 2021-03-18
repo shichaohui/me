@@ -1,6 +1,6 @@
 {
   "name": "stone-hui-homepage",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
@@ -8,7 +8,9 @@
     "dev": "vue-cli-service serve",
     "prod": "vue-cli-service build && http-server ./dist -p 8000",
     "deploy": "bash deploy.sh",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "cli": "ts-node --transpile-only --skip-project dev-configs/cli/cli.ts",
+    "tag:prd": "yarn cli tag prd"
   },
   "dependencies": {
     "core-js": "^3.6.5",
@@ -30,6 +32,7 @@
     "@vue/eslint-config-prettier": "^6.0.0",
     "@vue/eslint-config-typescript": "^5.0.2",
     "babel-eslint": "^10.1.0",
+    "chalk": "^4.1.0",
     "eslint": "^6.7.2",
     "eslint-plugin-prettier": "^3.1.3",
     "eslint-plugin-vue": "^7.0.0-alpha.0",
@@ -38,6 +41,7 @@
     "prettier": "^1.19.1",
     "sass-loader": "^10.0.1",
     "svg-sprite-loader": "^5.0.0",
+    "ts-node": "^9.1.1",
     "typescript": "^4.2.3"
   }
 }
