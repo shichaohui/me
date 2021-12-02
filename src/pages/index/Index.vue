@@ -1,24 +1,15 @@
 <template>
   <div class="content">
-    <profile />
-    <labels />
-    <projects />
+    <Profile />
+    <Labels />
+    <Projects />
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue'
+<script setup lang="ts">
 import Profile from './components/Profile.vue'
 import Labels from './components/Labels.vue'
 import Projects from './components/Projects.vue'
-
-export default defineComponent({
-  components: {
-    profile: Profile,
-    labels: Labels,
-    projects: Projects
-  }
-})
 </script>
 
 <style scoped lang="scss">

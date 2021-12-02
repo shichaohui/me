@@ -1,36 +1,26 @@
 <template>
   <div class="game">
     <div>
-      <img class="logo" :src="logo" :alt="name" />
-      <h1 class="name">{{ name }}</h1>
+      <img class="logo" :src="game.logo" :alt="game.name" />
+      <h1 class="name">{{ game.name }}</h1>
     </div>
-    <p>{{ desc }}</p>
-    <a :href="codeUrl">源码</a>
-    |
-    <a :href="url">试玩 Web 版</a>
+    <p>{{ game.desc }}</p>
+    <span>
+      <a :href="game.codeUrl">源码</a>
+      <span> | </span>
+      <a :href="game.url">试玩 Web 版</a>
+    </span>
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent, PropType } from 'vue'
+<script setup lang="ts">
+import { defineProps } from 'vue'
 
-export default defineComponent({
-  props: {
-    game: {
-      type: Object as PropType<GameTypes.Game>,
-      required: true
-    }
-  },
-  setup(props) {
-    const { game } = props
-    return {
-      ...game
-    }
-  }
-})
+defineProps<{
+  game: GameTypes.Game
+}>()
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss" scoped>
 .game {
   width: 66%;

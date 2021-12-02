@@ -1,38 +1,30 @@
 <template>
   <div class="row itemCenter">
-    <img class="avatar" :src="avatar" />
+    <img class="avatar" :src="userInfo.avatar" />
     <div class="column">
       <div>
-        <h1 class="fullName">{{ fullName }}</h1>
-        <h2 class="nickname">（{{ nickname }}）</h2>
+        <h1 class="fullName">{{ userInfo.fullName }}</h1>
+        <h2 class="nickname">（{{ userInfo.nickname }}）</h2>
       </div>
       <div class="item">
         <svg-icon class="icon" name="email" />
-        <span class="text">{{ email }}</span>
+        <span class="text">{{ userInfo.email }}</span>
       </div>
       <div class="item">
         <svg-icon class="icon" name="wechat" />
-        <span class="text">{{ wechat }}</span>
+        <span class="text">{{ userInfo.wechat }}</span>
       </div>
       <div class="item">
         <svg-icon class="icon" name="location" />
-        <span class="text">{{ city }}</span>
+        <span class="text">{{ userInfo.city }}</span>
       </div>
     </div>
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue'
+<script setup lang="ts">
+// 用户信息
 import { userInfo } from '@/datas/profile'
-
-export default defineComponent({
-  setup() {
-    return {
-      ...userInfo
-    }
-  }
-})
 </script>
 
 <style scoped lang="scss">

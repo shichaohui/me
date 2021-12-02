@@ -17,30 +17,21 @@
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue'
+<script setup lang="ts">
 import { useRouter } from 'vue-router'
+const router = useRouter()
+
+// 项目列表
 import { projectList } from '@/datas/profile'
 
-export default defineComponent({
-  setup() {
-    const router = useRouter()
-
-    // 查看项目
-    function viewProject(url: string) {
-      if (/^https?:\/\/.+/.test(url)) {
-        window.location.href = url
-      } else {
-        router.push({ path: url })
-      }
-    }
-
-    return {
-      projectList: [...projectList],
-      viewProject
-    }
+// 查看项目
+function viewProject(url: string) {
+  if (/^https?:\/\/.+/.test(url)) {
+    window.location.href = url
+  } else {
+    router.push({ path: url })
   }
-})
+}
 </script>
 
 <style scoped lang="scss">

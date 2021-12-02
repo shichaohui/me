@@ -9,24 +9,11 @@
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue'
+<script setup lang="ts">
 import Game from './components/Game.vue'
 import { gameList } from '@/datas/game'
-
-export default defineComponent({
-  components: {
-    game: Game
-  },
-  setup() {
-    return {
-      gameList: [...gameList]
-    }
-  }
-})
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss" scoped>
 .internalGame {
   width: 100%;

@@ -4,17 +4,9 @@
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue'
+<script setup lang="ts">
+// 标签信息
 import { labelList } from '@/datas/profile'
-
-export default defineComponent({
-  setup() {
-    return {
-      labelList: [...labelList]
-    }
-  }
-})
 </script>
 
 <style scoped lang="scss">
@@ -27,9 +19,10 @@ export default defineComponent({
   .label {
     display: block;
     font-size: 14px;
+    line-height: 24px;
     background-color: seashell;
     border-radius: 20px;
-    padding: 2px 8px 1px;
+    padding: 0 10px;
     margin: 15px 5px 0;
     white-space: nowrap;
     box-shadow: 0 0 2px black inset;
