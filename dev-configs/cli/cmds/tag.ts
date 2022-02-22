@@ -8,8 +8,8 @@ import * as execa from 'execa'
 const curVersion = require(path.join(process.cwd(), 'package.json')).version as string
 const curBranch = execa.sync('git', ['rev-parse', '--abbrev-ref', 'HEAD']).stdout
 
-const run = (bin, args, opts = {}) => {
-  execa(bin, args, { stdio: 'inherit', ...opts })
+async function run(bin, args, opts = {}) {
+  await execa(bin, args, { stdio: 'inherit', ...opts })
 }
 
 async function updatePkgVersion(version: string, tag: string) {
@@ -20,12 +20,12 @@ async function updatePkgVersion(version: string, tag: string) {
 
   await run('git', ['add', '-A'])
   await run('git', ['commit', '-m', `release: ${tag}`])
+  await run('git', ['push', 'origin'])
 }
 
 async function tagBranch(tag: string) {
   await run('git', ['tag', tag])
   await run('git', ['push', 'origin', `refs/tags/${tag}`])
-  await run('git', ['push'])
 }
 
 const commandModule: CommandModule = {
