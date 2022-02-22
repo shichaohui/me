@@ -1,0 +1,37 @@
+name: GitHub Pages
+
+on:
+  push:
+    tags:
+      - prd-**
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    concurrency:
+      group: ${{ github.workflow }}-${{ github.ref }}
+    steps:
+      - name: Checkout Codes
+        uses: actions/checkout@v2
+
+      - name: Setup Node
+        uses: actions/setup-node@v2
+
+      - name: Install Dependencies
+        run: yarn install
+
+      - name: Build
+        run: yarn build
+
+      - name: Commit
+        run: |
+          cd dist/me
+          git init
+          git add -A
+          git commit -m 'deploy'
+
+      - name: Push
+        run: git push -f https://${{ secrets.GITHUB_TOKEN }}@github.com/shichaohui/me.git master:gh-pages
+
+      - name: Return previous directory
+        run: cd -
