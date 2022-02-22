@@ -237,7 +237,7 @@
 
 "@babel/helper-validator-identifier@^7.12.11", "@babel/helper-validator-identifier@^7.15.7":
   version "7.15.7"
-  resolved "http://172.26.59.72:4873/@babel%2fhelper-validator-identifier/-/helper-validator-identifier-7.15.7.tgz#220df993bfe904a4a6b02ab4f3385a5ebf6e2389"
+  resolved "https://registry.npm.taobao.org/@babel%2fhelper-validator-identifier/-/helper-validator-identifier-7.15.7.tgz#220df993bfe904a4a6b02ab4f3385a5ebf6e2389"
   integrity sha1-Ig35k7/pBKSmsCq08zhaXr9uI4k=
 
 "@babel/helper-wrap-function@^7.10.4":
@@ -284,7 +284,7 @@
 
 "@babel/parser@^7.12.0", "@babel/parser@^7.15.0":
   version "7.16.4"
-  resolved "http://172.26.59.72:4873/@babel%2fparser/-/parser-7.16.4.tgz#d5f92f57cf2c74ffe9b37981c0e72fee7311372e"
+  resolved "https://registry.npm.taobao.org/@babel%2fparser/-/parser-7.16.4.tgz#d5f92f57cf2c74ffe9b37981c0e72fee7311372e"
   integrity sha1-1fkvV88sdP/ps3mBwOcv7nMRNy4=
 
 "@babel/parser@^7.12.13":
@@ -903,7 +903,7 @@
 
 "@babel/types@^7.12.0":
   version "7.16.0"
-  resolved "http://172.26.59.72:4873/@babel%2ftypes/-/types-7.16.0.tgz#db3b313804f96aadd0b776c4823e127ad67289ba"
+  resolved "https://registry.npm.taobao.org/@babel%2ftypes/-/types-7.16.0.tgz#db3b313804f96aadd0b776c4823e127ad67289ba"
   integrity sha1-2zsxOAT5aq3Qt3bEgj4SetZyibo=
   dependencies:
     "@babel/helper-validator-identifier" "^7.15.7"
@@ -1144,14 +1144,14 @@
 
 "@types/vue-router@^2.0.0":
   version "2.0.0"
-  resolved "http://172.26.59.72:4873/@types%2fvue-router/-/vue-router-2.0.0.tgz#81094f2107e766a11b20af7fa0f34bec1f321e28"
+  resolved "https://registry.npm.taobao.org/@types%2fvue-router/-/vue-router-2.0.0.tgz#81094f2107e766a11b20af7fa0f34bec1f321e28"
   integrity sha1-gQlPIQfnZqEbIK9/oPNL7B8yHig=
   dependencies:
     vue-router "*"
 
 "@types/vue@^2.0.0":
   version "2.0.0"
-  resolved "http://172.26.59.72:4873/@types%2fvue/-/vue-2.0.0.tgz#ec77b3d89591deb9ca5cb052368aa9c32be088e7"
+  resolved "https://registry.npm.taobao.org/@types%2fvue/-/vue-2.0.0.tgz#ec77b3d89591deb9ca5cb052368aa9c32be088e7"
   integrity sha1-7Hez2JWR3rnKXLBSNoqpwyvgiOc=
   dependencies:
     vue "*"
@@ -1485,7 +1485,7 @@
 
 "@vue/compiler-core@3.0.7":
   version "3.0.7"
-  resolved "http://172.26.59.72:4873/@vue%2fcompiler-core/-/compiler-core-3.0.7.tgz#421782a4c67cc3f2b7c30457ef446d74f8524f74"
+  resolved "https://registry.npm.taobao.org/@vue%2fcompiler-core/-/compiler-core-3.0.7.tgz#421782a4c67cc3f2b7c30457ef446d74f8524f74"
   integrity sha1-QheCpMZ8w/K3wwRX70RtdPhST3Q=
   dependencies:
     "@babel/parser" "^7.12.0"
@@ -1496,7 +1496,7 @@
 
 "@vue/compiler-core@3.2.23":
   version "3.2.23"
-  resolved "http://172.26.59.72:4873/@vue%2fcompiler-core/-/compiler-core-3.2.23.tgz#ef1769fbf313306b47c858735a9300aa2a20f104"
+  resolved "https://registry.npm.taobao.org/@vue%2fcompiler-core/-/compiler-core-3.2.23.tgz#ef1769fbf313306b47c858735a9300aa2a20f104"
   integrity sha512-4ZhiI/orx+7EJ1B+0zjgvXMV2uRN+XBfG06UN2sJfND9rH5gtEQT3QmO4erum1o6Irl7y754W8/KSaDJh4EUQg==
   dependencies:
     "@babel/parser" "^7.15.0"
@@ -1506,7 +1506,7 @@
 
 "@vue/compiler-dom@3.0.7":
   version "3.0.7"
-  resolved "http://172.26.59.72:4873/@vue%2fcompiler-dom/-/compiler-dom-3.0.7.tgz#54d2e12fb9a7aff53abd19dac2c2679533f0c919"
+  resolved "https://registry.npm.taobao.org/@vue%2fcompiler-dom/-/compiler-dom-3.0.7.tgz#54d2e12fb9a7aff53abd19dac2c2679533f0c919"
   integrity sha1-VNLhL7mnr/U6vRnawsJnlTPwyRk=
   dependencies:
     "@vue/compiler-core" "3.0.7"
@@ -1514,7 +1514,7 @@
 
 "@vue/compiler-dom@3.2.23":
   version "3.2.23"
-  resolved "http://172.26.59.72:4873/@vue%2fcompiler-dom/-/compiler-dom-3.2.23.tgz#1dc5ba6c61f4d9e5e22442bfbf1ca306bb698507"
+  resolved "https://registry.npm.taobao.org/@vue%2fcompiler-dom/-/compiler-dom-3.2.23.tgz#1dc5ba6c61f4d9e5e22442bfbf1ca306bb698507"
   integrity sha512-X2Nw8QFc5lgoK3kio5ktM95nqmLUH+q+N/PbV4kCHzF1avqv/EGLnAhaaF0Iu4bewNvHJAAhhwPZFeoV/22nbw==
   dependencies:
     "@vue/compiler-core" "3.2.23"
@@ -1522,7 +1522,7 @@
 
 "@vue/compiler-sfc@3.2.23":
   version "3.2.23"
-  resolved "http://172.26.59.72:4873/@vue%2fcompiler-sfc/-/compiler-sfc-3.2.23.tgz#35ef678240b29da5144bc3c6447fa51a07d78875"
+  resolved "https://registry.npm.taobao.org/@vue%2fcompiler-sfc/-/compiler-sfc-3.2.23.tgz#35ef678240b29da5144bc3c6447fa51a07d78875"
   integrity sha512-Aw+pb50Q5zTjyvWod8mNKmYZDRGHJBptmNNWE+84ZxrzEztPgMz8cNYIzWGbwcFVkmJlhvioAMvKnB+LM/sjSA==
   dependencies:
     "@babel/parser" "^7.15.0"
@@ -1568,7 +1568,7 @@
 
 "@vue/compiler-ssr@3.2.23":
   version "3.2.23"
-  resolved "http://172.26.59.72:4873/@vue%2fcompiler-ssr/-/compiler-ssr-3.2.23.tgz#cd9c6541c388553f6448244a9f2a76dfdba027ba"
+  resolved "https://registry.npm.taobao.org/@vue%2fcompiler-ssr/-/compiler-ssr-3.2.23.tgz#cd9c6541c388553f6448244a9f2a76dfdba027ba"
   integrity sha512-Bqzn4jFyXPK1Ehqiq7e/czS8n62gtYF1Zfeu0DrR5uv+SBllh7LIvZjZU6+c8qbocAd3/T3I3gn2cZGmnDb6zg==
   dependencies:
     "@vue/compiler-dom" "3.2.23"
@@ -1611,14 +1611,14 @@
 
 "@vue/reactivity@3.2.23":
   version "3.2.23"
-  resolved "http://172.26.59.72:4873/@vue%2freactivity/-/reactivity-3.2.23.tgz#d2f10749d554f7e94d8d52f36e7e6a0b021a2418"
+  resolved "https://registry.npm.taobao.org/@vue%2freactivity/-/reactivity-3.2.23.tgz#d2f10749d554f7e94d8d52f36e7e6a0b021a2418"
   integrity sha512-8RGVr/5Kpgb/EkCjgHXqttgA5IMc6n0lIXFY4TVbMkzdXrvaIhzBd7Te44oIDsTSYVKZLpfHd6/wEnuDqE8vFw==
   dependencies:
     "@vue/shared" "3.2.23"
 
 "@vue/ref-transform@3.2.23":
   version "3.2.23"
-  resolved "http://172.26.59.72:4873/@vue%2fref-transform/-/ref-transform-3.2.23.tgz#5c8b0c0638db27094ddd689020c60cf1aa33d873"
+  resolved "https://registry.npm.taobao.org/@vue%2fref-transform/-/ref-transform-3.2.23.tgz#5c8b0c0638db27094ddd689020c60cf1aa33d873"
   integrity sha512-gW0GD2PSAs/th7mC7tPB/UwpIQxclbApVtsDtscDmOJXb2+cdu60ny+SuHNgfrlUT/JqWKQHq7jFKO4woxLNaA==
   dependencies:
     "@babel/parser" "^7.15.0"
@@ -1629,7 +1629,7 @@
 
 "@vue/runtime-core@3.2.23":
   version "3.2.23"
-  resolved "http://172.26.59.72:4873/@vue%2fruntime-core/-/runtime-core-3.2.23.tgz#f620ce0142e87cbc99c50ac285e644ed9b57986f"
+  resolved "https://registry.npm.taobao.org/@vue%2fruntime-core/-/runtime-core-3.2.23.tgz#f620ce0142e87cbc99c50ac285e644ed9b57986f"
   integrity sha512-wSI5lmY2kCGLf89iiygqxVh6/5bsawz78Me9n1x4U2bHnN0yf3PWyuhN0WgIE8VfEaF7e75E333uboNEIFjgkg==
   dependencies:
     "@vue/reactivity" "3.2.23"
@@ -1637,7 +1637,7 @@
 
 "@vue/runtime-dom@3.2.23":
   version "3.2.23"
-  resolved "http://172.26.59.72:4873/@vue%2fruntime-dom/-/runtime-dom-3.2.23.tgz#e6a3362a8a03f034ef6ff9b8281b166f0f314bfc"
+  resolved "https://registry.npm.taobao.org/@vue%2fruntime-dom/-/runtime-dom-3.2.23.tgz#e6a3362a8a03f034ef6ff9b8281b166f0f314bfc"
   integrity sha512-z6lp0888NkLmxD9j2sGoll8Kb7J743s8s6w7GbiyUc4WZwm0KJ35B4qTFDMoIU0G7CatS6Z+yRTpPHc6srtByg==
   dependencies:
     "@vue/runtime-core" "3.2.23"
@@ -1646,7 +1646,7 @@
 
 "@vue/server-renderer@3.2.23":
   version "3.2.23"
-  resolved "http://172.26.59.72:4873/@vue%2fserver-renderer/-/server-renderer-3.2.23.tgz#c7e22c02d8a518bd2499565b7c7c88b1842edd44"
+  resolved "https://registry.npm.taobao.org/@vue%2fserver-renderer/-/server-renderer-3.2.23.tgz#c7e22c02d8a518bd2499565b7c7c88b1842edd44"
   integrity sha512-mgQ2VAE5WjeZELJKNbwE69uiBNpN+3LyL0ZDki1bJWVwHD2fhPfx7pwyYuiucE81xz2LxVsyGxhKKUL997g8vw==
   dependencies:
     "@vue/compiler-ssr" "3.2.23"
@@ -1654,12 +1654,12 @@
 
 "@vue/shared@3.0.7":
   version "3.0.7"
-  resolved "http://172.26.59.72:4873/@vue%2fshared/-/shared-3.0.7.tgz#96d52988efc07444c108c7c6803ba7cc93e40045"
+  resolved "https://registry.npm.taobao.org/@vue%2fshared/-/shared-3.0.7.tgz#96d52988efc07444c108c7c6803ba7cc93e40045"
   integrity sha1-ltUpiO/AdETBCMfGgDunzJPkAEU=
 
 "@vue/shared@3.2.23":
   version "3.2.23"
-  resolved "http://172.26.59.72:4873/@vue%2fshared/-/shared-3.2.23.tgz#e885a2ba099d40b69d5461157f3ade31e46a09a9"
+  resolved "https://registry.npm.taobao.org/@vue%2fshared/-/shared-3.2.23.tgz#e885a2ba099d40b69d5461157f3ade31e46a09a9"
   integrity sha512-U+/Jefa0QfXUF2qVy9Dqlrb6HKJSr9/wJcM66wXmWcTOoqg7hOWzF4qruDle51pyF4x3wMn6TSH54UdjKjCKMA==
 
 "@vue/web-component-wrapper@^1.2.0":
@@ -3378,7 +3378,7 @@ csso@^4.0.2:
 
 csstype@^2.6.8:
   version "2.6.19"
-  resolved "http://172.26.59.72:4873/csstype/-/csstype-2.6.19.tgz#feeb5aae89020bb389e1f63669a5ed490e391caa"
+  resolved "https://registry.npm.taobao.org/csstype/-/csstype-2.6.19.tgz#feeb5aae89020bb389e1f63669a5ed490e391caa"
   integrity sha1-/utarokCC7OJ4fY2aaXtSQ45HKo=
 
 currently-unhandled@^0.4.1:
@@ -4015,7 +4015,7 @@ estraverse@^5.1.0, estraverse@^5.2.0:
 
 estree-walker@^2.0.1, estree-walker@^2.0.2:
   version "2.0.2"
-  resolved "http://172.26.59.72:4873/estree-walker/-/estree-walker-2.0.2.tgz#52f010178c2a4c117a7757cfe942adb7d2da4cac"
+  resolved "https://registry.npm.taobao.org/estree-walker/-/estree-walker-2.0.2.tgz#52f010178c2a4c117a7757cfe942adb7d2da4cac"
   integrity sha1-UvAQF4wqTBF6d1fP6UKtt9LaTKw=
 
 esutils@^2.0.2:
@@ -5888,7 +5888,7 @@ lodash@^4.0.0, lodash@^4.17.11, lodash@^4.17.14, lodash@^4.17.15, lodash@^4.17.3
 
 lodash@^4.17.19:
   version "4.17.21"
-  resolved "http://172.26.59.72:4873/lodash/-/lodash-4.17.21.tgz#679591c564c3bffaae8454cf0b3df370c3d6911c"
+  resolved "https://registry.npm.taobao.org/lodash/-/lodash-4.17.21.tgz#679591c564c3bffaae8454cf0b3df370c3d6911c"
   integrity sha1-Z5WRxWTDv/quhFTPCz3zcMPWkRw=
 
 log-symbols@^2.2.0:
@@ -8963,7 +8963,7 @@ to-arraybuffer@^1.0.0:
 
 to-fast-properties@^2.0.0:
   version "2.0.0"
-  resolved "http://172.26.59.72:4873/to-fast-properties/-/to-fast-properties-2.0.0.tgz#dc5e698cbd079265bc73e0377681a4e4e83f616e"
+  resolved "https://registry.npm.taobao.org/to-fast-properties/-/to-fast-properties-2.0.0.tgz#dc5e698cbd079265bc73e0377681a4e4e83f616e"
   integrity sha1-3F5pjL0HkmW8c+A3doGk5Og/YW4=
 
 to-object-path@^0.3.0:
@@ -9463,7 +9463,7 @@ vue-loader@^15.9.2:
 
 vue-router@*:
   version "3.5.3"
-  resolved "http://172.26.59.72:4873/vue-router/-/vue-router-3.5.3.tgz#041048053e336829d05dafacf6a8fb669a2e7999"
+  resolved "https://registry.npm.taobao.org/vue-router/-/vue-router-3.5.3.tgz#041048053e336829d05dafacf6a8fb669a2e7999"
   integrity sha1-BBBIBT4zaCnQXa+s9qj7ZpoueZk=
 
 vue-router@^4.0.5:
@@ -9486,12 +9486,12 @@ vue-template-es2015-compiler@^1.9.0:
 
 vue@*:
   version "2.6.14"
-  resolved "http://172.26.59.72:4873/vue/-/vue-2.6.14.tgz#e51aa5250250d569a3fbad3a8a5a687d6036e235"
+  resolved "https://registry.npm.taobao.org/vue/-/vue-2.6.14.tgz#e51aa5250250d569a3fbad3a8a5a687d6036e235"
   integrity sha1-5RqlJQJQ1Wmj+606ilpofWA24jU=
 
 vue@^3.0.7:
   version "3.2.23"
-  resolved "http://172.26.59.72:4873/vue/-/vue-3.2.23.tgz#fe17e4a98bee1afe2aed351a0a80e052728f9ce2"
+  resolved "https://registry.npm.taobao.org/vue/-/vue-3.2.23.tgz#fe17e4a98bee1afe2aed351a0a80e052728f9ce2"
   integrity sha512-MGp9JZC37lzGhwSu6c1tQxrQbXbw7XKFqtYh7SFwNrNK899FPxGAHwSHMZijMChTSC3uZrD2BGO/3EHOgMJ0cw==
   dependencies:
     "@vue/compiler-dom" "3.2.23"
