@@ -1,5 +1,5 @@
 import { createRouter, RouteRecordRaw, createWebHistory } from 'vue-router'
-import Index from '@/pages/index/GIndex.vue'
+import Index from '@/pages/index/index.vue'
 import Games from '@/pages/game/index.vue'
 import Notes from '@/pages/note/index.vue'
 
