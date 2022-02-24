@@ -6,12 +6,12 @@ import Notes from '@/pages/note/Notes.vue'
 const routes: RouteRecordRaw[] = [
   { name: 'index', path: '/', component: Index },
   { name: 'games', path: '/games', component: Games },
-  { name: 'notes', path: '/notes', component: Notes }
+  { name: 'notes', path: '/notes', component: Notes },
 ]
 
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
-  routes
+  routes,
 })
 
 export default router

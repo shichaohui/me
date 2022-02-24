@@ -6,19 +6,21 @@ export const userInfo = {
   email: '464206200@qq.com',
   wechat: 'StoneHui_',
   city: '广东广州',
-  avatar: avatarImg
+  avatar: avatarImg,
 }
 
 export const labelList = [
-  'Android',
-  'Kotlin',
-  'Flutter',
   'React',
   'Taro',
   'Vue',
   '微信小程序',
   '微信小游戏',
-  'Cocos Creator'
+  'Android',
+  'Flutter',
+  'Cocos Creator',
+  'Kotlin',
+  'JavaScript',
+  'TypeScript',
 ]
 
 import githubImg from '@/assets/images/project/github.svg'
@@ -33,34 +35,34 @@ export const projectList = [
     desc: '石朝辉的小游戏',
     image: gameImg,
     imageBg: '#3CDFE7',
-    url: '/games'
+    url: '/games',
   },
   {
     name: 'GitHub',
     desc: '石朝辉的GitHub',
     image: githubImg,
     imageBg: '#212428',
-    url: 'https://github.com/shichaohui'
+    url: 'https://github.com/shichaohui',
   },
   {
     name: '掘金',
     desc: '石朝辉的掘金',
     image: jueJinImg,
     imageBg: '#0061ff',
-    url: 'https://juejin.im/user/57df619f5bbb50005e6c072a'
+    url: 'https://juejin.im/user/57df619f5bbb50005e6c072a',
   },
   {
     name: '简书',
     desc: '石朝辉的简书',
     image: jianShuImg,
     imageBg: '#FFFFFF',
-    url: 'https://www.jianshu.com/u/2cbd13c2ceb8'
+    url: 'https://www.jianshu.com/u/2cbd13c2ceb8',
   },
   {
     name: 'CSDN',
     desc: '石朝辉的CSDN',
     image: csdnImg,
     imageBg: '#FFFFFF',
-    url: 'https://blog.csdn.net/u014165119'
-  }
+    url: 'https://blog.csdn.net/u014165119',
+  },
 ]

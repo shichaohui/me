@@ -10,7 +10,7 @@
         :style="{
           height: `${cloud.height}px`,
           marginTop: `${cloud.marginTop}px`,
-          marginLeft: `${cloud.marginLeft}px`
+          marginLeft: `${cloud.marginLeft}px`,
         }"
       />
     </div>
@@ -22,7 +22,7 @@
         :key="obstacle"
         :style="{
           height: `${obstacle.height}px`,
-          marginLeft: `${obstacle.marginLeft}px`
+          marginLeft: `${obstacle.marginLeft}px`,
         }"
       />
     </div>
@@ -35,7 +35,7 @@
         :style="{
           height: `${food.height}px`,
           marginLeft: `${food.marginLeft}px`,
-          bottom: `${food.bottom}px`
+          bottom: `${food.bottom}px`,
         }"
       />
     </div>
@@ -113,7 +113,7 @@ export default class InternalGame extends Vue {
   mounted() {
     this.jumpHeight = this.$refs.player.clientHeight * 2.5
 
-    document.onkeydown = event => {
+    document.onkeydown = (event) => {
       const keyNum = window.event ? event.keyCode : event.which
       if (keyNum == 32) {
         // 空格
@@ -185,7 +185,7 @@ export default class InternalGame extends Vue {
       height: (Math.random() + 0.5) * player.clientHeight,
       marginTop: Math.random() * (cloudContainer.clientHeight - player.clientHeight),
       marginLeft: cloudContainer.clientWidth,
-      speed: Math.random() * (this.cloudMaxSpeed - this.cloudMinSpeed) + this.cloudMinSpeed
+      speed: Math.random() * (this.cloudMaxSpeed - this.cloudMinSpeed) + this.cloudMinSpeed,
     })
     // 最少 2500ms 最多 (1500+2500)ms 生成一个障碍物
     this.generateCloudIntervalId = setTimeout(this.generateCloud, Math.random() * 1500 + 2500)
@@ -198,7 +198,7 @@ export default class InternalGame extends Vue {
     this.obstacleList.push({
       height: factor * player.clientHeight,
       marginLeft: obstacleContainer.clientWidth,
-      isScored: false
+      isScored: false,
     })
     // 最少 2000ms 最多 (1000+2000)ms 生成一个障碍物
     this.generateObstacleIntervalId = setTimeout(this.generateObstacle, Math.random() * 1000 + 2000)
@@ -210,7 +210,7 @@ export default class InternalGame extends Vue {
       height: (this.$refs.player.clientHeight / 3) * 2,
       marginLeft: this.$refs.foodContainer.clientWidth,
       bottom: Math.random() * this.jumpHeight,
-      isScored: false
+      isScored: false,
     })
     // 最少 5000ms 最多 (5000+5000)ms 生成一个食物
     this.generateFoodIntervalId = setTimeout(this.generateFood, Math.random() * 5000 + 5000)
@@ -305,7 +305,7 @@ export default class InternalGame extends Vue {
       top: rect.top + rect.height * 0.1,
       right: rect.right - rect.width * 0.1,
       bottom: rect.bottom - rect.height * 0.1,
-      left: rect.left + rect.width * 0.1
+      left: rect.left + rect.width * 0.1,
     }
   }
 

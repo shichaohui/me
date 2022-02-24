@@ -6,6 +6,6 @@ export const gameList: GameTypes.Game[] = [
     logo: ColorUpLogo,
     desc: '基于 Cocos Creator 开发的躲避障碍物的微信小游戏。',
     url: `https://shichaohui.github.io/games/ColorUp/index.html`,
-    codeUrl: 'https://github.com/shichaohui/ColorUp'
-  }
+    codeUrl: 'https://github.com/shichaohui/ColorUp',
+  },
 ]

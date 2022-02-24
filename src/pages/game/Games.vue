@@ -4,7 +4,7 @@
       <internal-game />
     </div>
     <div class="gameList">
-      <game v-for="game in gameList" :key="game" :game="game" />
+      <Game v-for="game in gameList" :key="game.url" :game="game" />
     </div>
   </div>
 </template>
