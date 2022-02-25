@@ -34,8 +34,6 @@ function viewProject(url: string) {
 </script>
 
 <style scoped lang="scss">
-@import '@/style/mixins.scss';
-
 .projectList {
   margin-top: 30px;
   display: flex;
@@ -59,10 +57,8 @@ function viewProject(url: string) {
     }
 
     .name {
-      @include multi-lines-ellipsis(2);
       text-align: center;
       width: 100%;
-      color: #000000;
       font-weight: 500;
       padding: 10px 0 5px;
     }

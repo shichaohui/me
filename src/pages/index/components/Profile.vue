@@ -55,6 +55,7 @@ import { userInfo } from '@/datas/profile'
 .item {
   color: #ffffff;
   font-size: 14px;
+  margin-top: 5px;
 
   .text {
     margin-left: 5px;

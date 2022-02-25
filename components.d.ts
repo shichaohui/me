@@ -4,6 +4,8 @@
 
 declare module 'vue' {
   export interface GlobalComponents {
+    ElMenu: typeof import('element-plus/es')['ElMenu']
+    ElMenuItem: typeof import('element-plus/es')['ElMenuItem']
     InternalGame: typeof import('./src/components/InternalGame.vue')['default']
     SvgIcon: typeof import('./src/components/SvgIcon.vue')['default']
   }

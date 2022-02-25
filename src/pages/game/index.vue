@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="internalGame">
-      <internal-game />
+      <InternalGame />
     </div>
     <div class="gameList">
       <Game v-for="game in gameList" :key="game.url" :game="game" />
@@ -10,6 +10,7 @@
 </template>
 
 <script setup lang="ts">
+import InternalGame from '@/components/InternalGame.vue'
 import Game from './components/Game.vue'
 import { gameList } from '@/datas/game'
 </script>
@@ -21,6 +22,7 @@ import { gameList } from '@/datas/game'
   position: absolute;
   bottom: 0px;
   overflow: hidden;
+  z-index: -1;
 }
 
 .gameList {

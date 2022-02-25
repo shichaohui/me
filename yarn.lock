@@ -3902,6 +3902,11 @@ es-abstract@^1.17.0-next.1, es-abstract@^1.17.2, es-abstract@^1.17.5:
     string.prototype.trimend "^1.0.1"
     string.prototype.trimstart "^1.0.1"
 
+es-module-lexer@^0.9.3:
+  version "0.9.3"
+  resolved "http://172.26.59.72:4873/es-module-lexer/-/es-module-lexer-0.9.3.tgz#6f13db00cc38417137daf74366f535c8eb438f19"
+  integrity sha1-bxPbAMw4QXE32vdDZvU1yOtDjxk=
+
 es-to-primitive@^1.2.1:
   version "1.2.1"
   resolved "https://registry.npm.taobao.org/es-to-primitive/download/es-to-primitive-1.2.1.tgz#e55cd4c9cdc188bcefb03b366c736323fc5c898a"
@@ -9366,6 +9371,16 @@ unplugin-auto-import@^0.6.1:
     local-pkg "^0.4.1"
     magic-string "^0.25.7"
     resolve "^1.22.0"
+    unplugin "^0.3.2"
+
+unplugin-element-plus@^0.3.1:
+  version "0.3.1"
+  resolved "http://172.26.59.72:4873/unplugin-element-plus/-/unplugin-element-plus-0.3.1.tgz#9f99add93a9d63ca4fe1865162b691927fb1fd1a"
+  integrity sha512-DowQB5yvyJ/89q45o9LELGiRFYIGo5AJZqEBsjVJOVHL0x3OY57XB5BTLxUd5Of3wPk646MvADKY3htJvopy9w==
+  dependencies:
+    "@rollup/pluginutils" "^4.1.2"
+    es-module-lexer "^0.9.3"
+    magic-string "^0.25.7"
     unplugin "^0.3.2"
 
 unplugin-vue-components@^0.17.21:

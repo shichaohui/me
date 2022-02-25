@@ -34,7 +34,8 @@ defineProps<{
 
   a {
     text-decoration: none;
-    color: #0000ff;
+    color: $color-primary;
+    font-size: 14px;
   }
 
   .logo {

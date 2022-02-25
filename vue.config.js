@@ -1,6 +1,7 @@
 const path = require('path')
+const ElementPlus = require('unplugin-element-plus/webpack')
 const AutoImport = require('unplugin-auto-import/webpack')
-const Components = require('unplugin-vue-components/webpack')
+const VueComponents = require('unplugin-vue-components/webpack')
 const { ElementPlusResolver } = require('unplugin-vue-components/resolvers')
 
 const isProduction = process.env.NODE_ENV === 'production'
@@ -24,10 +25,13 @@ module.exports = {
   },
   configureWebpack: {
     plugins: [
+      ElementPlus({
+        useSource: true,
+      }),
       AutoImport({
         resolvers: [ElementPlusResolver()],
       }),
-      Components({
+      VueComponents({
         resolvers: [ElementPlusResolver()],
       }),
     ],
@@ -45,6 +49,17 @@ module.exports = {
           type: 'javascript/auto',
         },
       ],
+    },
+  },
+  css: {
+    loaderOptions: {
+      sass: {
+        additionalData: `
+          @import '@/style/variables.scss'; 
+          @import '@/style/base.scss'; 
+          @import '@/style/mixins.scss';
+        `,
+      },
     },
   },
 }
