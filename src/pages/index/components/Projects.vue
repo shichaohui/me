@@ -26,7 +26,7 @@ const router = useRouter()
 // 查看项目
 function viewProject(url: string) {
   if (/^https?:\/\/.+/.test(url)) {
-    window.location.href = url
+    window.open(url)
   } else {
     router.push({ path: url })
   }

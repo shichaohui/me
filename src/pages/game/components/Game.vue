@@ -6,9 +6,9 @@
     </div>
     <p>{{ game.desc }}</p>
     <span>
-      <a :href="game.codeUrl">源码</a>
+      <a :href="game.codeUrl" target="_blank">源码</a>
       <span> | </span>
-      <a :href="game.url">试玩 Web 版</a>
+      <a :href="game.url" target="_blank">试玩 Web 版</a>
     </span>
   </div>
 </template>
