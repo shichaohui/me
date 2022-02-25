@@ -6,7 +6,7 @@
         class="cloud"
         src="@/assets/images/game/internal/cloud.svg"
         v-for="cloud in cloudList"
-        :key="cloud"
+        :key="cloud.id"
         :style="{
           height: `${cloud.height}px`,
           marginTop: `${cloud.marginTop}px`,
@@ -19,7 +19,7 @@
         class="obstacle"
         src="@/assets/images/game/internal/obstacle.gif"
         v-for="obstacle in obstacleList"
-        :key="obstacle"
+        :key="obstacle.id"
         :style="{
           height: `${obstacle.height}px`,
           marginLeft: `${obstacle.marginLeft}px`,
@@ -31,7 +31,7 @@
         class="food"
         src="@/assets/images/game/internal/food.svg"
         v-for="food in foodList"
-        :key="food"
+        :key="food.id"
         :style="{
           height: `${food.height}px`,
           marginLeft: `${food.marginLeft}px`,
@@ -55,7 +55,7 @@ import { Options, Vue } from 'vue-class-component'
 
 @Options({})
 export default class InternalGame extends Vue {
-  $refs!: {
+  declare $refs: {
     road: HTMLElement
     cloudContainer: HTMLElement
     obstacleContainer: HTMLElement
@@ -79,10 +79,10 @@ export default class InternalGame extends Vue {
   cloudMaxSpeed = 3
 
   // 计时器 id
-  gameIntervalId = 0
-  generateCloudIntervalId = 0
-  generateObstacleIntervalId = 0
-  generateFoodIntervalId = 0
+  gameIntervalId: NodeJS.Timeout | null = null
+  generateCloudIntervalId: NodeJS.Timeout | null = null
+  generateObstacleIntervalId: NodeJS.Timeout | null = null
+  generateFoodIntervalId: NodeJS.Timeout | null = null
 
   // 玩家的位置
   playerBottom = 0
@@ -91,6 +91,7 @@ export default class InternalGame extends Vue {
 
   // 云朵列表
   cloudList: {
+    id: string
     height: number
     marginLeft: number
     marginTop: number
@@ -98,12 +99,14 @@ export default class InternalGame extends Vue {
   }[] = []
   // 障碍物列表
   obstacleList: {
+    id: string
     height: number
     marginLeft: number
     isScored: boolean
   }[] = []
   // 食物列表
   foodList: {
+    id: string
     height: number
     marginLeft: number
     bottom: number
@@ -113,7 +116,7 @@ export default class InternalGame extends Vue {
   mounted() {
     this.jumpHeight = this.$refs.player.clientHeight * 2.5
 
-    document.onkeydown = (event) => {
+    document.onkeydown = event => {
       const keyNum = window.event ? event.keyCode : event.which
       if (keyNum == 32) {
         // 空格
@@ -182,6 +185,7 @@ export default class InternalGame extends Vue {
   generateCloud() {
     const { cloudContainer, player } = this.$refs
     this.cloudList.push({
+      id: Math.random().toString(),
       height: (Math.random() + 0.5) * player.clientHeight,
       marginTop: Math.random() * (cloudContainer.clientHeight - player.clientHeight),
       marginLeft: cloudContainer.clientWidth,
@@ -196,6 +200,7 @@ export default class InternalGame extends Vue {
     const { obstacleContainer, player } = this.$refs
     const factor = ((Math.random() * this.currentScore) / 10) * 0.1 + 1
     this.obstacleList.push({
+      id: Math.random().toString(),
       height: factor * player.clientHeight,
       marginLeft: obstacleContainer.clientWidth,
       isScored: false,
@@ -207,6 +212,7 @@ export default class InternalGame extends Vue {
   // 生成食物
   generateFood() {
     this.foodList.push({
+      id: Math.random().toString(),
       height: (this.$refs.player.clientHeight / 3) * 2,
       marginLeft: this.$refs.foodContainer.clientWidth,
       bottom: Math.random() * this.jumpHeight,
@@ -319,10 +325,10 @@ export default class InternalGame extends Vue {
     this.isPlaying = false
     this.currentScore = 0
 
-    clearInterval(this.gameIntervalId)
-    clearInterval(this.generateCloudIntervalId)
-    clearInterval(this.generateObstacleIntervalId)
-    clearInterval(this.generateFoodIntervalId)
+    this.gameIntervalId && clearInterval(this.gameIntervalId)
+    this.generateCloudIntervalId && clearInterval(this.generateCloudIntervalId)
+    this.generateObstacleIntervalId && clearInterval(this.generateObstacleIntervalId)
+    this.generateFoodIntervalId && clearInterval(this.generateFoodIntervalId)
 
     this.cloudList.splice(0)
     this.obstacleList.splice(0)

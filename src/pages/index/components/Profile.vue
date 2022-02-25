@@ -7,15 +7,15 @@
         <h2 class="nickname">（{{ userInfo.nickname }}）</h2>
       </div>
       <div class="item">
-        <svg-icon class="icon" name="email" />
+        <SvgIcon name="email" :size="12" />
         <span class="text">{{ userInfo.email }}</span>
       </div>
       <div class="item">
-        <svg-icon class="icon" name="wechat" />
+        <SvgIcon name="wechat" :size="12" />
         <span class="text">{{ userInfo.wechat }}</span>
       </div>
       <div class="item">
-        <svg-icon class="icon" name="location" />
+        <SvgIcon name="location" :size="12" />
         <span class="text">{{ userInfo.city }}</span>
       </div>
     </div>
@@ -23,7 +23,7 @@
 </template>
 
 <script setup lang="ts">
-// 用户信息
+import SvgIcon from '@/components/SvgIcon.vue'
 import { userInfo } from '@/datas/profile'
 </script>
 
@@ -55,11 +55,6 @@ import { userInfo } from '@/datas/profile'
 .item {
   color: #ffffff;
   font-size: 14px;
-
-  .icon {
-    width: 12px;
-    height: 12px;
-  }
 
   .text {
     margin-left: 5px;

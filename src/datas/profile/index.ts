@@ -35,7 +35,7 @@ export const projectList = [
     desc: '石朝辉的小游戏',
     image: gameImg,
     imageBg: '#3CDFE7',
-    url: '/games',
+    url: '/game',
   },
   {
     name: 'GitHub',

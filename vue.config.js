@@ -1,8 +1,7 @@
 const path = require('path')
-
-function resolve(dir) {
-  return path.join(__dirname, dir)
-}
+const AutoImport = require('unplugin-auto-import/webpack')
+const Components = require('unplugin-vue-components/webpack')
+const { ElementPlusResolver } = require('unplugin-vue-components/resolvers')
 
 const isProduction = process.env.NODE_ENV === 'production'
 
@@ -19,20 +18,33 @@ module.exports = {
       args[0].author = 'StoneHui'
       return args
     })
-    config.module
-      .rule('svg')
-      .exclude.add(resolve('src/assets/icons')) // icons存放地（svg放的地方）
-      .end()
-    config.module
-      .rule('icons')
-      .test(/\.svg$/)
-      .include.add(resolve('src/assets/icons')) // icons存放地（svg放的地方）
-      .end()
-      .use('svg-sprite-loader')
-      .loader('svg-sprite-loader')
-      .options({
-        symbolId: 'icon-[name]',
-      })
-      .end()
+    // 从 file-loader 的 svg 规则中删除 icons 目录，解决 svg-sprite-loader 无法加载 icons 的问题
+    const svgRule = config.module.rule('svg')
+    svgRule.exclude.add(path.join(__dirname, 'src/assets/icons')).end()
+  },
+  configureWebpack: {
+    plugins: [
+      AutoImport({
+        resolvers: [ElementPlusResolver()],
+      }),
+      Components({
+        resolvers: [ElementPlusResolver()],
+      }),
+    ],
+    module: {
+      rules: [
+        {
+          test: /\.svg$/,
+          include: path.join(__dirname, 'src/assets/icons'),
+          loader: 'svg-sprite-loader',
+          options: { symbolId: 'icon-[name]' },
+        },
+        {
+          test: /\.mjs$/,
+          include: /node_modules/,
+          type: 'javascript/auto',
+        },
+      ],
+    },
   },
 }

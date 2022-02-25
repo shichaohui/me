@@ -19,10 +19,9 @@
 
 <script setup lang="ts">
 import { useRouter } from 'vue-router'
-const router = useRouter()
-
-// 项目列表
 import { projectList } from '@/datas/profile'
+
+const router = useRouter()
 
 // 查看项目
 function viewProject(url: string) {
