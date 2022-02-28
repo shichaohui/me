@@ -5,9 +5,7 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "dev": "vue-cli-service serve",
-    "prod": "vue-cli-service build && http-server ./dist -p 8000",
-    "deploy": "bash deploy.sh",
+    "prod:preview": "vue-cli-service build && http-server ./dist -p 8000",
     "lint": "vue-cli-service lint",
     "cli": "ts-node --transpile-only --skip-project dev-configs/cli/cli.ts",
     "tag:prd": "yarn cli tag prd"
