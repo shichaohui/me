@@ -1,6 +1,6 @@
 <template>
   <div class="row itemCenter">
-    <img class="avatar" :src="userInfo.avatar" />
+    <img class="avatar" :src="userInfo.avatar" @click="handleClickAvatar" />
     <div class="column">
       <div>
         <h1 class="fullName">{{ userInfo.fullName }}</h1>
@@ -25,6 +25,11 @@
 <script setup lang="ts">
 import SvgIcon from '@/components/SvgIcon.vue'
 import { userInfo } from '@/datas/profile'
+
+// 点击头像
+function handleClickAvatar() {
+  window.open('https://github.com/shichaohui')
+}
 </script>
 
 <style scoped lang="scss">
@@ -35,6 +40,7 @@ import { userInfo } from '@/datas/profile'
   border: 1px solid silver;
   margin-right: 15px;
   box-shadow: 0 0 5px silver inset;
+  cursor: pointer;
 }
 
 .fullName {

@@ -1,15 +1,15 @@
 <template>
   <div class="content">
     <Profile />
-    <Labels />
-    <Projects />
+    <el-space v-for="(list, index) in userBadgeList" :key="index" class="badgeList">
+      <img v-for="badge in list" :src="badge" />
+    </el-space>
   </div>
 </template>
 
 <script setup lang="ts">
-import Profile from './components/Profile.vue'
-import Labels from './components/Labels.vue'
-import Projects from './components/Projects.vue'
+import Profile from './Profile.vue'
+import { userBadgeList } from '@/datas/profile'
 </script>
 
 <style scoped lang="scss">
@@ -27,6 +27,10 @@ import Projects from './components/Projects.vue'
     height: 0 !important;
     display: none;
     background: transparent;
+  }
+
+  .badgeList {
+    margin-top: 20px;
   }
 }
 </style>
