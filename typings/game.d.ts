@@ -2,6 +2,7 @@
 declare namespace GameTypes {
   /** 游戏 */
   interface Game {
+    id: string
     /** 游戏名称 */
     name: string
     /** 游戏 logo */

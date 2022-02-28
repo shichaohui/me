@@ -58,6 +58,7 @@ module.exports = {
           @import '@/style/variables.scss'; 
           @import '@/style/base.scss'; 
           @import '@/style/mixins.scss';
+          @import '@/style/element-plus.scss';
         `,
       },
     },

@@ -3,5 +3,8 @@
   "semi": false,
   "useTabs": false,
   "printWidth": 100,
-  "trailingComma": "all"
+  "trailingComma": "all",
+  "bracketSpacing": true,
+  "htmlWhitespaceSensitivity": "ignore",
+  "arrowParens": "avoid"
 }

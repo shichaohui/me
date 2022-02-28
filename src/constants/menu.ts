@@ -1,5 +1,14 @@
+export interface MenuItem {
+  name: string
+  url: string
+}
+
 /** 主菜单 */
-const menu = [
+const menu: MenuItem[] = [
+  {
+    name: '作品',
+    url: '/works',
+  },
   {
     name: '游戏',
     url: '/game',

@@ -13,7 +13,7 @@
     </el-menu>
     <router-view v-slot="{ Component, props }">
       <transition name="fade" mode="out-in" :appear="true">
-        <component :is="Component" v-bind="props" />
+        <component :is="Component" v-bind="props" class="content" />
       </transition>
     </router-view>
   </div>
@@ -63,17 +63,16 @@ function handleSelectMenuItem(url: string) {
 }
 
 .menu {
-  --el-menu-bg-color: rgba(0, 0, 0, 0.8);
-  --el-menu-border-color: #666666;
-  --el-menu-text-color: #ffffff;
-  --el-menu-hover-text-color: #ffffff;
-  --el-menu-hover-bg-color: transparent;
-  --el-menu-active-color: #{$color-primary};
+  height: $menu-height;
+
+  .is-active {
+    background: transparent;
+  }
 }
 
 .avatarBox {
-  width: 60px;
-  height: 60px;
+  width: $menu-height;
+  height: $menu-height;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -89,6 +88,10 @@ function handleSelectMenuItem(url: string) {
       box-shadow: 0 0 100px $color-primary inset;
     }
   }
+}
+
+.content {
+  height: calc(100vh - #{$menu-height});
 }
 
 .fade-enter-active {

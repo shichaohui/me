@@ -13,12 +13,14 @@
   "dependencies": {
     "core-js": "^3.6.5",
     "element-plus": "^2.0.2",
+    "lodash": "^4.17.21",
     "vue": "^3.2.31",
     "vue-class-component": "^8.0.0-0",
     "vue-router": "^4.0.5",
     "vuex": "^4.0.0"
   },
   "devDependencies": {
+    "@types/lodash": "^4.14.179",
     "@types/vue": "^2.0.0",
     "@types/vue-router": "^2.0.0",
     "@typescript-eslint/eslint-plugin": "^2.33.0",

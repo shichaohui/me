@@ -1,0 +1,13 @@
+.el-menu {
+  --el-menu-bg-color: rgba(0, 0, 0, 0.8) !important;
+  --el-menu-border-color: #666666 !important;
+  --el-menu-text-color: #ffffff !important;
+  --el-menu-hover-text-color: #ffffff !important;
+  --el-menu-hover-bg-color: transparent !important;
+  --el-menu-active-color: #{$color-primary} !important;
+  --el-menu-item-font-size: 16px;
+
+  .is-active {
+    background: #222222;
+  }
+}
