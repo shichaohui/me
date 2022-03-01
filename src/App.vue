@@ -6,9 +6,7 @@
       :default-active="data.activeMenuIndex"
       @select="handleSelectMenuItem"
     >
-      <div class="avatarBox" @click="handleClickAvatar">
-        <img class="avatar" :src="avatarImg" />
-      </div>
+      <img class="avatar" :src="avatarImg" @click="handleClickAvatar" />
       <el-menu-item v-for="item in menu" :index="item.url">{{ item.name }}</el-menu-item>
     </el-menu>
     <router-view v-slot="{ Component, props }">
@@ -65,28 +63,19 @@ function handleSelectMenuItem(url: string) {
 .menu {
   height: $menu-height;
 
-  .is-active {
-    background: transparent;
-  }
-}
-
-.avatarBox {
-  width: $menu-height;
-  height: $menu-height;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-
   .avatar {
-    width: 35px;
-    height: 35px;
+    margin: 10px;
     border-radius: 50%;
     box-shadow: 0 0 20px silver inset;
+    cursor: pointer;
 
     &:hover {
       box-shadow: 0 0 100px $color-primary inset;
     }
+  }
+
+  .is-active {
+    background: transparent;
   }
 }
 

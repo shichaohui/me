@@ -1,13 +1,21 @@
 <template>
   <el-container>
-    <el-aside width="200px">
-      <el-menu class="menu" :default-active="data.activeWorks.id" @select="handleSelectMenuItem">
+    <el-aside :width="data.isCollapseMenu ? '64px' : '200px'">
+      <el-menu
+        class="menu"
+        :default-active="data.activeWorks.id"
+        :collapse="data.isCollapseMenu"
+        @select="handleSelectMenuItem"
+      >
         <el-menu-item v-for="works in worksList" :index="works.id">
-          {{ works.name }}
+          <img class="worksLogo" :src="works.logo" />
+          <span>{{ works.name }}</span>
         </el-menu-item>
       </el-menu>
     </el-aside>
-    <el-main>
+    <el-main ref="worksContent">
+      <div class="title">作品名称：</div>
+      <div class="desc">{{ data.activeWorks.name }}</div>
       <div class="title">作品简述：</div>
       <div class="desc">{{ data.activeWorks.desc }}</div>
       <div class="title">使用技术：</div>
@@ -37,31 +45,51 @@
           lazy
           :preview-src-list="data.activeWorks.screenshotsList"
           :initial-index="index"
-        />
+        >
+          <template #placeholder>
+            <div class="placeholder">loading...</div>
+          </template>
+        </el-image>
       </el-space>
     </el-main>
   </el-container>
 </template>
 
 <script setup lang="ts">
-import { reactive } from 'vue'
+import { reactive, ref } from 'vue'
 import { worksList } from '@/datas/works'
+import device from '@/utils/device'
 
 // 选择的菜单
 const data = reactive({
   activeWorks: worksList[0],
+  isCollapseMenu: device.isMobile(),
 })
+
+// 作品内容节点
+const worksContent = ref()
 
 // 更新选中的菜单项
 function handleSelectMenuItem(id: string) {
   const item = worksList.find(item => item.id === id)
-  !!item && (data.activeWorks = item)
+  if (!item) {
+    return
+  }
+  data.activeWorks = item
+  worksContent.value.$el.scrollTop = 0
 }
 </script>
 
 <style scoped lang="scss">
 .menu {
   height: 100%;
+
+  .worksLogo {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    margin-right: 4px;
+  }
 }
 
 .title {
@@ -101,5 +129,14 @@ function handleSelectMenuItem(id: string) {
   height: 300px;
   vertical-align: middle;
   border: 1px #666666 solid;
+
+  .placeholder {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #ffffff;
+    padding: 0 10px;
+  }
 }
 </style>

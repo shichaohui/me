@@ -22,7 +22,6 @@
     <canvas id="bg-canvas"></canvas>
     <script type="text/javascript"  defer>
       if(!/(Android|iPhone|Symbian|Windows Phone)/i.test(navigator.userAgent)) {
-        console.log("非手机");
         const elScript = document.createElement("script")
         elScript.src="<%= BASE_URL %>js/bg.js"
         document.body.appendChild(elScript)

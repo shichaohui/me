@@ -1,9 +1,9 @@
 <template>
   <div class="content">
     <Profile />
-    <el-space v-for="(list, index) in userBadgeList" :key="index" class="badgeList">
-      <img v-for="badge in list" :src="badge" />
-    </el-space>
+    <div class="badgeList" v-for="(list, index) in userBadgeList" :key="index">
+      <img class="badge" v-for="badge in list" :src="badge" />
+    </div>
   </div>
 </template>
 
@@ -14,23 +14,24 @@ import { userBadgeList } from '@/datas/profile'
 
 <style scoped lang="scss">
 .content {
-  height: 100vh;
   padding: 10% 0px;
   box-sizing: border-box;
   display: flex;
-  align-items: center;
   flex-direction: column;
-  overflow: scroll;
-
-  &::-webkit-scrollbar {
-    width: 0 !important;
-    height: 0 !important;
-    display: none;
-    background: transparent;
-  }
+  align-items: center;
+  overflow: hidden;
 
   .badgeList {
-    margin-top: 20px;
+    width: 100%;
+    margin: 30px -8px -8px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+
+    .badge {
+      margin: 0 8px 8px 0;
+    }
   }
 }
 </style>
