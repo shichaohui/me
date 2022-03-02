@@ -10,4 +10,8 @@
   .is-active {
     background: #222222;
   }
+
+  .el-sub-menu .el-sub-menu__title:hover {
+    background: transparent;
+  }
 }
