@@ -3,7 +3,7 @@
     <el-menu
       class="menu"
       mode="horizontal"
-      :default-active="data.activeMenuIndex"
+      :default-active="activeMenuIndex.value"
       @select="handleSelectMenuItem"
     >
       <img class="avatar" :src="avatarImg" @click="handleClickAvatar" />
@@ -25,14 +25,14 @@ import menu from '@/constants/menu'
 
 const router = useRouter()
 
-const data = reactive({
-  // 选中的菜单项
-  activeMenuIndex: router.currentRoute.value.path,
+// 选中的菜单项
+const activeMenuIndex = reactive({
+  value: router.currentRoute.value.path,
 })
 
 // 监听路由变化，更新选中菜单项
 router.afterEach(to => {
-  data.activeMenuIndex = to.path
+  activeMenuIndex.value = to.path
 })
 
 // 点击头像，回到首页
@@ -44,12 +44,12 @@ function handleClickAvatar() {
 function handleSelectMenuItem(url: string) {
   if (/^https?:\/\/.+/.test(url)) {
     window.open(url)
-    const oldIndex = data.activeMenuIndex
-    nextTick(() => (data.activeMenuIndex = oldIndex))
+    const oldIndex = activeMenuIndex.value
+    nextTick(() => (activeMenuIndex.value = oldIndex))
   } else {
     router.push({ path: url })
   }
-  data.activeMenuIndex = url
+  activeMenuIndex.value = url
 }
 </script>
 
