@@ -16,6 +16,8 @@
     <el-main ref="worksContent">
       <div class="title">作品名称：</div>
       <div class="desc">{{ data.activeWorks.name }}</div>
+      <div class="title">作品类型：</div>
+      <div class="desc">{{ data.activeWorks.types.join('、') }}</div>
       <div class="title">作品简述：</div>
       <div class="desc">{{ data.activeWorks.desc }}</div>
       <div class="title">使用技术：</div>
@@ -33,7 +35,17 @@
         >
           查看源码
         </el-link>
-        <el-link type="primary" target="_blank" :href="data.activeWorks.url">我要试用</el-link>
+        <el-link
+          v-if="data.activeWorks.url"
+          type="primary"
+          target="_blank"
+          :href="data.activeWorks.url"
+        >
+          我要试用
+        </el-link>
+        <el-link v-if="data.activeWorks.types.includes('微信小程序')" type="primary">
+          微信搜索《{{ data.activeWorks.name }}》试用
+        </el-link>
       </div>
       <div class="title">作品截图：</div>
       <el-space wrap>
@@ -118,8 +130,8 @@ function handleSelectMenuItem(id: string) {
       position: absolute;
       left: -10px;
       top: 50%;
-      font-size: 10px;
-      transform: translate(-50%, -50%);
+      font-size: 18px;
+      transform: translate(-50%, calc(-50% - 1px));
       color: #ffffff;
     }
   }

@@ -1,5 +1,6 @@
 import logoPaoword from '@/assets/images/works/paoword.png'
 import logoGank from '@/assets/images/works/gank.png'
+import logoYuexianghui from '@/assets/images/works/yuexianghui.png'
 import { uniqueId } from 'lodash'
 
 /**
@@ -7,7 +8,50 @@ import { uniqueId } from 'lodash'
  */
 export const worksList: WorksTypes.Works[] = [
   {
+    types: ['微信小程序', 'Web'],
     id: uniqueId(),
+    name: '悦享会',
+    logo: logoYuexianghui,
+    desc:
+      '悦享会是为越秀地产开发的写字楼管理平台，包含小程序和后台管理两部分。拥有房源管理、企业管理、会员管理、通行管理、停车缴费、内容管理（活动、服务、新闻）、运营分析、游戏管理、商机管理等功能模块。',
+    url: '',
+    sourceUrl: '',
+    technologyList: [
+      'Taro',
+      'React',
+      'Redux',
+      'Vue',
+      'Vuex',
+      'Axios',
+      'ElementUI',
+      'Less/Sass',
+      'JavaScript',
+      'TypeScript',
+      'WebPack',
+      'Prettier',
+      'ESLint',
+    ],
+    screenshotsList: [
+      'https://s4.ax1x.com/2022/03/04/bNg5Sf.png',
+      'https://s4.ax1x.com/2022/03/04/bNgIl8.png',
+      'https://s4.ax1x.com/2022/03/04/bNgo6S.png',
+      'https://s4.ax1x.com/2022/03/04/bNgTOg.png',
+      'https://s4.ax1x.com/2022/03/04/bNghfP.png',
+      'https://s4.ax1x.com/2022/03/04/bNgbwj.png',
+      'https://s4.ax1x.com/2022/03/04/bNgHmQ.jpg',
+      'https://s4.ax1x.com/2022/03/04/bNgOkn.jpg',
+      'https://s4.ax1x.com/2022/03/04/bNgqTs.jpg',
+      'https://s4.ax1x.com/2022/03/04/bNgXYq.jpg',
+      'https://s4.ax1x.com/2022/03/04/bNgzlT.jpg',
+      'https://s4.ax1x.com/2022/03/04/bN2S6U.jpg',
+      'https://s4.ax1x.com/2022/03/04/bNgjf0.jpg',
+      'https://s4.ax1x.com/2022/03/04/bN2pXF.jpg',
+      'https://s4.ax1x.com/2022/03/04/bN2Cm4.jpg',
+    ],
+  },
+  {
+    id: uniqueId(),
+    types: ['Android'],
     name: '泡单词',
     logo: logoPaoword,
     desc:
@@ -23,6 +67,7 @@ export const worksList: WorksTypes.Works[] = [
       'Socket',
       'ZXing',
       'X5内核',
+      'Java',
       'Kotlin',
     ],
     screenshotsList: [
@@ -43,6 +88,7 @@ export const worksList: WorksTypes.Works[] = [
   },
   {
     id: uniqueId(),
+    types: ['Android', 'iOS'],
     name: '干货',
     logo: logoGank,
     desc: '使用 Flutter 框架开发的基于干货集中营（gank.io）开放 API 的跨端应用。',
