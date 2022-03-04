@@ -1,10 +1,10 @@
 <template>
   <el-container>
-    <el-aside :width="data.isCollapseMenu ? '64px' : '200px'">
+    <el-aside :width="data.isMobile ? '64px' : '200px'">
       <el-menu
         class="menu"
         :default-active="data.activeWorks.id"
-        :collapse="data.isCollapseMenu"
+        :collapse="data.isMobile"
         @select="handleSelectMenuItem"
       >
         <el-menu-item v-for="works in worksList" :index="works.id">
@@ -51,10 +51,11 @@
       <el-space wrap>
         <el-image
           v-for="(screenshots, index) in data.activeWorks.screenshotsList"
-          class="screenshots"
+          :class="{ screenshots: true, isMobile: data.isMobile }"
           :key="screenshots"
           :src="screenshots"
           lazy
+          fit="contain"
           :preview-src-list="data.activeWorks.screenshotsList"
           :initial-index="index"
         >
@@ -75,7 +76,7 @@ import device from '@/utils/device'
 // 选择的菜单
 const data = reactive({
   activeWorks: worksList[0],
-  isCollapseMenu: device.isMobile(),
+  isMobile: device.isMobile(),
 })
 
 // 作品内容节点
@@ -100,7 +101,7 @@ function handleSelectMenuItem(id: string) {
     width: 24px;
     height: 24px;
     border-radius: 50%;
-    margin-right: 4px;
+    margin-right: 6px;
   }
 }
 
@@ -138,17 +139,25 @@ function handleSelectMenuItem(id: string) {
 }
 
 .screenshots {
-  height: 300px;
+  width: 320px;
+  height: 320px;
   vertical-align: middle;
   border: 1px #666666 solid;
+  padding: 10px;
+  box-sizing: border-box;
+
+  &.isMobile {
+    width: calc(100vw - 104px);
+    height: calc(100vw - 104px);
+  }
 
   .placeholder {
+    width: 100%;
     height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     color: #ffffff;
-    padding: 0 10px;
   }
 }
 </style>

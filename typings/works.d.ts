@@ -4,10 +4,10 @@ declare namespace WorksTypes {
   interface Works {
     /** 作品 id */
     id: string
-    /** 作品类型 */
-    types: ('Android' | 'iOS' | '微信小程序' | 'H5' | 'Web')[]
     /** 作品名称 */
     name: string
+    /** 作品类型 */
+    types: ('Android' | 'iOS' | '微信小程序' | 'H5' | 'Web')[]
     /** 作品 logo */
     logo: string
     /** 作品描述 */
