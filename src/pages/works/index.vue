@@ -22,7 +22,12 @@
       <div class="desc">{{ activeWorks.desc }}</div>
       <div class="title">使用技术：</div>
       <el-space wrap>
-        <el-tag v-for="technology in activeWorks.technologyList" type="info">
+        <el-tag
+          v-for="technology in activeWorks.technologyList"
+          color="rgba(255, 255, 2555, 0.05)"
+          effect="dark"
+          type="info"
+        >
           {{ technology }}
         </el-tag>
       </el-space>
@@ -138,8 +143,10 @@ function handleSelectMenuItem(id: string) {
   height: 320px;
   vertical-align: middle;
   border: 1px #666666 solid;
+  border-radius: 4px;
   padding: 10px;
   box-sizing: border-box;
+  background: rgba(255, 255, 2555, 0.05);
 
   &.isMobile {
     width: calc(100vw - 104px);
