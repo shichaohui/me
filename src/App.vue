@@ -20,7 +20,7 @@
 <script setup lang="ts">
 import { nextTick, reactive } from 'vue'
 import { useRouter } from 'vue-router'
-import avatarImg from '@/assets/images/avatar.png'
+import avatarImg from '@/assets/images/avatar.jpg'
 import menu from '@/constants/menu'
 
 const router = useRouter()
@@ -67,12 +67,8 @@ function handleSelectMenuItem(url: string) {
   .avatar {
     margin: 10px;
     border-radius: 50%;
-    box-shadow: 0 0 20px silver inset;
+    box-shadow: 0 0 5px white;
     cursor: pointer;
-
-    &:hover {
-      box-shadow: 0 0 100px $color-primary inset;
-    }
   }
 
   .is-active {

@@ -1,18 +1,30 @@
 import { createRouter, RouteRecordRaw, createWebHistory } from 'vue-router'
-import Index from '@/pages/index/index.vue'
-import Game from '@/pages/game/index.vue'
-import Note from '@/pages/note/index.vue'
-import Works from '@/pages/works/index.vue'
 
 const routes: RouteRecordRaw[] = [
-  { name: 'index', path: '/', component: Index },
-  { name: 'game', path: '/game', component: Game },
-  { name: 'note', path: '/note', component: Note },
-  { name: 'works', path: '/works', component: Works },
+  {
+    name: 'index',
+    path: '/',
+    component: () => import('@/pages/index/index.vue'),
+  },
+  {
+    name: 'game',
+    path: '/game',
+    component: () => import('@/pages/game/index.vue'),
+  },
+  {
+    name: 'note',
+    path: '/note',
+    component: () => import('@/pages/note/index.vue'),
+  },
+  {
+    name: 'works',
+    path: '/works',
+    component: () => import('@/pages/works/index.vue'),
+  },
 ]
 
 const router = createRouter({
-  history: createWebHistory(process.env.BASE_URL),
+  history: createWebHistory(import.meta.env.BASE_URL),
   routes,
 })
 

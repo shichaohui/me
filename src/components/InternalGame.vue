@@ -350,7 +350,7 @@ export default class InternalGame extends Vue {
   height: 6px;
   position: absolute;
   bottom: 0px;
-  background-image: url('~@/assets/images/game/internal/road.png');
+  background-image: url('@/assets/images/game/internal/road.png');
   background-size: 109px;
   background-repeat: repeat-x;
 }

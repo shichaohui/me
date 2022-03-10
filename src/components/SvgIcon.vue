@@ -1,29 +1,30 @@
 <template>
-  <svg
-    :style="{
-      width: `${size}px`,
-      height: `${size}px`,
-      color: color,
-    }"
-  >
-    <use :xlink:href="`#icon-${name}`" :fill="color" />
+  <svg class="icon" aria-hidden="true">
+    <use :xlink:href="symbolId" :fill="color" />
   </svg>
 </template>
 
 <script setup lang="ts">
+import { ref } from 'vue'
+
 interface Props {
+  dir?: string
   name: string
   size?: number
   color?: string
 }
 
-withDefaults(defineProps<Props>(), {
+const props = withDefaults(defineProps<Props>(), {
   size: 16,
   color: '#ffffff',
 })
 
-const icons = require.context('../assets/icons', false, /\.svg$/)
-icons.keys().map(icons)
+const symbolId = ref(!!props.dir ? `#icon-${props.dir}-${props.name}` : `#icon-${props.name}`)
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.icon {
+  width: v-bind('`${size}px`');
+  height: v-bind('`${size}px`');
+}
+</style>

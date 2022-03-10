@@ -1,4 +1,4 @@
-import avatarImg from '@/assets/images/avatar.png'
+import avatarImg from '@/assets/images/avatar.jpg'
 
 /**
  * 用户信息

@@ -37,9 +37,8 @@ function handleClickAvatar() {
   width: 120px;
   height: 120px;
   border-radius: 50%;
-  border: 1px solid silver;
   margin-right: 15px;
-  box-shadow: 0 0 5px silver inset;
+  box-shadow: 0 0 5px white;
   cursor: pointer;
 }
 
