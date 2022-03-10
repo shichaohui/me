@@ -53,12 +53,14 @@ function handleSelectMenuItem(url: string) {
 }
 </script>
 
-<style lang="scss">
+<style scoped lang="scss">
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  font-size: 14px;
+
+  font-size: var(--el-font-size-base);
+  color: var(--el-text-color-primary);
 }
 
 .menu {
@@ -69,10 +71,6 @@ function handleSelectMenuItem(url: string) {
     border-radius: 50%;
     box-shadow: 0 0 5px white;
     cursor: pointer;
-  }
-
-  .is-active {
-    background: transparent;
   }
 }
 

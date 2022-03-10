@@ -11,7 +11,7 @@
 
 <script setup lang="ts">
 import InternalGame from '@/components/InternalGame.vue'
-import Game from './components/Game.vue'
+import Game from './Game.vue'
 import { gameList } from '@/datas/game'
 </script>
 

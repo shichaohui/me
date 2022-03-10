@@ -38,7 +38,7 @@ function handleClickAvatar() {
   height: 120px;
   border-radius: 50%;
   margin-right: 15px;
-  box-shadow: 0 0 5px white;
+  box-shadow: 0 0 5px black;
   cursor: pointer;
 }
 
@@ -46,19 +46,16 @@ function handleClickAvatar() {
   display: inline;
   font-size: 22px;
   font-weight: 500;
-  color: #ffffff;
   font-weight: normal;
 }
 
 .nickname {
   display: inline;
   font-size: 18px;
-  color: #e6e6e6;
   font-weight: normal;
 }
 
 .item {
-  color: #ffffff;
   font-size: 14px;
   margin-top: 5px;
 

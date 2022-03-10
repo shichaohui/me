@@ -5,9 +5,8 @@
       <h1 class="name">{{ game.name }}</h1>
     </div>
     <p>{{ game.desc }}</p>
-    <span>
+    <span class="actionBar">
       <el-link type="primary" :href="game.codeUrl" target="_blank">源码</el-link>
-      <span> | </span>
       <el-link type="primary" :href="game.url" target="_blank">试玩 Web 版</el-link>
     </span>
   </div>
@@ -22,8 +21,7 @@ defineProps<{
 <style lang="scss" scoped>
 .game {
   width: 66%;
-  box-shadow: 0 2px 5px 5px rgba($color: white, $alpha: 0.3);
-  background-color: white;
+  box-shadow: var(--el-box-shadow-base);
   margin-top: 20px;
   margin-right: auto;
   margin-bottom: 20px;
@@ -31,12 +29,7 @@ defineProps<{
   padding: 15px;
   text-align: center;
   border-radius: 8px;
-
-  a {
-    text-decoration: none;
-    color: $color-primary;
-    font-size: 14px;
-  }
+  border: 1px var(--el-border-color-base) solid;
 
   .logo {
     width: 45px;
@@ -48,9 +41,26 @@ defineProps<{
   .name {
     display: inline;
     font-weight: normal;
-    font-size: 22px;
+    font-size: var(--el-font-size-extra-large);
     margin-left: 10px;
     vertical-align: middle;
+  }
+
+  .actionBar {
+    .el-link + .el-link {
+      margin-left: 20px;
+      position: relative;
+
+      &::before {
+        content: '|';
+        position: absolute;
+        left: -10px;
+        top: 50%;
+        font-size: 18px;
+        transform: translate(-50%, calc(-50% - 1px));
+        color: black;
+      }
+    }
   }
 }
 </style>

@@ -16,7 +16,7 @@ interface Props {
 
 const props = withDefaults(defineProps<Props>(), {
   size: 16,
-  color: '#ffffff',
+  color: '#000000',
 })
 
 const symbolId = ref(!!props.dir ? `#icon-${props.dir}-${props.name}` : `#icon-${props.name}`)

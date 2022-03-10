@@ -20,17 +20,6 @@
       <div class="desc">{{ activeWorks.types.join('、') }}</div>
       <div class="title">作品简述：</div>
       <div class="desc">{{ activeWorks.desc }}</div>
-      <div class="title">使用技术：</div>
-      <el-space wrap>
-        <el-tag
-          v-for="technology in activeWorks.technologyList"
-          color="rgba(255, 255, 2555, 0.05)"
-          effect="dark"
-          type="info"
-        >
-          {{ technology }}
-        </el-tag>
-      </el-space>
       <div class="actionBar">
         <el-link
           type="primary"
@@ -47,6 +36,12 @@
           微信搜索《{{ activeWorks.name }}》试用
         </el-link>
       </div>
+      <div class="title">使用技术：</div>
+      <el-space wrap>
+        <el-tag v-for="technology in activeWorks.technologyList">
+          {{ technology }}
+        </el-tag>
+      </el-space>
       <div class="title">作品截图：</div>
       <el-space wrap>
         <el-image
@@ -102,25 +97,36 @@ function handleSelectMenuItem(id: string) {
     height: 24px;
     border-radius: 50%;
     margin-right: 6px;
+    border: var(--el-border-base);
   }
 }
 
 .title {
   margin: 20px 0 10px;
-  font-size: 16px;
-  color: #ffffff;
+  font-size: var(--el-font-size-medium);
+  display: flex;
+  align-items: center;
 
   &:first-child {
     margin-top: 0;
   }
+
+  &::before {
+    content: '';
+    display: inline-block;
+    width: 2px;
+    height: var(--el-font-size-medium);
+    background: var(--el-color-primary);
+    margin-right: 4px;
+  }
 }
 
 .desc {
-  color: #cbcbcb;
+  color: var(--el-text-color-regular);
 }
 
 .actionBar {
-  margin-top: 20px;
+  margin-top: 10px;
 
   .el-link + .el-link {
     margin-left: 20px;
@@ -133,7 +139,6 @@ function handleSelectMenuItem(id: string) {
       top: 50%;
       font-size: 18px;
       transform: translate(-50%, calc(-50% - 1px));
-      color: #ffffff;
     }
   }
 }
@@ -142,11 +147,11 @@ function handleSelectMenuItem(id: string) {
   width: 320px;
   height: 320px;
   vertical-align: middle;
-  border: 1px #666666 solid;
+  border: 1px var(--el-border-color-base) solid;
   border-radius: 4px;
   padding: 10px;
   box-sizing: border-box;
-  background: rgba(255, 255, 2555, 0.05);
+  box-shadow: var(--el-box-shadow-base);
 
   &.isMobile {
     width: calc(100vw - 104px);
@@ -159,7 +164,6 @@ function handleSelectMenuItem(id: string) {
     display: flex;
     justify-content: center;
     align-items: center;
-    color: #ffffff;
   }
 }
 </style>
