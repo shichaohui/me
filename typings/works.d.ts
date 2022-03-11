@@ -7,7 +7,7 @@ declare namespace WorksTypes {
     /** 作品名称 */
     name: string
     /** 作品类型 */
-    types: ('Android' | 'iOS' | '微信小程序' | 'H5' | 'Web')[]
+    types: ('Android' | 'iOS' | '微信小程序' | '微信小游戏' | 'H5' | 'Web')[]
     /** 作品 logo */
     logo: string
     /** 作品描述 */
@@ -15,7 +15,7 @@ declare namespace WorksTypes {
     /** 作品地址 */
     url?: string
     /** 作品源码地址 */
-    sourceUrl?: string
+    codeUrl?: string
     /** 使用技术 */
     technologyList: string[]
     /** 作品截图 */

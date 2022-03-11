@@ -9,9 +9,11 @@ declare namespace GameTypes {
     logo: string
     /** 游戏描述 */
     desc: string
-    /** 游戏链接 */
-    url: string
+    /** 游戏详情链接 */
+    detailUrl: string
     /** 游戏源码链接 */
-    codeUrl: string
+    codeUrl?: string
+    /** 游戏试玩链接 */
+    playUrl?: string
   }
 }

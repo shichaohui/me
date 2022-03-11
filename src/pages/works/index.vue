@@ -3,7 +3,7 @@
     <el-aside :width="isMobile ? '64px' : '200px'">
       <el-menu
         class="menu"
-        :default-active="activeWorks.id"
+        :default-active="activeWorks.value.id"
         :collapse="isMobile"
         @select="handleSelectMenuItem"
       >
@@ -15,43 +15,45 @@
     </el-aside>
     <el-main ref="worksContent">
       <div class="title">作品名称：</div>
-      <div class="desc">{{ activeWorks.name }}</div>
+      <div class="desc">{{ activeWorks.value.name }}</div>
       <div class="title">作品类型：</div>
-      <div class="desc">{{ activeWorks.types.join('、') }}</div>
+      <div class="desc">{{ activeWorks.value.types.join('、') }}</div>
       <div class="title">作品简述：</div>
-      <div class="desc">{{ activeWorks.desc }}</div>
-      <div class="actionBar">
+      <div class="desc">{{ activeWorks.value.desc }}</div>
+      <el-space class="actionBar" spacer="|">
         <el-link
           type="primary"
           target="_blank"
-          :href="activeWorks.sourceUrl"
-          :disabled="!activeWorks.sourceUrl"
+          :href="activeWorks.value.codeUrl"
+          :disabled="!activeWorks.value.codeUrl"
         >
           查看源码
         </el-link>
-        <el-link v-if="activeWorks.url" type="primary" target="_blank" :href="activeWorks.url">
+        <el-link
+          type="primary"
+          target="_blank"
+          :href="activeWorks.value.url"
+          :disabled="!activeWorks.value.url"
+        >
           我要试用
         </el-link>
-        <el-link v-if="activeWorks.types.includes('微信小程序')" type="primary">
-          微信搜索《{{ activeWorks.name }}》试用
-        </el-link>
-      </div>
+      </el-space>
       <div class="title">使用技术：</div>
       <el-space wrap>
-        <el-tag v-for="technology in activeWorks.technologyList">
+        <el-tag v-for="technology in activeWorks.value.technologyList">
           {{ technology }}
         </el-tag>
       </el-space>
       <div class="title">作品截图：</div>
       <el-space wrap>
         <el-image
-          v-for="(screenshots, index) in activeWorks.screenshotsList"
+          v-for="(screenshots, index) in activeWorks.value.screenshotsList"
           :class="{ screenshots: true, isMobile: isMobile }"
           :key="screenshots"
           :src="screenshots"
           lazy
           fit="contain"
-          :preview-src-list="activeWorks.screenshotsList"
+          :preview-src-list="activeWorks.value.screenshotsList"
           :initial-index="index"
         >
           <template #placeholder>
@@ -67,12 +69,19 @@
 import { reactive, ref } from 'vue'
 import { worksList } from '@/datas/works'
 import device from '@/utils/device'
+import { useRouter } from 'vue-router'
+
+// 解析路由参数
+const router = useRouter()
+const { id } = router.currentRoute.value.query
 
 // 是否移动端
 const isMobile = ref(device.isMobile())
 
 // 选择的菜单
-const activeWorks = reactive(Object.assign({}, worksList[0]))
+const activeWorks = reactive({
+  value: worksList.find(i => i.id === id) || worksList[0],
+})
 
 // 作品内容节点
 const worksContent = ref()
@@ -83,7 +92,7 @@ function handleSelectMenuItem(id: string) {
   if (!item) {
     return
   }
-  Object.assign(activeWorks, item)
+  activeWorks.value = item
   worksContent.value.$el.scrollTop = 0
 }
 </script>
@@ -124,20 +133,6 @@ function handleSelectMenuItem(id: string) {
 
 .actionBar {
   margin-top: 10px;
-
-  .el-link + .el-link {
-    margin-left: 20px;
-    position: relative;
-
-    &::before {
-      content: '|';
-      position: absolute;
-      left: -10px;
-      top: 50%;
-      font-size: 18px;
-      transform: translate(-50%, calc(-50% - 1px));
-    }
-  }
 }
 
 .screenshots {

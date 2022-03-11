@@ -5,10 +5,32 @@
       <h1 class="name">{{ game.name }}</h1>
     </div>
     <p>{{ game.desc }}</p>
-    <span class="actionBar">
-      <el-link type="primary" :href="game.codeUrl" target="_blank">源码</el-link>
-      <el-link type="primary" :href="game.url" target="_blank">试玩 Web 版</el-link>
-    </span>
+    <el-space size="large" spacer="|">
+      <el-link
+        type="primary"
+        :href="game.detailUrl"
+        :target="getLinkTarget(game.detailUrl)"
+        :disabled="!game.detailUrl"
+      >
+        详情
+      </el-link>
+      <el-link
+        type="primary"
+        :href="game.codeUrl"
+        :target="getLinkTarget(game.codeUrl)"
+        :disabled="!game.codeUrl"
+      >
+        源码
+      </el-link>
+      <el-link
+        type="primary"
+        :href="game.playUrl"
+        :target="getLinkTarget(game.playUrl)"
+        :disabled="!game.playUrl"
+      >
+        试玩
+      </el-link>
+    </el-space>
   </div>
 </template>
 
@@ -16,6 +38,11 @@
 defineProps<{
   game: GameTypes.Game
 }>()
+
+// 获取链接打开方式
+function getLinkTarget(url: string = '') {
+  return url.startsWith(import.meta.env.BASE_URL) ? '' : '_blank'
+}
 </script>
 
 <style lang="scss" scoped>
@@ -33,6 +60,7 @@ defineProps<{
     height: 45px;
     border-radius: 50%;
     vertical-align: middle;
+    border: var(--el-border-base);
   }
 
   .name {
@@ -41,23 +69,6 @@ defineProps<{
     font-size: var(--el-font-size-extra-large);
     margin-left: 10px;
     vertical-align: middle;
-  }
-
-  .actionBar {
-    .el-link + .el-link {
-      margin-left: 20px;
-      position: relative;
-
-      &::before {
-        content: '|';
-        position: absolute;
-        left: -10px;
-        top: 50%;
-        font-size: 18px;
-        transform: translate(-50%, calc(-50% - 1px));
-        color: black;
-      }
-    }
   }
 }
 </style>
