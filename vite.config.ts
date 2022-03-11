@@ -8,7 +8,7 @@ import { createSvgIconsPlugin } from 'vite-plugin-svg-icons'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: '/',
+  base: '/me',
   build: {
     outDir: 'dist/me',
     sourcemap: true,
