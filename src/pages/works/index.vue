@@ -104,6 +104,7 @@ function handleSelectMenuItem(id: string) {
 .title {
   margin: 20px 0 10px;
   font-size: var(--el-font-size-medium);
+  font-weight: 600;
   display: flex;
   align-items: center;
 
@@ -119,10 +120,6 @@ function handleSelectMenuItem(id: string) {
     background: var(--el-color-primary);
     margin-right: 4px;
   }
-}
-
-.desc {
-  color: var(--el-text-color-regular);
 }
 
 .actionBar {

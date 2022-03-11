@@ -61,6 +61,7 @@ function handleSelectMenuItem(url: string) {
 
   font-size: var(--el-font-size-base);
   color: var(--el-text-color-primary);
+  background: $body-bg-color;
 }
 
 .menu {

@@ -22,19 +22,12 @@ import { gameList } from '@/datas/game'
   position: absolute;
   bottom: 0px;
   overflow: hidden;
-  z-index: -1;
 }
 
 .gameList {
   position: relative;
   width: 100%;
   height: 100%;
-  overflow: scroll;
-
-  &::-webkit-scrollbar {
-    width: 0 !important;
-    height: 0 !important;
-    background-color: transparent;
-  }
+  overflow: auto;
 }
 </style>

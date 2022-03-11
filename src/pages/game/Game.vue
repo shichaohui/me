@@ -20,12 +20,9 @@ defineProps<{
 
 <style lang="scss" scoped>
 .game {
-  width: 66%;
+  width: 80%;
   box-shadow: var(--el-box-shadow-base);
-  margin-top: 20px;
-  margin-right: auto;
-  margin-bottom: 20px;
-  margin-left: auto;
+  margin: 20px auto;
   padding: 15px;
   text-align: center;
   border-radius: 8px;

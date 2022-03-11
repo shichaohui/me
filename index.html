@@ -5,31 +5,24 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0" />
     <link rel="icon" href="<%= BASE_URL %>images/logo.png" />
-    <link rel="stylesheet" href="<%= BASE_URL %>css/index.css" />
     <title><%= title %></title>
     <meta name="description" content="<%= description %>" />
     <meta name="keywords" content="<%= keywords %>" />
     <meta name="author" content="<%= author %>" />
+    <style>
+      body {
+        margin: 0;
+      }
+    </style>
   </head>
   <body>
     <noscript>
       <strong></strong>
-        We're sorry but <%= title %> doesn't work properly without
-        JavaScript enabled. Please enable it to continue.
+        We're sorry but <%= title %> doesn't work properly without JavaScript enabled. Please enable it to continue.
       </strong>
     </noscript>
 
-    <canvas id="bg-canvas"></canvas>
-    <script type="text/javascript"  defer>
-      if(!/(Android|iPhone|Symbian|Windows Phone)/i.test(navigator.userAgent)) {
-        // const elScript = document.createElement("script")
-        // elScript.src="<%= BASE_URL %>js/bg.js"
-        // document.body.appendChild(elScript)
-      }
-    </script>
-
     <div id="app"></div>
-    
     <script type="module" src="/src/main.ts"></script>
   </body>
 </html>
