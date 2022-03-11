@@ -44,7 +44,7 @@ const commandModule: CommandModule = {
     await updatePkgVersion(newVersion, tag)
     await tagBranch(tag)
     console.log(chalk.bold(chalk.green(`🎉 Successfully published ${tag}.`)))
-  }
+  },
 }
 
 module.exports = commandModule
