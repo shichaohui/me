@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="internalGame">
+    <div v-if="!isMobile" class="internalGame">
       <InternalGame />
     </div>
     <div class="gameList">
@@ -13,6 +13,9 @@
 import InternalGame from '@/components/InternalGame.vue'
 import Game from './Game.vue'
 import { gameList } from '@/datas/game'
+import device from '@/utils/device'
+
+const isMobile = device.isMobile()
 </script>
 
 <style lang="scss" scoped>
