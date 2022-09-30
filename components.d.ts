@@ -12,6 +12,7 @@ declare module 'vue' {
     ElMenu: typeof import('element-plus/es')['ElMenu']
     ElMenuItem: typeof import('element-plus/es')['ElMenuItem']
     ElSpace: typeof import('element-plus/es')['ElSpace']
+    ElSubMenu: typeof import('element-plus/es')['ElSubMenu']
     ElTag: typeof import('element-plus/es')['ElTag']
     InternalGame: typeof import('./src/components/InternalGame.vue')['default']
     SvgIcon: typeof import('./src/components/SvgIcon.vue')['default']

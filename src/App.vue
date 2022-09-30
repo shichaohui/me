@@ -7,7 +7,15 @@
       @select="handleSelectMenuItem"
     >
       <img class="avatar" :src="avatarImg" @click="handleClickAvatar" />
-      <el-menu-item v-for="item in menu" :index="item.url">{{ item.name }}</el-menu-item>
+      <template v-for="item in menu" :key="item.url">
+        <el-sub-menu v-if="item.children?.length" :index="item.url">
+          <template #title>{{ item.name }}</template>
+          <el-menu-item v-for="subItem in item.children" :index="subItem.url">
+            {{ subItem.name }}
+          </el-menu-item>
+        </el-sub-menu>
+        <el-menu-item v-else :index="item.url">{{ item.name }}</el-menu-item>
+      </template>
     </el-menu>
     <router-view v-slot="{ Component, props }">
       <transition name="fade" mode="out-in" :appear="true">

@@ -20,6 +20,7 @@ import { userBadgeList } from '@/datas/profile'
   flex-direction: column;
   align-items: center;
   overflow: hidden;
+  background: url('/images/bg.svg') no-repeat;
 
   .badgeList {
     width: 100%;
