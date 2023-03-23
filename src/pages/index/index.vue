@@ -21,6 +21,7 @@ import { userBadgeList } from '@/datas/profile'
   align-items: center;
   overflow: hidden;
   background: url('/images/bg.svg') no-repeat;
+  background-size: 100% 100%;
 
   .badgeList {
     width: 100%;
