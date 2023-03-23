@@ -1,9 +1,57 @@
 import logoPaoword from '@/assets/images/works/paoword.jpg'
 import logoGank from '@/assets/images/works/gank.jpg'
 import logoYueXiangHui from '@/assets/images/works/yuexianghui.jpg'
+import logoYueKeBao from '@/assets/images/works/yuekebao.png'
 import logoYiZhi from '@/assets/images/works/yizhi.jpg'
 import logoKnifeKing from '@/assets/images/works/knife_king.jpg'
 import { uniqueId } from 'lodash'
+
+/** 悦客宝 */
+const yueKeBao: WorksTypes.Works = {
+  id: uniqueId(),
+  name: '悦客宝',
+  types: ['微信小程序', 'Android', 'iOS', 'Web', 'H5'],
+  logo: logoYueKeBao,
+  desc:
+    '悦客宝是为越秀地产开发的营销管理平台，包含小程序、APP、H5、Web 等多个部分。拥有分销管理（楼盘管理、渠道合作管理、全民营销管理）、行销管理（客户管理、任务管理、用户管理、团队管理、消息公告、配置中心、上下线管理、拓客地图）、案场管理（案场管理、接待台管理、项目房源、后台管理、统计分析、评价管理）、客户中心（申诉管理、业绩管理、判客规则设置、客户管理、系统配置）、权限管理、报表系统、日志管理等功能。',
+  url: '',
+  codeUrl: '',
+  technologyList: [
+    'Taro',
+    'Vue',
+    'Vuex',
+    'uni-app',
+    'qiankun',
+    'Axios',
+    'ElementUI',
+    'Less/Sass',
+    'JavaScript',
+    'TypeScript',
+    'WebPack',
+    'Prettier',
+    'ESLint',
+  ],
+  screenshotsList: [
+    'https://s1.ax1x.com/2023/03/23/ppwRy79.png',
+    'https://s1.ax1x.com/2023/03/23/ppwRckR.png',
+    'https://s1.ax1x.com/2023/03/23/ppwRs0J.png',
+    'https://s1.ax1x.com/2023/03/23/ppwRrm4.png',
+    'https://s1.ax1x.com/2023/03/23/ppwRBXF.png',
+    'https://s1.ax1x.com/2023/03/23/ppwRgt1.png',
+    'https://s1.ax1x.com/2023/03/23/ppwRWp6.png',
+    'https://s1.ax1x.com/2023/03/23/ppwR2fx.png',
+    'https://s1.ax1x.com/2023/03/23/ppwRf1K.png',
+    'https://s1.ax1x.com/2023/03/23/ppwRh6O.png',
+    'https://s1.ax1x.com/2023/03/23/ppwR4XD.png',
+    'https://s1.ax1x.com/2023/03/23/ppwRIne.png',
+    'https://s1.ax1x.com/2023/03/23/ppwIW9A.png',
+    'https://s1.ax1x.com/2023/03/23/ppwfkad.png',
+    'https://s1.ax1x.com/2023/03/23/ppwI2hd.png',
+    'https://s1.ax1x.com/2023/03/23/ppwIgtH.png',
+    'https://s1.ax1x.com/2023/03/23/ppwRo0H.png',
+    'https://s1.ax1x.com/2023/03/23/ppwRT7d.png',
+  ],
+}
 
 /** 悦享会 */
 const yueXiangHui: WorksTypes.Works = {
@@ -12,7 +60,7 @@ const yueXiangHui: WorksTypes.Works = {
   types: ['微信小程序', 'Web'],
   logo: logoYueXiangHui,
   desc:
-    '悦享会是为越秀地产开发的写字楼管理平台，包含小程序和后台管理两部分。拥有房源管理、企业管理、会员管理、通行管理、停车缴费、内容管理（活动、服务、新闻）、运营分析、游戏管理、商机管理等功能模块。',
+    '悦享会是为越秀地产开发的写字楼管理平台，包含小程序和后台管理两部分。拥有房源管理、企业管理、会员管理、通行管理、停车缴费、内容管理（页面装修、活动、服务、新闻等）、运营分析、游戏管理、商机管理、权限管理等功能模块。',
   url: '',
   codeUrl: '',
   technologyList: [
@@ -189,4 +237,11 @@ const knifeKing: WorksTypes.Works = {
 }
 
 /** 作品列表 */
-export const worksList: WorksTypes.Works[] = [yueXiangHui, yiZhiWebSite, paoword, gank, knifeKing]
+export const worksList: WorksTypes.Works[] = [
+  yueKeBao,
+  yueXiangHui,
+  yiZhiWebSite,
+  paoword,
+  gank,
+  knifeKing,
+]

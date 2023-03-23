@@ -139,11 +139,10 @@ function handleSelectMenuItem(id: string) {
   width: 320px;
   height: 320px;
   vertical-align: middle;
-  border: 1px var(--el-border-color-base) solid;
+  border: 1px var(--el-border-color-light) solid;
   border-radius: 4px;
   padding: 10px;
   box-sizing: border-box;
-  box-shadow: var(--el-box-shadow-base);
 
   &.isMobile {
     width: calc(100vw - 104px);
@@ -156,6 +155,10 @@ function handleSelectMenuItem(id: string) {
     display: flex;
     justify-content: center;
     align-items: center;
+  }
+
+  ::v-deep .el-image__preview {
+    filter: drop-shadow(2px 4px 6px var(--el-border-color-base));
   }
 }
 </style>
