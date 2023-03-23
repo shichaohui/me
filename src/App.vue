@@ -16,6 +16,7 @@
         </el-sub-menu>
         <el-menu-item v-else :index="item.url">{{ item.name }}</el-menu-item>
       </template>
+      <a id="emptyTagForCancelHover"></a>
     </el-menu>
     <router-view v-slot="{ Component, props }">
       <transition name="fade" mode="out-in" :appear="true">
@@ -53,7 +54,10 @@ function handleSelectMenuItem(url: string) {
   if (/^https?:\/\/.+/.test(url)) {
     window.open(url)
     const oldIndex = activeMenuIndex.value
-    nextTick(() => (activeMenuIndex.value = oldIndex))
+    nextTick(() => {
+      activeMenuIndex.value = oldIndex
+      document.getElementById('emptyTagForCancelHover')?.focus()
+    })
   } else {
     router.push({ path: url })
   }
