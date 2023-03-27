@@ -12,6 +12,8 @@ declare namespace WorksTypes {
     logo: string
     /** 作品描述 */
     desc: string
+    /** 作品功能列表 */
+    features: string[]
     /** 作品地址 */
     url?: string
     /** 作品源码地址 */

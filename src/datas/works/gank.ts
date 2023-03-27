@@ -1,4 +1,4 @@
-import logoGank from '@/assets/images/works/gank.jpg'
+import logo from '@/assets/images/works/gank.jpg'
 import { uniqueId } from 'lodash'
 
 /** 干货 */
@@ -6,8 +6,18 @@ export const gank: WorksTypes.Works = {
   id: uniqueId(),
   name: '干货',
   types: ['Android', 'iOS'],
-  logo: logoGank,
-  desc: '使用 Flutter 框架开发的基于干货集中营（gank.io）开放 API 的跨端应用。',
+  logo,
+  desc: `使用 Flutter 框架开发的基于干货集中营（gank.io）开放 API 的跨端应用。`,
+  features: [
+    '获取最新干货',
+    '查看历史干货列表',
+    '按分类查看干货',
+    '福利图片',
+    '发布干货',
+    '分享干货给好友',
+    '收藏干货',
+    '切换主题和语言',
+  ],
   url: 'https://github.com/shichaohui/Gank/blob/master/packet/app-release.apk?raw=true',
   codeUrl: 'https://github.com/shichaohui/gank',
   technologyList: [

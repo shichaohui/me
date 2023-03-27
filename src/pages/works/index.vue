@@ -2,7 +2,7 @@
   <el-container>
     <el-aside :width="isMobile ? '64px' : '200px'">
       <el-menu
-        class="menu"
+        class="worksMenu"
         :default-active="activeWorks.value.id"
         :collapse="isMobile"
         @select="handleSelectMenuItem"
@@ -13,13 +13,13 @@
         </el-menu-item>
       </el-menu>
     </el-aside>
-    <el-main ref="worksContent">
-      <div class="title">作品名称：</div>
-      <div class="desc">{{ activeWorks.value.name }}</div>
-      <div class="title">作品类型：</div>
-      <div class="desc">{{ activeWorks.value.types.join('、') }}</div>
-      <div class="title">作品简述：</div>
-      <div class="desc">{{ activeWorks.value.desc }}</div>
+    <el-main ref="workContent">
+      <div class="worksName">{{ activeWorks.value.name }}</div>
+      <div class="worksType">({{ activeWorks.value.types.join('、') }})</div>
+      <div class="worksDesc">{{ activeWorks.value.desc }}</div>
+      <div class="worksFeature" v-for="item in activeWorks.value.features" :key="item">
+        {{ item }}
+      </div>
       <el-space class="actionBar" spacer="|">
         <el-link
           type="primary"
@@ -38,13 +38,13 @@
           我要试用
         </el-link>
       </el-space>
-      <div class="title">使用技术：</div>
+      <div class="worksTitle">使用技术：</div>
       <el-space wrap>
         <el-tag v-for="technology in activeWorks.value.technologyList">
           {{ technology }}
         </el-tag>
       </el-space>
-      <div class="title">作品截图：</div>
+      <div class="worksTitle">作品截图：</div>
       <el-space wrap>
         <el-image
           v-for="(screenshots, index) in activeWorks.value.screenshotsList"
@@ -84,7 +84,7 @@ const activeWorks = reactive({
 })
 
 // 作品内容节点
-const worksContent = ref()
+const workContent = ref()
 
 // 更新选中的菜单项
 function handleSelectMenuItem(id: string) {
@@ -93,12 +93,12 @@ function handleSelectMenuItem(id: string) {
     return
   }
   activeWorks.value = item
-  worksContent.value.$el.scrollTop = 0
+  workContent.value.$el.scrollTop = 0
 }
 </script>
 
 <style scoped lang="scss">
-.menu {
+.worksMenu {
   height: 100%;
 
   .worksLogo {
@@ -110,25 +110,50 @@ function handleSelectMenuItem(id: string) {
   }
 }
 
-.title {
-  margin: 20px 0 10px;
+.worksName {
   font-size: var(--el-font-size-medium);
+  font-weight: 600;
+}
+
+.worksType {
+  color: var(--el-color-info);
+}
+
+.worksDesc {
+  margin-top: 10px;
+  white-space: pre-line;
+}
+
+.worksTitle {
+  position: relative;
+  margin: 20px 0 10px;
+  font-size: var(--el-font-size-base);
   font-weight: 600;
   display: flex;
   align-items: center;
-
-  &:first-child {
-    margin-top: 0;
-  }
+  padding: 0 0 2px 2px;
 
   &::before {
     content: '';
-    display: inline-block;
-    width: 2px;
-    height: var(--el-font-size-medium);
-    background: var(--el-color-primary);
-    margin-right: 4px;
+    display: block;
+    background: linear-gradient(to right, var(--el-color-primary), transparent);
+    position: absolute;
+    left: -2px;
+    bottom: 0;
+    height: 2px;
+    width: 100px;
   }
+}
+
+.worksFeature::before {
+  content: '';
+  display: inline-block;
+  width: 4px;
+  height: 4px;
+  vertical-align: middle;
+  background: currentColor;
+  border-radius: 50%;
+  margin: 0 8px;
 }
 
 .actionBar {

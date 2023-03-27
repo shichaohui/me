@@ -1,4 +1,4 @@
-import logoYiZhi from '@/assets/images/works/yizhi.jpg'
+import logo from '@/assets/images/works/yizhi.jpg'
 import { uniqueId } from 'lodash'
 
 /** 伊智官网 */
@@ -6,8 +6,9 @@ export const yiZhiWebSite: WorksTypes.Works = {
   id: uniqueId(),
   name: '伊智官网',
   types: ['Web'],
-  logo: logoYiZhi,
-  desc: '伊智科技官方网站，包含公司介绍、产品介绍等功能。',
+  logo,
+  desc: `伊智科技官方网站。`,
+  features: ['公司介绍', '产品介绍', '顾问案例', '招商代理'],
   url: 'https://meimeifa.com',
   technologyList: [
     'React',
