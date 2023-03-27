@@ -7,7 +7,7 @@ declare namespace WorksTypes {
     /** 作品名称 */
     name: string
     /** 作品类型 */
-    types: ('Android' | 'iOS' | '微信小程序' | '微信小游戏' | 'H5' | 'Web')[]
+    types: ('Android' | 'iOS' | '微信小程序' | '微信小游戏' | '微信公众号' | 'H5' | 'Web')[]
     /** 作品 logo */
     logo: string
     /** 作品描述 */
