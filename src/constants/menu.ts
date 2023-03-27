@@ -28,7 +28,7 @@ const menu: MenuItem[] = [
       },
       {
         name: '掘金',
-        url: 'https://juejin.im/user/57df619f5bbb50005e6c072a',
+        url: 'https://juejin.cn/user/4441682704866759/posts',
       },
       {
         name: '简书',
