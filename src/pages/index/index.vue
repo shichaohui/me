@@ -24,16 +24,16 @@ import { userBadgeList } from '@/datas/profile'
   background-size: 100% 100%;
 
   .badgeList {
-    width: 100%;
-    margin: 30px -8px -8px 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
+    margin: 30px 16px 0;
 
     .badge {
-      margin: 0 8px 8px 0;
+      margin: 10px 10px 0 0;
+      border-radius: 0.5rem;
     }
+  }
+
+  .badgeList + .badgeList {
+    margin-top: 16px;
   }
 }
 </style>
