@@ -15,7 +15,9 @@ export default async function (_) {
   }
 
   // patch +1
-  const curVersion = import(path.join(process.cwd(), 'package.json')).version
+  const pkgPath = path.resolve(process.cwd(), 'package.json')
+  const pkgContent = JSON.parse(fs.readFileSync(pkgPath, 'utf-8'))
+  const curVersion = pkgContent.version
   const newVersion = semver.inc(curVersion, 'patch')
 
   if (!newVersion) {
@@ -35,9 +37,9 @@ async function run(bin, args, opts = {}) {
 
 async function updatePkgVersion(version, tag) {
   const pkgPath = path.resolve(process.cwd(), 'package.json')
-  const pkg = JSON.parse(fs.readFileSync(pkgPath, 'utf-8'))
-  pkg.version = version
-  fs.writeFileSync(pkgPath, JSON.stringify(pkg, null, 2) + '\n')
+  const pkgContent = JSON.parse(fs.readFileSync(pkgPath, 'utf-8'))
+  pkgContent.version = version
+  fs.writeFileSync(pkgPath, JSON.stringify(pkgContent, null, 2) + '\n')
 
   await run('git', ['add', '-A'])
   await run('git', ['commit', '-m', `release: ${tag}`])
