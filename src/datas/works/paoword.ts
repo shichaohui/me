@@ -1,5 +1,5 @@
-import logo from '@/assets/images/works/paoword.jpg'
 import { uniqueId } from 'lodash'
+import logo from '@/assets/images/works/paoword.jpg'
 
 /** 泡单词 */
 export const paoword: WorksTypes.Works = {

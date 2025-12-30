@@ -1,0 +1,17 @@
+{
+  "$body-bg-color": {
+    "scope": "vue,scss,sass",
+    "prefix": [
+      "$body-bg-color",
+      "linear-gradient(#fff, #f6f6f6, #{var(--el-color-primary-light-9)})",
+    ],
+    "body": ["$$body-bg-color"],
+    "description": "body的背景颜色 linear-gradient(#fff, #f6f6f6, #{var(--el-color-primary-light-9)})",
+  },
+  "$menu-height": {
+    "scope": "vue,scss,sass",
+    "prefix": ["$menu-height", "58px"],
+    "body": ["$$menu-height"],
+    "description": "菜单栏高度 58px",
+  },
+}

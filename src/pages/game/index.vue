@@ -11,19 +11,19 @@
 
 <script setup lang="ts">
 import InternalGame from '@/components/InternalGame.vue'
-import Game from './Game.vue'
 import { gameList } from '@/datas/game'
 import device from '@/utils/device'
+import Game from './Game.vue'
 
 const isMobile = device.isMobile()
 </script>
 
 <style lang="scss" scoped>
 .internalGame {
+  position: absolute;
+  bottom: 0;
   width: 100%;
   height: 100%;
-  position: absolute;
-  bottom: 0px;
   overflow: hidden;
 }
 

@@ -18,9 +18,9 @@
       </template>
       <a id="emptyTagForCancelHover"></a>
     </el-menu>
-    <router-view v-slot="{ Component, props }">
+    <router-view v-slot="{ Component, ...args }">
       <transition name="fade" mode="out-in" :appear="true">
-        <component :is="Component" v-bind="props" class="content" />
+        <component :is="Component" v-bind="args" class="content" />
       </transition>
     </router-view>
   </div>
@@ -40,7 +40,7 @@ const activeMenuIndex = reactive({
 })
 
 // 监听路由变化，更新选中菜单项
-router.afterEach(to => {
+router.afterEach((to) => {
   activeMenuIndex.value = to.path
 })
 
@@ -70,7 +70,6 @@ function handleSelectMenuItem(url: string) {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-
   font-size: var(--el-font-size-base);
   color: var(--el-text-color-primary);
   background: $body-bg-color;
@@ -81,9 +80,9 @@ function handleSelectMenuItem(url: string) {
 
   .avatar {
     margin: 10px;
+    cursor: pointer;
     border-radius: 50%;
     box-shadow: 0 0 5px white;
-    cursor: pointer;
   }
 }
 

@@ -1,6 +1,10 @@
-/** 我的作品相关的类型声明 */
+/**
+ * 我的作品相关的类型声明
+ */
 declare namespace WorksTypes {
-  /** 作品 */
+  /**
+   * 作品
+   */
   interface Works {
     /** 作品 id */
     id: string

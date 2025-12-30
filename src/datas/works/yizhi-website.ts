@@ -1,5 +1,5 @@
-import logo from '@/assets/images/works/yizhi.jpg'
 import { uniqueId } from 'lodash'
+import logo from '@/assets/images/works/yizhi.jpg'
 
 /** 伊智官网 */
 export const yiZhiWebSite: WorksTypes.Works = {

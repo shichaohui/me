@@ -7,15 +7,15 @@
         <h2 class="nickname">（{{ userInfo.nickname }}）</h2>
       </div>
       <div class="item">
-        <SvgIcon name="email" :size="12" />
+        <SvgIcon :icon="IconEmail" :width="12" :height="12" />
         <span class="text">{{ userInfo.email }}</span>
       </div>
       <div class="item">
-        <SvgIcon name="wechat" :size="12" />
+        <SvgIcon :icon="IconWechat" :width="12" :height="12" />
         <span class="text">{{ userInfo.wechat }}</span>
       </div>
       <div class="item">
-        <SvgIcon name="location" :size="12" />
+        <SvgIcon :icon="IconLocation" :width="12" :height="12" />
         <span class="text">{{ userInfo.city }}</span>
       </div>
     </div>
@@ -23,6 +23,9 @@
 </template>
 
 <script setup lang="ts">
+import IconEmail from '@/assets/icons/email.svg?component'
+import IconLocation from '@/assets/icons/location.svg?component'
+import IconWechat from '@/assets/icons/wechat.svg?component'
 import SvgIcon from '@/components/SvgIcon.vue'
 import { userInfo } from '@/datas/profile'
 
@@ -36,10 +39,10 @@ function handleClickAvatar() {
 .avatar {
   width: 120px;
   height: 120px;
-  border-radius: 50%;
   margin-right: 15px;
-  box-shadow: 0 0 5px black;
   cursor: pointer;
+  border-radius: 50%;
+  box-shadow: 0 0 5px black;
 }
 
 .fullName {
@@ -56,8 +59,8 @@ function handleClickAvatar() {
 }
 
 .item {
-  font-size: 14px;
   margin-top: 5px;
+  font-size: 14px;
 
   .text {
     margin-left: 5px;

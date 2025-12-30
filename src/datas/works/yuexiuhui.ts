@@ -1,5 +1,5 @@
-import logo from '@/assets/images/works/yuexiuhui.png'
 import { uniqueId } from 'lodash'
+import logo from '@/assets/images/works/yuexiuhui.png'
 
 /** 悦秀会 */
 export const yueXiuHui: WorksTypes.Works = {

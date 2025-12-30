@@ -67,9 +67,9 @@
 
 <script setup lang="ts">
 import { reactive, ref } from 'vue'
+import { useRouter } from 'vue-router'
 import { worksList } from '@/datas/works'
 import device from '@/utils/device'
-import { useRouter } from 'vue-router'
 
 // 解析路由参数
 const router = useRouter()
@@ -80,7 +80,7 @@ const isMobile = ref(device.isMobile())
 
 // 选择的菜单
 const activeWorks = reactive({
-  value: worksList.find(i => i.id === id) || worksList[0],
+  value: worksList.find((i) => i.id === id) || worksList[0],
 })
 
 // 作品内容节点
@@ -88,7 +88,7 @@ const workContent = ref()
 
 // 更新选中的菜单项
 function handleSelectMenuItem(id: string) {
-  const item = worksList.find(item => item.id === id)
+  const item = worksList.find((item) => item.id === id)
   if (!item) {
     return
   }
@@ -104,9 +104,9 @@ function handleSelectMenuItem(id: string) {
   .worksLogo {
     width: 24px;
     height: 24px;
-    border-radius: 50%;
     margin-right: 6px;
     border: var(--el-border-base);
+    border-radius: 50%;
   }
 }
 
@@ -126,34 +126,34 @@ function handleSelectMenuItem(id: string) {
 
 .worksTitle {
   position: relative;
-  margin: 20px 0 10px;
-  font-size: var(--el-font-size-base);
-  font-weight: 600;
   display: flex;
   align-items: center;
   padding: 0 0 2px 2px;
+  margin: 20px 0 10px;
+  font-size: var(--el-font-size-base);
+  font-weight: 600;
 
   &::before {
-    content: '';
-    display: block;
-    background: linear-gradient(to right, var(--el-color-primary), transparent);
     position: absolute;
-    left: -2px;
     bottom: 0;
-    height: 2px;
+    left: -2px;
+    display: block;
     width: 100px;
+    height: 2px;
+    content: '';
+    background: linear-gradient(to right, var(--el-color-primary), transparent);
   }
 }
 
 .worksFeature::before {
-  content: '';
   display: inline-block;
   width: 4px;
   height: 4px;
-  vertical-align: middle;
-  background: currentColor;
-  border-radius: 50%;
   margin: 0 8px;
+  vertical-align: middle;
+  content: '';
+  background: currentcolor;
+  border-radius: 50%;
 }
 
 .actionBar {
@@ -161,13 +161,13 @@ function handleSelectMenuItem(id: string) {
 }
 
 .screenshots {
+  box-sizing: border-box;
   width: 320px;
   height: 320px;
+  padding: 10px;
   vertical-align: middle;
   border: 1px var(--el-border-color-light) solid;
   border-radius: 4px;
-  padding: 10px;
-  box-sizing: border-box;
 
   &.isMobile {
     width: calc(100vw - 104px);
@@ -175,11 +175,11 @@ function handleSelectMenuItem(id: string) {
   }
 
   .placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 100%;
     height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
   }
 
   ::v-deep .el-image__preview {

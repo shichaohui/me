@@ -1,6 +1,6 @@
+import { uniqueId } from 'lodash'
 import logoColorUp from '@/assets/images/game/logos/color_up.jpg'
 import logoKnifeKing from '@/assets/images/works/knife_king.jpg'
-import { uniqueId } from 'lodash'
 import { knifeKingId } from '../works/knifeking'
 
 const colorUp: GameTypes.Game = {

@@ -2,13 +2,13 @@
   <div class="internalGame">
     <div ref="road" class="road" :style="{ marginLeft: `${roadMarginLeft}px` }" />
     <div ref="cloudContainer" class="cloudContainer">
-      <img
+      <IconCloud
         class="cloud"
-        src="@/assets/images/game/internal/cloud.svg"
         v-for="cloud in cloudList"
         :key="cloud.id"
         :style="{
-          height: `${cloud.height}px`,
+          width: `${cloud.size}px`,
+          height: `${cloud.size}px`,
           marginTop: `${cloud.marginTop}px`,
           marginLeft: `${cloud.marginLeft}px`,
         }"
@@ -27,13 +27,13 @@
       />
     </div>
     <div ref="foodContainer" class="foodContainer">
-      <img
+      <IconFood
         class="food"
-        src="@/assets/images/game/internal/food.svg"
         v-for="food in foodList"
         :key="food.id"
         :style="{
-          height: `${food.height}px`,
+          width: `${food.size}px`,
+          height: `${food.size}px`,
           marginLeft: `${food.marginLeft}px`,
           bottom: `${food.bottom}px`,
         }"
@@ -50,293 +50,285 @@
   </div>
 </template>
 
-<script lang="ts">
-import { Options, Vue } from 'vue-class-component'
+<script setup lang="ts">
+import { onMounted, ref } from 'vue'
+import IconCloud from '@/assets/images/game/internal/cloud.svg?component'
+import IconFood from '@/assets/images/game/internal/food.svg?component'
 
-@Options({})
-export default class InternalGame extends Vue {
-  declare $refs: {
-    road: HTMLElement
-    cloudContainer: HTMLElement
-    obstacleContainer: HTMLElement
-    foodContainer: HTMLElement
-    player: HTMLElement
-  }
+const road = ref<HTMLElement>()
+const cloudContainer = ref<HTMLElement>()
+const obstacleContainer = ref<HTMLElement>()
+const foodContainer = ref<HTMLElement>()
+const player = ref<HTMLElement>()
 
-  isPlaying = false
-  isShowScore = false
-  isShowTips = true
+const isPlaying = ref(false)
+const isShowScore = ref(false)
+const isShowTips = ref(true)
 
-  currentScore = 0
+const currentScore = ref(0)
 
-  jumpHeight = 0
+const jumpHeight = ref(0)
 
-  isJumping = false
+const isJumping = ref(false)
 
-  // 移动速度
-  speed = 5
-  cloudMinSpeed = 1
-  cloudMaxSpeed = 3
+// 移动速度
+const speed = 5
+const cloudMinSpeed = 1
+const cloudMaxSpeed = 3
 
-  // 计时器 id
-  gameIntervalId: NodeJS.Timeout | null = null
-  generateCloudIntervalId: NodeJS.Timeout | null = null
-  generateObstacleIntervalId: NodeJS.Timeout | null = null
-  generateFoodIntervalId: NodeJS.Timeout | null = null
+// 计时器 id
+let gameIntervalId: NodeJS.Timeout | null = null
+let generateCloudIntervalId: NodeJS.Timeout | null = null
+let generateObstacleIntervalId: NodeJS.Timeout | null = null
+let generateFoodIntervalId: NodeJS.Timeout | null = null
 
-  // 玩家的位置
-  playerBottom = 0
-  // 路面的位置
-  roadMarginLeft = 0
+// 玩家的位置
+const playerBottom = ref(0)
+// 路面的位置
+const roadMarginLeft = ref(0)
 
-  // 云朵列表
-  cloudList: {
+// 云朵列表
+const cloudList = ref<
+  {
     id: string
-    height: number
+    size: number
     marginLeft: number
     marginTop: number
     speed: number
-  }[] = []
-  // 障碍物列表
-  obstacleList: {
+  }[]
+>([])
+// 障碍物列表
+const obstacleList = ref<
+  {
     id: string
     height: number
     marginLeft: number
     isScored: boolean
-  }[] = []
-  // 食物列表
-  foodList: {
+  }[]
+>([])
+// 食物列表
+const foodList = ref<
+  {
     id: string
-    height: number
+    size: number
     marginLeft: number
     bottom: number
     isScored: boolean
-  }[] = []
+  }[]
+>([])
 
-  mounted() {
-    this.jumpHeight = this.$refs.player.clientHeight * 2.5
+onMounted(() => {
+  jumpHeight.value = player.value!.clientHeight * 2.5
 
-    document.onkeydown = event => {
-      const keyNum = window.event ? event.keyCode : event.which
-      if (keyNum == 32) {
-        // 空格
-        if (!this.isPlaying) {
-          this.start()
-        }
-        this.jump()
-      }
+  document.onkeydown = (event) => {
+    const keyNum = window.event ? event.keyCode : event.which
+    // 空格
+    if (keyNum == 32) {
+      !isPlaying.value ? start() : jump()
+    }
+  }
+})
+
+// 开始游戏
+function start() {
+  isPlaying.value = true
+
+  gameIntervalId = setInterval(gameInterval, 16)
+  generateCloudIntervalId = setTimeout(generateCloud, 0)
+  generateObstacleIntervalId = setTimeout(generateObstacle, 0)
+  generateFoodIntervalId = setTimeout(generateFood, 5000)
+
+  isShowScore.value = true
+  isShowTips.value = false
+}
+
+// 游戏间隔刷新函数
+function gameInterval() {
+  moveRoad()
+  moveCloud()
+  moveObstacle()
+  moveFood()
+  checkGameState()
+}
+
+// 对路执行移动
+function moveRoad() {
+  let newMarginLeft = parseInt(road.value!.style.marginLeft) - speed
+  if (Math.abs(newMarginLeft) > road.value!.clientWidth / 2) {
+    newMarginLeft = 0
+  }
+  roadMarginLeft.value = newMarginLeft
+}
+
+// 对云朵执行移动
+function moveCloud() {
+  for (let i = 0; i < cloudList.value.length; i++) {
+    cloudList.value[i].marginLeft -= cloudList.value[i].speed
+  }
+}
+
+// 对障碍物执行移动
+function moveObstacle() {
+  for (let i = 0; i < obstacleList.value.length; i++) {
+    obstacleList.value[i].marginLeft -= speed
+  }
+}
+
+// 对食物执行移动
+function moveFood() {
+  for (let i = 0; i < foodList.value.length; i++) {
+    foodList.value[i].marginLeft -= speed
+  }
+}
+
+// 生成云朵
+function generateCloud() {
+  cloudList.value.push({
+    id: Math.random().toString(),
+    size: (Math.random() + 0.5) * player.value!.clientHeight,
+    marginTop: Math.random() * (cloudContainer.value!.clientHeight - player.value!.clientHeight),
+    marginLeft: cloudContainer.value!.clientWidth,
+    speed: Math.random() * (cloudMaxSpeed - cloudMinSpeed) + cloudMinSpeed,
+  })
+  // 最少 2500ms 最多 (1500+2500)ms 生成一个障碍物
+  generateCloudIntervalId = setTimeout(generateCloud, Math.random() * 1500 + 2500)
+}
+
+// 生成障碍物
+function generateObstacle() {
+  const factor = ((Math.random() * currentScore.value) / 10) * 0.1 + 1
+  obstacleList.value.push({
+    id: Math.random().toString(),
+    height: factor * player.value!.clientHeight,
+    marginLeft: obstacleContainer.value!.clientWidth,
+    isScored: false,
+  })
+  // 最少 2000ms 最多 (1000+2000)ms 生成一个障碍物
+  generateObstacleIntervalId = setTimeout(generateObstacle, Math.random() * 1000 + 2000)
+}
+
+// 生成食物
+function generateFood() {
+  foodList.value.push({
+    id: Math.random().toString(),
+    size: (player.value!.clientHeight / 3) * 2,
+    marginLeft: foodContainer.value!.clientWidth,
+    bottom: Math.random() * jumpHeight.value,
+    isScored: false,
+  })
+  // 最少 5000ms 最多 (5000+5000)ms 生成一个食物
+  generateFoodIntervalId = setTimeout(generateFood, Math.random() * 5000 + 5000)
+}
+
+// 跳跃
+function jump() {
+  if (isJumping.value) {
+    return
+  }
+  isJumping.value = true
+  const originBottom = parseInt(player.value!.style.bottom)
+  let time = 0
+  const jumpIntervalId = setInterval(() => {
+    const newBottom = Math.sin((time += 0.06)) * jumpHeight.value
+    if (newBottom > originBottom) {
+      playerBottom.value = newBottom
+    } else {
+      playerBottom.value = originBottom
+      clearInterval(jumpIntervalId)
+      isJumping.value = false
+    }
+  }, 16)
+}
+
+// 检查游戏状态
+function checkGameState() {
+  const destroyBoundary = -200
+
+  // 回收云朵
+  for (let i = cloudList.value.length - 1; i >= 0; i--) {
+    if (cloudList.value[i].marginLeft < destroyBoundary) {
+      cloudList.value.splice(i, 1)
     }
   }
 
-  // 开始游戏
-  start() {
-    this.isPlaying = true
+  const playerRect = zoomOutBound(player.value!.getBoundingClientRect())
 
-    this.gameIntervalId = setInterval(this.gameInterval, 16)
-    // this.generateCloudIntervalId = setTimeout(this.generateCloud, 0)
-    this.generateObstacleIntervalId = setTimeout(this.generateObstacle, 0)
-    this.generateFoodIntervalId = setTimeout(this.generateFood, 5000)
-
-    this.isShowScore = true
-    this.isShowTips = false
-  }
-
-  // 游戏间隔刷新函数
-  gameInterval() {
-    this.moveRoad()
-    // this.moveCloud()
-    this.moveObstacle()
-    this.moveFood()
-    this.checkGameState()
-  }
-
-  // 对路执行移动
-  moveRoad() {
-    const { road } = this.$refs
-    let newMarginLeft = parseInt(road.style.marginLeft) - this.speed
-    if (Math.abs(newMarginLeft) > road.clientWidth / 2) {
-      newMarginLeft = 0
-    }
-    this.roadMarginLeft = newMarginLeft
-  }
-
-  // 对障碍物执行移动
-  moveCloud() {
-    for (let i = 0; i < this.cloudList.length; i++) {
-      this.cloudList[i].marginLeft -= this.cloudList[i].speed
-    }
-  }
-
-  // 对障碍物执行移动
-  moveObstacle() {
-    for (let i = 0; i < this.obstacleList.length; i++) {
-      this.obstacleList[i].marginLeft -= this.speed
-    }
-  }
-
-  // 对食物执行移动
-  moveFood() {
-    for (let i = 0; i < this.foodList.length; i++) {
-      this.foodList[i].marginLeft -= this.speed
-    }
-  }
-
-  // 生成云朵
-  generateCloud() {
-    const { cloudContainer, player } = this.$refs
-    this.cloudList.push({
-      id: Math.random().toString(),
-      height: (Math.random() + 0.5) * player.clientHeight,
-      marginTop: Math.random() * (cloudContainer.clientHeight - player.clientHeight),
-      marginLeft: cloudContainer.clientWidth,
-      speed: Math.random() * (this.cloudMaxSpeed - this.cloudMinSpeed) + this.cloudMinSpeed,
-    })
-    // 最少 2500ms 最多 (1500+2500)ms 生成一个障碍物
-    this.generateCloudIntervalId = setTimeout(this.generateCloud, Math.random() * 1500 + 2500)
-  }
-
-  // 生成障碍物
-  generateObstacle() {
-    const { obstacleContainer, player } = this.$refs
-    const factor = ((Math.random() * this.currentScore) / 10) * 0.1 + 1
-    this.obstacleList.push({
-      id: Math.random().toString(),
-      height: factor * player.clientHeight,
-      marginLeft: obstacleContainer.clientWidth,
-      isScored: false,
-    })
-    // 最少 2000ms 最多 (1000+2000)ms 生成一个障碍物
-    this.generateObstacleIntervalId = setTimeout(this.generateObstacle, Math.random() * 1000 + 2000)
-  }
-
-  // 生成食物
-  generateFood() {
-    this.foodList.push({
-      id: Math.random().toString(),
-      height: (this.$refs.player.clientHeight / 3) * 2,
-      marginLeft: this.$refs.foodContainer.clientWidth,
-      bottom: Math.random() * this.jumpHeight,
-      isScored: false,
-    })
-    // 最少 5000ms 最多 (5000+5000)ms 生成一个食物
-    this.generateFoodIntervalId = setTimeout(this.generateFood, Math.random() * 5000 + 5000)
-  }
-
-  // 跳跃
-  jump() {
-    if (this.isJumping) {
+  for (let i = obstacleList.value.length - 1; i >= 0; i--) {
+    const obstacle = obstacleList.value[i]
+    // 判断游戏是否结束
+    const obstacleRect = zoomOutBound(obstacleContainer.value!.children[i].getBoundingClientRect())
+    const isIntersect = !(
+      playerRect.right < obstacleRect.left ||
+      playerRect.left > obstacleRect.right ||
+      playerRect.top > obstacleRect.bottom ||
+      playerRect.bottom < obstacleRect.top
+    )
+    if (isIntersect) {
+      over()
       return
     }
-    this.isJumping = true
-    const { player } = this.$refs
-    const originBottom = parseInt(player.style.bottom)
-    let time = 0
-    const jumpIntervalId = setInterval(() => {
-      const newBottom = Math.sin((time += 0.06)) * this.jumpHeight
-      if (newBottom > originBottom) {
-        this.playerBottom = newBottom
-      } else {
-        this.playerBottom = originBottom
-        clearInterval(jumpIntervalId)
-        this.isJumping = false
-      }
-    }, 16)
-  }
-
-  // 检查游戏状态
-  checkGameState() {
-    const destroyBoundary = -200
-
-    // 回收云朵
-    for (let i = this.cloudList.length - 1; i >= 0; i--) {
-      if (this.cloudList[i].marginLeft < destroyBoundary) {
-        this.cloudList.splice(i, 1)
-      }
+    // 判断是否得分
+    if (playerRect.left > obstacleRect.right && !obstacle.isScored) {
+      obstacle.isScored = true
+      scoring()
     }
-
-    const { player } = this.$refs
-    const playerRect = this.zoomOutBound(player.getBoundingClientRect())
-
-    const { obstacleContainer } = this.$refs
-
-    for (let i = this.obstacleList.length - 1; i >= 0; i--) {
-      const obstacle = this.obstacleList[i]
-      // 判断游戏是否结束
-      const obstacleRect = this.zoomOutBound(obstacleContainer.children[i].getBoundingClientRect())
-      const isIntersect = !(
-        playerRect.right < obstacleRect.left ||
-        playerRect.left > obstacleRect.right ||
-        playerRect.top > obstacleRect.bottom ||
-        playerRect.bottom < obstacleRect.top
-      )
-      if (isIntersect) {
-        this.over()
-        return
-      }
-      // 判断是否得分
-      if (playerRect.left > obstacleRect.right && !obstacle.isScored) {
-        obstacle.isScored = true
-        this.scoring()
-      }
-      // 回收障碍物
-      if (obstacle.marginLeft < destroyBoundary) {
-        this.obstacleList.splice(i, 1)
-      }
-    }
-
-    const { foodContainer } = this.$refs
-    for (let i = this.foodList.length - 1; i >= 0; i--) {
-      const food = this.foodList[i]
-      // 判断是否得分
-      const foodRect = this.zoomOutBound(foodContainer.children[i].getBoundingClientRect())
-      const isIntersect = !(
-        playerRect.right < foodRect.left ||
-        playerRect.left > foodRect.right ||
-        playerRect.top > foodRect.bottom ||
-        playerRect.bottom < foodRect.top
-      )
-      if (isIntersect && !food.isScored) {
-        food.isScored = true
-        this.scoring()
-        // 回收食物
-        this.foodList.splice(i, 1)
-      }
+    // 回收障碍物
+    if (obstacle.marginLeft < destroyBoundary) {
+      obstacleList.value.splice(i, 1)
     }
   }
 
-  // 缩小范围
-  zoomOutBound(rect: DOMRect) {
-    // 由于图片边缘有透明像素，所以缩小一下检测范围
-    return {
-      top: rect.top + rect.height * 0.1,
-      right: rect.right - rect.width * 0.1,
-      bottom: rect.bottom - rect.height * 0.1,
-      left: rect.left + rect.width * 0.1,
+  for (let i = foodList.value.length - 1; i >= 0; i--) {
+    const food = foodList.value[i]
+    // 判断是否得分
+    const foodRect = zoomOutBound(foodContainer.value!.children[i].getBoundingClientRect())
+    const isIntersect = !(
+      playerRect.right < foodRect.left ||
+      playerRect.left > foodRect.right ||
+      playerRect.top > foodRect.bottom ||
+      playerRect.bottom < foodRect.top
+    )
+    if (isIntersect && !food.isScored) {
+      food.isScored = true
+      scoring()
+      // 回收食物
+      foodList.value.splice(i, 1)
     }
   }
+}
 
-  // 计分
-  scoring() {
-    this.currentScore += 1
+// 缩小范围
+function zoomOutBound(rect: DOMRect) {
+  // 由于图片边缘有透明像素，所以缩小一下检测范围
+  return {
+    top: rect.top + rect.height * 0.1,
+    right: rect.right - rect.width * 0.1,
+    bottom: rect.bottom - rect.height * 0.1,
+    left: rect.left + rect.width * 0.1,
   }
+}
 
-  // 游戏结束
-  over() {
-    this.isPlaying = false
-    this.currentScore = 0
+// 计分
+function scoring() {
+  currentScore.value += 1
+}
 
-    this.gameIntervalId && clearInterval(this.gameIntervalId)
-    this.generateCloudIntervalId && clearInterval(this.generateCloudIntervalId)
-    this.generateObstacleIntervalId && clearInterval(this.generateObstacleIntervalId)
-    this.generateFoodIntervalId && clearInterval(this.generateFoodIntervalId)
+// 游戏结束
+function over() {
+  isPlaying.value = false
+  currentScore.value = 0
 
-    this.cloudList.splice(0)
-    this.obstacleList.splice(0)
-    this.foodList.splice(0)
+  gameIntervalId && clearInterval(gameIntervalId)
+  generateCloudIntervalId && clearInterval(generateCloudIntervalId)
+  generateObstacleIntervalId && clearInterval(generateObstacleIntervalId)
+  generateFoodIntervalId && clearInterval(generateFoodIntervalId)
 
-    this.isShowScore = false
-    this.isShowTips = true
-  }
+  cloudList.value.splice(0)
+  obstacleList.value.splice(0)
+  foodList.value.splice(0)
+
+  isShowScore.value = false
+  isShowTips.value = true
 }
 </script>
 
@@ -346,27 +338,27 @@ export default class InternalGame extends Vue {
 }
 
 .road {
+  position: absolute;
+  bottom: 0;
   width: 200%;
   height: 6px;
-  position: absolute;
-  bottom: 0px;
   background-image: url('@/assets/images/game/internal/road.png');
-  background-size: 109px;
   background-repeat: repeat-x;
+  background-size: 109px;
 }
 
 .player {
   position: absolute;
+  bottom: 0;
+  left: 18%;
   width: 50px;
   height: 50px;
-  left: 18%;
-  bottom: 0px;
 }
 
 .cloudContainer {
+  position: absolute;
   width: 100%;
   height: 100%;
-  position: absolute;
   overflow: hidden;
 
   .cloud {
@@ -375,23 +367,23 @@ export default class InternalGame extends Vue {
 }
 
 .obstacleContainer {
+  position: absolute;
+  bottom: 0;
   width: 100%;
   height: 100%;
-  bottom: 0px;
-  position: absolute;
   overflow: hidden;
 
   .obstacle {
     position: absolute;
-    bottom: 0px;
+    bottom: 0;
   }
 }
 
 .foodContainer {
+  position: absolute;
+  bottom: 0;
   width: 100%;
   height: 100%;
-  bottom: 0px;
-  position: absolute;
   overflow: hidden;
 
   .food {
@@ -405,9 +397,9 @@ export default class InternalGame extends Vue {
   left: 18%;
   padding: 5px 10px;
   font-size: 18px;
-  transform: translateX(-100%);
-  background-color: rgba(255, 255, 255, 0.5);
+  background-color: rgb(255 255 255 / 50%);
   border-radius: 5px;
+  transform: translateX(-100%);
 }
 
 .tips {
@@ -415,7 +407,7 @@ export default class InternalGame extends Vue {
   bottom: 10px;
   left: 50%;
   padding: 5px 10px;
-  background-color: rgba(255, 255, 255, 0.5);
+  background-color: rgb(255 255 255 / 50%);
   border-radius: 5px;
   transform: translateX(-50%);
 }

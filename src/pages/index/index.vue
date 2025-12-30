@@ -8,17 +8,17 @@
 </template>
 
 <script setup lang="ts">
-import Profile from './Profile.vue'
 import { userBadgeList } from '@/datas/profile'
+import Profile from './Profile.vue'
 </script>
 
 <style scoped lang="scss">
 .content {
-  padding: 10% 0px;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 10% 0;
   overflow: hidden;
   background: url('/images/bg.svg') no-repeat;
   background-size: 100% 100%;

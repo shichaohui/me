@@ -1,5 +1,5 @@
-import logo from '@/assets/images/works/knife_king.jpg'
 import { uniqueId } from 'lodash'
+import logo from '@/assets/images/works/knife_king.jpg'
 
 /** 菜市场刀王 id */
 export const knifeKingId = uniqueId()

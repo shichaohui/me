@@ -1,15 +1,13 @@
-/*水平翻转*/
+@use './element-plus/reset.scss' as *;
+
+/* 水平翻转 */
 .flipX {
   transform: scaleX(-1);
-  /*IE*/
-  filter: FlipH;
 }
 
-/*垂直翻转*/
+/* 垂直翻转 */
 .flipY {
   transform: scaleY(-1);
-  /*IE*/
-  filter: FlipV;
 }
 
 .row,

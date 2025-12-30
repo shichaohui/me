@@ -48,26 +48,26 @@ function getLinkTarget(url: string = '') {
 <style lang="scss" scoped>
 .game {
   width: 80%;
-  box-shadow: var(--el-box-shadow-base);
-  margin: 20px auto;
   padding: 15px;
+  margin: 20px auto;
   text-align: center;
-  border-radius: 8px;
   border: 1px var(--el-border-color-base) solid;
+  border-radius: 8px;
+  box-shadow: var(--el-box-shadow-base);
 
   .logo {
     width: 45px;
     height: 45px;
-    border-radius: 50%;
     vertical-align: middle;
     border: var(--el-border-base);
+    border-radius: 50%;
   }
 
   .name {
     display: inline;
-    font-weight: normal;
-    font-size: var(--el-font-size-extra-large);
     margin-left: 10px;
+    font-size: var(--el-font-size-extra-large);
+    font-weight: normal;
     vertical-align: middle;
   }
 }
