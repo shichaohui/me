@@ -1,19 +1,6 @@
 <template>
   <div class="relative w-full h-full">
     <div ref="road" class="game-road" :style="{ marginLeft: `${roadMarginLeft}px` }" />
-    <div ref="cloudContainer" class="absolute w-full h-full overflow-hidden">
-      <IconCloud
-        class="absolute"
-        v-for="cloud in cloudList"
-        :key="cloud.id"
-        :style="{
-          width: `${cloud.size}px`,
-          height: `${cloud.size}px`,
-          marginTop: `${cloud.marginTop}px`,
-          marginLeft: `${cloud.marginLeft}px`,
-        }"
-      />
-    </div>
     <div ref="obstacleContainer" class="absolute w-full h-full overflow-hidden">
       <img
         class="absolute bottom-0"
@@ -56,11 +43,9 @@
 
 <script setup lang="ts">
 import { onMounted, ref } from 'vue'
-import IconCloud from '@/assets/images/game/internal/cloud.svg?component'
 import IconFood from '@/assets/images/game/internal/food.svg?component'
 
 const road = ref<HTMLElement>()
-const cloudContainer = ref<HTMLElement>()
 const obstacleContainer = ref<HTMLElement>()
 const foodContainer = ref<HTMLElement>()
 const player = ref<HTMLElement>()
@@ -77,12 +62,9 @@ const isJumping = ref(false)
 
 // 移动速度
 const speed = 5
-const cloudMinSpeed = 1
-const cloudMaxSpeed = 3
 
 // 计时器 id
 let gameIntervalId: NodeJS.Timeout | null = null
-let generateCloudIntervalId: NodeJS.Timeout | null = null
 let generateObstacleIntervalId: NodeJS.Timeout | null = null
 let generateFoodIntervalId: NodeJS.Timeout | null = null
 
@@ -91,16 +73,6 @@ const playerBottom = ref(0)
 // 路面的位置
 const roadMarginLeft = ref(0)
 
-// 云朵列表
-const cloudList = ref<
-  {
-    id: string
-    size: number
-    marginLeft: number
-    marginTop: number
-    speed: number
-  }[]
->([])
 // 障碍物列表
 const obstacleList = ref<
   {
@@ -138,7 +110,6 @@ function start() {
   isPlaying.value = true
 
   gameIntervalId = setInterval(gameInterval, 16)
-  generateCloudIntervalId = setTimeout(generateCloud, 0)
   generateObstacleIntervalId = setTimeout(generateObstacle, 0)
   generateFoodIntervalId = setTimeout(generateFood, 5000)
 
@@ -149,7 +120,6 @@ function start() {
 // 游戏间隔刷新函数
 function gameInterval() {
   moveRoad()
-  moveCloud()
   moveObstacle()
   moveFood()
   checkGameState()
@@ -164,13 +134,6 @@ function moveRoad() {
   roadMarginLeft.value = newMarginLeft
 }
 
-// 对云朵执行移动
-function moveCloud() {
-  for (let i = 0; i < cloudList.value.length; i++) {
-    cloudList.value[i].marginLeft -= cloudList.value[i].speed
-  }
-}
-
 // 对障碍物执行移动
 function moveObstacle() {
   for (let i = 0; i < obstacleList.value.length; i++) {
@@ -183,19 +146,6 @@ function moveFood() {
   for (let i = 0; i < foodList.value.length; i++) {
     foodList.value[i].marginLeft -= speed
   }
-}
-
-// 生成云朵
-function generateCloud() {
-  cloudList.value.push({
-    id: Math.random().toString(),
-    size: (Math.random() + 0.5) * player.value!.clientHeight,
-    marginTop: Math.random() * (cloudContainer.value!.clientHeight - player.value!.clientHeight),
-    marginLeft: cloudContainer.value!.clientWidth,
-    speed: Math.random() * (cloudMaxSpeed - cloudMinSpeed) + cloudMinSpeed,
-  })
-  // 最少 2500ms 最多 (1500+2500)ms 生成一个障碍物
-  generateCloudIntervalId = setTimeout(generateCloud, Math.random() * 1500 + 2500)
 }
 
 // 生成障碍物
@@ -247,13 +197,6 @@ function jump() {
 // 检查游戏状态
 function checkGameState() {
   const destroyBoundary = -200
-
-  // 回收云朵
-  for (let i = cloudList.value.length - 1; i >= 0; i--) {
-    if (cloudList.value[i].marginLeft < destroyBoundary) {
-      cloudList.value.splice(i, 1)
-    }
-  }
 
   const playerRect = zoomOutBound(player.value!.getBoundingClientRect())
 
@@ -323,11 +266,9 @@ function over() {
   currentScore.value = 0
 
   gameIntervalId && clearInterval(gameIntervalId)
-  generateCloudIntervalId && clearInterval(generateCloudIntervalId)
   generateObstacleIntervalId && clearInterval(generateObstacleIntervalId)
   generateFoodIntervalId && clearInterval(generateFoodIntervalId)
 
-  cloudList.value.splice(0)
   obstacleList.value.splice(0)
   foodList.value.splice(0)
 

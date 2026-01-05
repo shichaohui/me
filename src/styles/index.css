@@ -1,14 +1,15 @@
 @layer theme, base, components, element, utilities;
 
 @import 'element-plus/dist/index.css' layer(element);
+@import 'element-plus/theme-chalk/dark/css-vars.css' layer(element);
 @import './element-plus.css';
 @import 'tailwindcss';
 
 body {
   font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
   font-size: var(--el-font-size-base);
   color: var(--el-text-color-primary);
   background: linear-gradient(var(--el-bg-color-page), var(--el-color-primary-light-9));
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }

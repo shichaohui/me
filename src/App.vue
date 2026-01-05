@@ -5,7 +5,11 @@
       :default-active="activeMenuIndex.value"
       @select="handleSelectMenuItem"
     >
-      <img class="rounded-full m-2 cursor-pointer" :src="avatarImg" @click="handleClickAvatar" />
+      <img
+        class="rounded-full m-2 cursor-pointer border border-(--el-border-color)"
+        :src="avatarImg"
+        @click="handleClickAvatar"
+      />
       <template v-for="item in menu" :key="item.url">
         <el-sub-menu v-if="item.children?.length" :index="item.url">
           <template #title>{{ item.name }}</template>
@@ -17,6 +21,7 @@
       </template>
       <a id="emptyTagForCancelHover"></a>
     </el-menu>
+    <ThemeSwitch class="absolute top-4 right-4" />
     <router-view v-slot="{ Component, ...args }">
       <transition name="fade" mode="out-in" :appear="true">
         <component :is="Component" v-bind="args" class="flex-1 overflow-auto" />
@@ -30,6 +35,7 @@ import { nextTick, reactive } from 'vue'
 import { useRouter } from 'vue-router'
 import avatarImg from '@/assets/images/avatar.jpg'
 import menu from '@/constants/menu'
+import ThemeSwitch from './components/ThemeSwitch.vue'
 
 const router = useRouter()
 

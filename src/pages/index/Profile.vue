@@ -1,7 +1,7 @@
 <template>
   <div class="flex items-center">
     <img
-      class="w-30 h-30 rounded-full cursor-pointer"
+      class="w-30 h-30 rounded-full cursor-pointer border border-(--el-border-color)"
       :src="userInfo.avatar"
       @click="handleClickAvatar"
     />
@@ -11,15 +11,20 @@
         <h2 class="text-base font-bold">（{{ userInfo.nickname }}）</h2>
       </div>
       <div class="flex items-center">
-        <SvgIcon :icon="IconEmail" :width="14" :height="14" />
+        <SvgIcon :icon="IconEmail" :width="14" :height="14" color="var(--el-text-color-primary)" />
         <span class="ml-2 text-base">{{ userInfo.email }}</span>
       </div>
       <div class="flex items-center">
-        <SvgIcon :icon="IconWechat" :width="14" :height="14" />
+        <SvgIcon :icon="IconWechat" :width="14" :height="14" color="var(--el-text-color-primary)" />
         <span class="ml-2 text-base">{{ userInfo.wechat }}</span>
       </div>
       <div class="flex items-center">
-        <SvgIcon :icon="IconLocation" :width="14" :height="14" />
+        <SvgIcon
+          :icon="IconLocation"
+          :width="14"
+          :height="14"
+          color="var(--el-text-color-primary)"
+        />
         <span class="ml-2 text-base">{{ userInfo.city }}</span>
       </div>
     </div>
