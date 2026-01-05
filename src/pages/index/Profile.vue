@@ -1,22 +1,26 @@
 <template>
-  <div class="row itemCenter">
-    <img class="avatar" :src="userInfo.avatar" @click="handleClickAvatar" />
-    <div class="column">
-      <div>
-        <h1 class="fullName">{{ userInfo.fullName }}</h1>
-        <h2 class="nickname">（{{ userInfo.nickname }}）</h2>
+  <div class="flex items-center">
+    <img
+      class="w-30 h-30 rounded-full cursor-pointer"
+      :src="userInfo.avatar"
+      @click="handleClickAvatar"
+    />
+    <div class="flex flex-col ml-4">
+      <div class="flex items-center">
+        <h1 class="text-xl font-bold">{{ userInfo.fullName }}</h1>
+        <h2 class="text-base font-bold">（{{ userInfo.nickname }}）</h2>
       </div>
-      <div class="item">
-        <SvgIcon :icon="IconEmail" :width="12" :height="12" />
-        <span class="text">{{ userInfo.email }}</span>
+      <div class="flex items-center">
+        <SvgIcon :icon="IconEmail" :width="14" :height="14" />
+        <span class="ml-2 text-base">{{ userInfo.email }}</span>
       </div>
-      <div class="item">
-        <SvgIcon :icon="IconWechat" :width="12" :height="12" />
-        <span class="text">{{ userInfo.wechat }}</span>
+      <div class="flex items-center">
+        <SvgIcon :icon="IconWechat" :width="14" :height="14" />
+        <span class="ml-2 text-base">{{ userInfo.wechat }}</span>
       </div>
-      <div class="item">
-        <SvgIcon :icon="IconLocation" :width="12" :height="12" />
-        <span class="text">{{ userInfo.city }}</span>
+      <div class="flex items-center">
+        <SvgIcon :icon="IconLocation" :width="14" :height="14" />
+        <span class="ml-2 text-base">{{ userInfo.city }}</span>
       </div>
     </div>
   </div>
@@ -35,35 +39,4 @@ function handleClickAvatar() {
 }
 </script>
 
-<style scoped lang="scss">
-.avatar {
-  width: 120px;
-  height: 120px;
-  margin-right: 15px;
-  cursor: pointer;
-  border-radius: 50%;
-  box-shadow: 0 0 5px black;
-}
-
-.fullName {
-  display: inline;
-  font-size: 22px;
-  font-weight: 500;
-  font-weight: normal;
-}
-
-.nickname {
-  display: inline;
-  font-size: 18px;
-  font-weight: normal;
-}
-
-.item {
-  margin-top: 5px;
-  font-size: 14px;
-
-  .text {
-    margin-left: 5px;
-  }
-}
-</style>
+<style scoped></style>

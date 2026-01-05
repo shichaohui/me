@@ -23,3 +23,7 @@ pnpm-debug.log*
 
 # TypeScript cache
 *.tsbuildinfo
+
+# Element Plus auto imports
+auto-imports.d.ts
+components.d.ts

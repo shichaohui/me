@@ -1,0 +1,35 @@
+:root {
+  /* 主题色 */
+  --el-color-primary: #4876ff;
+}
+
+.el-menu {
+  --el-menu-bg-color: transparent;
+  --el-menu-hover-bg-color: transparent;
+  --el-menu-hover-text-color: var(--el-color-primary);
+  --el-menu-border-color: var(--el-border-color);
+  --el-menu-item-font-size: var(--el-font-size-small);
+}
+
+.el-menu .el-sub-menu .el-sub-menu__title:hover {
+  background: transparent;
+}
+
+.el-menu .el-menu-item:hover {
+  color: var(--el-menu-hover-text-color);
+}
+
+.el-menu .el-menu-item.is-active {
+  font-weight: 600;
+  background: var(--el-color-primary-light-8);
+}
+
+.el-menu--horizontal {
+  --el-menu-item-font-size: var(--el-font-size-base);
+
+  box-shadow: 0 0 12px rgb(0 0 0 / 10%);
+}
+
+.el-menu--horizontal .el-menu-item.is-active {
+  background: transparent;
+}

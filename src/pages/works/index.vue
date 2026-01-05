@@ -2,25 +2,25 @@
   <el-container>
     <el-aside :width="isMobile ? '64px' : '200px'">
       <el-menu
-        class="worksMenu"
+        class="h-full"
         :default-active="activeWorks.value.id"
         :collapse="isMobile"
         @select="handleSelectMenuItem"
       >
         <el-menu-item v-for="works in worksList" :index="works.id">
-          <img class="worksLogo" :src="works.logo" />
-          <span>{{ works.name }}</span>
+          <img class="w-6 h-6 rounded-full border border-(--el-border-color)" :src="works.logo" />
+          <span class="ml-2">{{ works.name }}</span>
         </el-menu-item>
       </el-menu>
     </el-aside>
     <el-main ref="workContent">
-      <div class="worksName">{{ activeWorks.value.name }}</div>
-      <div class="worksType">({{ activeWorks.value.types.join('、') }})</div>
-      <div class="worksDesc">{{ activeWorks.value.desc }}</div>
-      <div class="worksFeature" v-for="item in activeWorks.value.features" :key="item">
-        {{ item }}
-      </div>
-      <el-space class="actionBar" spacer="|">
+      <div class="text-lg font-bold">{{ activeWorks.value.name }}</div>
+      <div class="text-(--el-color-info)">({{ activeWorks.value.types.join('、') }})</div>
+      <div class="mt-2 whitespace-pre-line">{{ activeWorks.value.desc }}</div>
+      <ul class="ml-4 list-disc">
+        <li v-for="item in activeWorks.value.features" :key="item">{{ item }}</li>
+      </ul>
+      <el-space class="mt-2" spacer="|">
         <el-link
           type="primary"
           target="_blank"
@@ -45,10 +45,10 @@
         </el-tag>
       </el-space>
       <div class="worksTitle">作品截图：</div>
-      <el-space wrap>
+      <div class="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-6 gap-4">
         <el-image
           v-for="(screenshots, index) in activeWorks.value.screenshotsList"
-          :class="{ screenshots: true, isMobile: isMobile }"
+          class="aspect-square border border-(--el-border-color) bg-(--el-bg-color-page)/35 rounded-sm shadow-2xs"
           :key="screenshots"
           :src="screenshots"
           lazy
@@ -57,10 +57,10 @@
           :initial-index="index"
         >
           <template #placeholder>
-            <div class="placeholder">loading...</div>
+            <div class="flex items-center justify-center w-full h-full">loading...</div>
           </template>
         </el-image>
-      </el-space>
+      </div>
     </el-main>
   </el-container>
 </template>
@@ -97,93 +97,23 @@ function handleSelectMenuItem(id: string) {
 }
 </script>
 
-<style scoped lang="scss">
-.worksMenu {
-  height: 100%;
-
-  .worksLogo {
-    width: 24px;
-    height: 24px;
-    margin-right: 6px;
-    border: var(--el-border-base);
-    border-radius: 50%;
-  }
-}
-
-.worksName {
-  font-size: var(--el-font-size-medium);
-  font-weight: 600;
-}
-
-.worksType {
-  color: var(--el-color-info);
-}
-
-.worksDesc {
-  margin-top: 10px;
-  white-space: pre-line;
-}
-
+<style scoped>
 .worksTitle {
   position: relative;
-  display: flex;
-  align-items: center;
   padding: 0 0 2px 2px;
   margin: 20px 0 10px;
   font-size: var(--el-font-size-base);
   font-weight: 600;
-
-  &::before {
-    position: absolute;
-    bottom: 0;
-    left: -2px;
-    display: block;
-    width: 100px;
-    height: 2px;
-    content: '';
-    background: linear-gradient(to right, var(--el-color-primary), transparent);
-  }
 }
 
-.worksFeature::before {
-  display: inline-block;
-  width: 4px;
-  height: 4px;
-  margin: 0 8px;
-  vertical-align: middle;
+.worksTitle::before {
+  position: absolute;
+  bottom: 0;
+  left: -2px;
+  display: block;
+  width: 100px;
+  height: 2px;
   content: '';
-  background: currentcolor;
-  border-radius: 50%;
-}
-
-.actionBar {
-  margin-top: 10px;
-}
-
-.screenshots {
-  box-sizing: border-box;
-  width: 320px;
-  height: 320px;
-  padding: 10px;
-  vertical-align: middle;
-  border: 1px var(--el-border-color-light) solid;
-  border-radius: 4px;
-
-  &.isMobile {
-    width: calc(100vw - 104px);
-    height: calc(100vw - 104px);
-  }
-
-  .placeholder {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: 100%;
-  }
-
-  ::v-deep .el-image__preview {
-    filter: drop-shadow(2px 4px 6px var(--el-border-color-base));
-  }
+  background: linear-gradient(to right, var(--el-color-primary), transparent);
 }
 </style>

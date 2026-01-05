@@ -34,20 +34,20 @@ const _height = computed(() => parseFloat(props.width + '') + 'px')
   </span>
 </template>
 
-<style lang="scss" scoped>
+<style scoped>
 .yzy-svg-icon {
   display: inline-block;
   width: v-bind(_width);
   height: v-bind(_height);
   color: v-bind(color);
+}
 
-  :deep(svg) {
-    width: 100%;
-    height: 100%;
+.yzy-svg-icon svg {
+  width: 100%;
+  height: 100%;
+}
 
-    * {
-      fill: currentcolor;
-    }
-  }
+.yzy-svg-icon svg * {
+  fill: currentcolor;
 }
 </style>

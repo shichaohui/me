@@ -1,12 +1,11 @@
 <template>
-  <div id="app">
+  <div class="flex flex-col h-screen">
     <el-menu
-      class="menu"
       mode="horizontal"
       :default-active="activeMenuIndex.value"
       @select="handleSelectMenuItem"
     >
-      <img class="avatar" :src="avatarImg" @click="handleClickAvatar" />
+      <img class="rounded-full m-2 cursor-pointer" :src="avatarImg" @click="handleClickAvatar" />
       <template v-for="item in menu" :key="item.url">
         <el-sub-menu v-if="item.children?.length" :index="item.url">
           <template #title>{{ item.name }}</template>
@@ -20,7 +19,7 @@
     </el-menu>
     <router-view v-slot="{ Component, ...args }">
       <transition name="fade" mode="out-in" :appear="true">
-        <component :is="Component" v-bind="args" class="content" />
+        <component :is="Component" v-bind="args" class="flex-1 overflow-auto" />
       </transition>
     </router-view>
   </div>
@@ -65,31 +64,7 @@ function handleSelectMenuItem(url: string) {
 }
 </script>
 
-<style scoped lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  font-size: var(--el-font-size-base);
-  color: var(--el-text-color-primary);
-  background: $body-bg-color;
-}
-
-.menu {
-  height: $menu-height;
-
-  .avatar {
-    margin: 10px;
-    cursor: pointer;
-    border-radius: 50%;
-    box-shadow: 0 0 5px white;
-  }
-}
-
-.content {
-  height: calc(100vh - #{$menu-height});
-}
-
+<style scoped>
 .fade-enter-active {
   opacity: 0;
   transition: opacity 0.3s ease;

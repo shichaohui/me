@@ -1,9 +1,9 @@
 <template>
-  <div class="internalGame">
-    <div ref="road" class="road" :style="{ marginLeft: `${roadMarginLeft}px` }" />
-    <div ref="cloudContainer" class="cloudContainer">
+  <div class="relative w-full h-full">
+    <div ref="road" class="game-road" :style="{ marginLeft: `${roadMarginLeft}px` }" />
+    <div ref="cloudContainer" class="absolute w-full h-full overflow-hidden">
       <IconCloud
-        class="cloud"
+        class="absolute"
         v-for="cloud in cloudList"
         :key="cloud.id"
         :style="{
@@ -14,9 +14,9 @@
         }"
       />
     </div>
-    <div ref="obstacleContainer" class="obstacleContainer">
+    <div ref="obstacleContainer" class="absolute w-full h-full overflow-hidden">
       <img
-        class="obstacle"
+        class="absolute bottom-0"
         src="@/assets/images/game/internal/obstacle.gif"
         v-for="obstacle in obstacleList"
         :key="obstacle.id"
@@ -26,9 +26,9 @@
         }"
       />
     </div>
-    <div ref="foodContainer" class="foodContainer">
+    <div ref="foodContainer" class="absolute bottom-0 w-full h-full overflow-hidden">
       <IconFood
-        class="food"
+        class="absolute"
         v-for="food in foodList"
         :key="food.id"
         :style="{
@@ -41,12 +41,16 @@
     </div>
     <img
       ref="player"
-      class="player flipX"
+      class="absolute bottom-0 left-[18%] w-12 h-12 -scale-x-[1]"
       src="@/assets/images/game/internal/player.gif"
       :style="{ bottom: `${playerBottom}px` }"
     />
-    <p v-if="isShowScore" class="score">得分：{{ currentScore }}</p>
-    <p v-if="isShowTips" class="tips">按空格键开始游戏</p>
+    <p v-if="isShowScore" class="tips bottom-8 left-[18%] -translate-x-full text-lg">
+      得分：{{ currentScore }}
+    </p>
+    <p v-if="isShowTips" class="tips bottom-4 left-[50%] translate-x-[-50%] text-base">
+      按空格键开始游戏
+    </p>
   </div>
 </template>
 
@@ -332,12 +336,8 @@ function over() {
 }
 </script>
 
-<style lang="scss" scoped>
-.internalGame {
-  position: relative;
-}
-
-.road {
+<style scoped>
+.game-road {
   position: absolute;
   bottom: 0;
   width: 200%;
@@ -347,68 +347,10 @@ function over() {
   background-size: 109px;
 }
 
-.player {
-  position: absolute;
-  bottom: 0;
-  left: 18%;
-  width: 50px;
-  height: 50px;
-}
-
-.cloudContainer {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-
-  .cloud {
-    position: absolute;
-  }
-}
-
-.obstacleContainer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-
-  .obstacle {
-    position: absolute;
-    bottom: 0;
-  }
-}
-
-.foodContainer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-
-  .food {
-    position: absolute;
-  }
-}
-
-.score {
-  position: absolute;
-  bottom: 30px;
-  left: 18%;
-  padding: 5px 10px;
-  font-size: 18px;
-  background-color: rgb(255 255 255 / 50%);
-  border-radius: 5px;
-  transform: translateX(-100%);
-}
-
 .tips {
   position: absolute;
-  bottom: 10px;
-  left: 50%;
   padding: 5px 10px;
   background-color: rgb(255 255 255 / 50%);
   border-radius: 5px;
-  transform: translateX(-50%);
 }
 </style>

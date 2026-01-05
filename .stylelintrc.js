@@ -1,12 +1,11 @@
 export default {
   extends: [
     'stylelint-config-standard',
-    'stylelint-config-standard-scss',
-    'stylelint-config-css-modules',
-    'stylelint-config-recommended-vue/scss',
     'stylelint-config-recess-order',
+    'stylelint-config-standard-vue',
   ],
   rules: {
+    'import-notation': 'string',
     'no-empty-source': null,
     'selector-class-pattern': null,
   },

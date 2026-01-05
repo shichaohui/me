@@ -7,6 +7,7 @@ import { fileURLToPath, URL } from 'url'
 import { defineConfig } from 'vite'
 import { createHtmlPlugin } from 'vite-plugin-html'
 import svgLoader from 'vite-svg-loader'
+import tailwindcss from '@tailwindcss/vite'
 import vue from '@vitejs/plugin-vue'
 
 // https://vitejs.dev/config/
@@ -22,12 +23,12 @@ export default defineConfig(({ mode }) => {
       vue(),
       AutoImport({
         imports: ['vue'],
-        resolvers: [ElementPlusResolver({ importStyle: 'sass' })],
+        resolvers: [ElementPlusResolver({ importStyle: false })],
       }),
       Components({
         dirs: [],
         resolvers: [
-          ElementPlusResolver({ importStyle: 'sass' }),
+          ElementPlusResolver({ importStyle: false }),
           IconsResolver({ prefix: 'icon', enabledCollections: ['ep'] }),
         ],
       }),
@@ -44,21 +45,10 @@ export default defineConfig(({ mode }) => {
         },
       }),
       svgLoader(),
+      tailwindcss(),
     ],
     resolve: {
       alias: { '@': fileURLToPath(new URL('./src', import.meta.url)) },
-    },
-    css: {
-      preprocessorOptions: {
-        scss: {
-          charset: false,
-          additionalData: `
-          @use '@/styles/variables.scss' as *;
-          @use '@/styles/element-plus/variables.scss' as *;
-          @use '@/styles/mixins/mixins.scss' as *;
-        `,
-        },
-      },
     },
   }
 })

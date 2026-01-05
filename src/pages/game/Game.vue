@@ -1,11 +1,15 @@
 <template>
-  <div class="game">
-    <div>
-      <img class="logo" :src="game.logo" :alt="game.name" />
-      <h1 class="name">{{ game.name }}</h1>
+  <div class="w-[80%] p-4 my-5 mx-auto border border-(--el-border-color) rounded-lg shadow-2xs">
+    <div class="flex items-center justify-center">
+      <img
+        class="w-8 h-8 rounded-full border border-(--el-border-color)"
+        :src="game.logo"
+        :alt="game.name"
+      />
+      <span class="ml-2 text-lg font-bold">{{ game.name }}</span>
     </div>
-    <p>{{ game.desc }}</p>
-    <el-space size="large" spacer="|">
+    <p class="mt-2 text-center">{{ game.desc }}</p>
+    <el-space class="mt-2 flex justify-center" size="large" spacer="|">
       <el-link
         type="primary"
         :href="game.detailUrl"
@@ -45,30 +49,4 @@ function getLinkTarget(url: string = '') {
 }
 </script>
 
-<style lang="scss" scoped>
-.game {
-  width: 80%;
-  padding: 15px;
-  margin: 20px auto;
-  text-align: center;
-  border: 1px var(--el-border-color-base) solid;
-  border-radius: 8px;
-  box-shadow: var(--el-box-shadow-base);
-
-  .logo {
-    width: 45px;
-    height: 45px;
-    vertical-align: middle;
-    border: var(--el-border-base);
-    border-radius: 50%;
-  }
-
-  .name {
-    display: inline;
-    margin-left: 10px;
-    font-size: var(--el-font-size-extra-large);
-    font-weight: normal;
-    vertical-align: middle;
-  }
-}
-</style>
+<style scoped></style>

@@ -1,9 +1,9 @@
 <template>
   <div>
-    <div v-if="!isMobile" class="internalGame">
+    <div v-if="!isMobile" class="fixed -z-1 bottom-0 w-full h-full overflow-hidden">
       <InternalGame />
     </div>
-    <div class="gameList">
+    <div class="w-full h-full overflow-auto">
       <Game v-for="game in gameList" :key="game.id" :game="game" />
     </div>
   </div>
@@ -18,19 +18,4 @@ import Game from './Game.vue'
 const isMobile = device.isMobile()
 </script>
 
-<style lang="scss" scoped>
-.internalGame {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-}
-
-.gameList {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-}
-</style>
+<style scoped></style>
