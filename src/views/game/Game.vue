@@ -1,5 +1,7 @@
 <template>
-  <div class="w-[80%] p-4 my-5 mx-auto border border-(--el-border-color) rounded-lg shadow-2xs">
+  <div
+    class="w-[80%] p-4 my-5 mx-auto bg-(--el-bg-color) border border-(--el-border-color) rounded-lg shadow-2xs"
+  >
     <div class="flex items-center justify-center">
       <img
         class="w-8 h-8 rounded-full border border-(--el-border-color)"

@@ -6,22 +6,22 @@ const router = createRouter({
     {
       name: 'index',
       path: '/',
-      component: () => import('@/pages/index/index.vue'),
+      component: () => import('@/views/index/index.vue'),
     },
     {
       name: 'game',
       path: '/game',
-      component: () => import('@/pages/game/index.vue'),
+      component: () => import('@/views/game/index.vue'),
     },
     {
       name: 'note',
       path: '/note',
-      component: () => import('@/pages/note/index.vue'),
+      component: () => import('@/views/note/index.vue'),
     },
     {
       name: 'works',
       path: '/works',
-      component: () => import('@/pages/works/index.vue'),
+      component: () => import('@/views/works/index.vue'),
     },
   ],
 })

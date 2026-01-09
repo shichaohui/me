@@ -14,10 +14,16 @@
       </el-menu>
     </el-aside>
     <el-main ref="workContent">
-      <div class="text-lg font-bold">{{ activeWorks.value.name }}</div>
-      <div class="text-(--el-color-info)">({{ activeWorks.value.types.join('、') }})</div>
+      <div class="flex items-center flex-wrap gap-x-2">
+        <div class="text-lg font-bold">{{ activeWorks.value.name }}</div>
+        <div class="flex items-center gap-1">
+          <el-tag v-for="item in activeWorks.value.types" :key="item" size="small">
+            {{ item }}
+          </el-tag>
+        </div>
+      </div>
       <div class="mt-2 whitespace-pre-line">{{ activeWorks.value.desc }}</div>
-      <ul class="ml-4 list-disc">
+      <ul class="mt-2 ml-4 list-disc">
         <li v-for="item in activeWorks.value.features" :key="item">{{ item }}</li>
       </ul>
       <el-space class="mt-2" spacer="|">
@@ -45,15 +51,15 @@
         </el-tag>
       </el-space>
       <div class="worksTitle">作品截图：</div>
-      <div class="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-6 gap-4">
+      <div class="flex flex-wrap gap-4">
         <el-image
-          v-for="(screenshots, index) in activeWorks.value.screenshotsList"
-          class="aspect-square border border-(--el-border-color) bg-(--el-bg-color-page)/35 rounded-sm shadow-2xs"
-          :key="screenshots"
-          :src="screenshots"
+          v-for="(screenshot, index) in activeWorks.value.screenshotList"
+          class="border border-(--el-border-color) bg-(--el-bg-color-page)/35 rounded-sm shadow-2xs"
+          :class="isMobile ? 'w-full min-h-20' : 'w-fit min-w-20 h-60'"
+          :key="screenshot"
+          :src="screenshot"
           lazy
-          fit="contain"
-          :preview-src-list="activeWorks.value.screenshotsList"
+          :preview-src-list="activeWorks.value.screenshotList"
           :initial-index="index"
         >
           <template #placeholder>

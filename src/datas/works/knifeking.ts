@@ -21,7 +21,7 @@ export const knifeKing: WorksTypes.Works = {
     '小程序开放数据域',
     '小游戏排行榜',
   ],
-  screenshotsList: [
+  screenshotList: [
     'https://s1.ax1x.com/2022/03/11/bIbsKK.jpg',
     'https://s1.ax1x.com/2022/03/11/bIbDv6.jpg',
     'https://s1.ax1x.com/2022/03/11/bIbBgx.jpg',

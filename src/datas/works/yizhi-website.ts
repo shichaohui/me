@@ -23,7 +23,7 @@ export const yiZhiWebSite: WorksTypes.Works = {
     'Prettier',
     'ESLint',
   ],
-  screenshotsList: [
+  screenshotList: [
     'https://s4.ax1x.com/2022/03/04/bUcBm4.jpg',
     'https://s4.ax1x.com/2022/03/04/bUcd6U.jpg',
     'https://s4.ax1x.com/2022/03/04/bUcalT.jpg',

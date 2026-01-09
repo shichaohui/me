@@ -36,13 +36,7 @@ export const yueKeBao: WorksTypes.Works = {
     'Prettier',
     'ESLint',
   ],
-  screenshotsList: [
-    'https://s1.ax1x.com/2023/03/23/ppwRy79.png',
-    'https://s1.ax1x.com/2023/03/23/ppwRckR.png',
-    'https://s1.ax1x.com/2023/03/23/ppwRs0J.png',
-    'https://s1.ax1x.com/2023/03/23/ppwRrm4.png',
-    'https://s1.ax1x.com/2023/03/23/ppwRBXF.png',
-    'https://s1.ax1x.com/2023/03/23/ppwRgt1.png',
+  screenshotList: [
     'https://s1.ax1x.com/2023/03/23/ppwRWp6.png',
     'https://s1.ax1x.com/2023/03/23/ppwR2fx.png',
     'https://s1.ax1x.com/2023/03/23/ppwRf1K.png',
@@ -55,5 +49,11 @@ export const yueKeBao: WorksTypes.Works = {
     'https://s1.ax1x.com/2023/03/23/ppwIgtH.png',
     'https://s1.ax1x.com/2023/03/23/ppwRo0H.png',
     'https://s1.ax1x.com/2023/03/23/ppwRT7d.png',
+    'https://s1.ax1x.com/2023/03/23/ppwRy79.png',
+    'https://s1.ax1x.com/2023/03/23/ppwRckR.png',
+    'https://s1.ax1x.com/2023/03/23/ppwRs0J.png',
+    'https://s1.ax1x.com/2023/03/23/ppwRrm4.png',
+    'https://s1.ax1x.com/2023/03/23/ppwRBXF.png',
+    'https://s1.ax1x.com/2023/03/23/ppwRgt1.png',
   ],
 }

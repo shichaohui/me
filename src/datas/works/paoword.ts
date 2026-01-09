@@ -33,7 +33,7 @@ export const paoword: WorksTypes.Works = {
     'Java',
     'Kotlin',
   ],
-  screenshotsList: [
+  screenshotList: [
     'https://s4.ax1x.com/2022/03/04/bU1muD.jpg',
     'https://s4.ax1x.com/2022/03/04/bU1ZjO.jpg',
     'https://s4.ax1x.com/2022/03/04/bU1nDe.jpg',

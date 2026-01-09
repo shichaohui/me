@@ -25,6 +25,6 @@ declare namespace WorksTypes {
     /** 使用技术 */
     technologyList: string[]
     /** 作品截图 */
-    screenshotsList: string[]
+    screenshotList: string[]
   }
 }

@@ -39,14 +39,7 @@ export const yueXiangHui: WorksTypes.Works = {
     'Prettier',
     'ESLint',
   ],
-  screenshotsList: [
-    'https://s4.ax1x.com/2022/03/04/bU8TBD.jpg',
-    'https://s4.ax1x.com/2022/03/04/bU87He.jpg',
-    'https://s4.ax1x.com/2022/03/04/bU8bAH.jpg',
-    'https://s4.ax1x.com/2022/03/04/bU8qNd.jpg',
-    'https://s4.ax1x.com/2022/03/04/bU8onO.jpg',
-    'https://s4.ax1x.com/2022/03/04/bU8L4A.jpg',
-    'https://s4.ax1x.com/2022/03/04/bU8X9I.jpg',
+  screenshotList: [
     'https://s4.ax1x.com/2022/03/04/bU8j3t.jpg',
     'https://s4.ax1x.com/2022/03/04/bU8vgP.jpg',
     'https://s4.ax1x.com/2022/03/04/bU6ZxU.jpg',
@@ -56,5 +49,12 @@ export const yueXiangHui: WorksTypes.Works = {
     'https://s4.ax1x.com/2022/03/04/bU6V2T.jpg',
     'https://s4.ax1x.com/2022/03/04/bU6MZ9.jpg',
     'https://s4.ax1x.com/2022/03/04/bU6QaR.jpg',
+    'https://s4.ax1x.com/2022/03/04/bU8TBD.jpg',
+    'https://s4.ax1x.com/2022/03/04/bU87He.jpg',
+    'https://s4.ax1x.com/2022/03/04/bU8bAH.jpg',
+    'https://s4.ax1x.com/2022/03/04/bU8qNd.jpg',
+    'https://s4.ax1x.com/2022/03/04/bU8onO.jpg',
+    'https://s4.ax1x.com/2022/03/04/bU8L4A.jpg',
+    'https://s4.ax1x.com/2022/03/04/bU8X9I.jpg',
   ],
 }

@@ -35,7 +35,7 @@ export const gank: WorksTypes.Works = {
     'flutter_staggered_grid_view',
     'gesture_zoom_box',
   ],
-  screenshotsList: [
+  screenshotList: [
     'https://s4.ax1x.com/2022/03/04/bU3CM8.jpg',
     'https://s4.ax1x.com/2022/03/04/bU1xPI.jpg',
     'https://s4.ax1x.com/2022/03/04/bU3pxf.jpg',
