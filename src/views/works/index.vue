@@ -51,11 +51,11 @@
         </el-tag>
       </el-space>
       <div class="worksTitle">作品截图：</div>
-      <div class="flex flex-wrap gap-4">
+      <div class="overflow-auto -m-2 mt-2">
         <el-image
           v-for="(screenshot, index) in activeWorks.value.screenshotList"
           class="border border-(--el-border-color) bg-(--el-bg-color-page)/35 rounded-sm shadow-2xs"
-          :class="isMobile ? 'w-full min-h-20' : 'w-fit min-w-20 h-60'"
+          :class="isMobile ? 'w-full min-h-20' : 'float-left m-2 min-w-20 h-66'"
           :key="screenshot"
           :src="screenshot"
           lazy

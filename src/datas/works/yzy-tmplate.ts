@@ -44,7 +44,6 @@ export const yzyTemplate: WorksTypes.Works = {
     'Stylelint',
   ],
   screenshotList: [
-    'https://s41.ax1x.com/2026/01/08/pZw8KD1.jpg',
     'https://s41.ax1x.com/2026/01/07/pZd7UmQ.jpg',
     'https://s41.ax1x.com/2026/01/07/pZd7tOg.jpg',
     'https://s41.ax1x.com/2026/01/07/pZd7Y6S.jpg',
@@ -58,5 +57,6 @@ export const yzyTemplate: WorksTypes.Works = {
     'https://s41.ax1x.com/2026/01/08/pZw8mv9.jpg',
     'https://s41.ax1x.com/2026/01/08/pZw8egJ.jpg',
     'https://s41.ax1x.com/2026/01/08/pZw8Z34.jpg',
+    'https://s41.ax1x.com/2026/01/08/pZw8KD1.jpg',
   ],
 }

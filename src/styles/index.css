@@ -14,7 +14,7 @@ body {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   font-size: var(--el-font-size-base);
   color: var(--el-text-color-primary);
-  background: linear-gradient(var(--el-bg-color-page), var(--el-color-primary-light-9));
+  background: var(--el-bg-color-page);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

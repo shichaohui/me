@@ -28,5 +28,12 @@ export const wkView: WorksTypes.Works = {
     'VuePress',
     'Node.js',
   ],
-  screenshotList: [],
+  screenshotList: [
+    'https://s41.ax1x.com/2026/01/12/pZB1SRe.jpg',
+    'https://s41.ax1x.com/2026/01/12/pZB1iqI.jpg',
+    'https://s41.ax1x.com/2026/01/12/pZB1pxH.jpg',
+    'https://s41.ax1x.com/2026/01/12/pZB1CMd.jpg',
+    'https://s41.ax1x.com/2026/01/12/pZB1PsA.jpg',
+    'https://s41.ax1x.com/2026/01/12/pZB1kZt.jpg',
+  ],
 }

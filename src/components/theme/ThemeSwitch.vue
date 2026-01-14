@@ -9,8 +9,21 @@ import { getDarkColor, getLightColor, setHtmlProperty } from './color-helper'
 const DARK_MODE_STORAGE_KEY = 'dark-mode'
 
 // 当前是否为暗黑模式
-const isDarkMode = ref(localStorage.getItem(DARK_MODE_STORAGE_KEY) === 'true')
+const isDarkMode = ref(localStorage.getItem(DARK_MODE_STORAGE_KEY) !== 'false')
 
+// 预定义颜色列表
+const predefineColors = [
+  '#DF0029',
+  '#EC870E',
+  '#C7C300',
+  '#5BBD2B',
+  '#00A06B',
+  '#00A6AD',
+  '#409eff',
+  '#6A4C93',
+  '#BB3E99',
+  '#E0527A',
+]
 // 主题色本地存储键
 const THEME_COLOR_STORAGE_KEY = 'theme-color'
 
@@ -74,7 +87,13 @@ onMounted(() => {
         <SvgIcon :icon="ThemeIconLight" :width="16" :height="16" />
       </template>
     </el-switch>
-    <el-color-picker v-model="themeColor" size="small" @change="handleThemeColorChange" />
+    <el-color-picker
+      v-model="themeColor"
+      size="small"
+      :predefine="predefineColors"
+      :value-on-clear="themeColor"
+      @change="handleThemeColorChange"
+    />
   </el-space>
 </template>
 
