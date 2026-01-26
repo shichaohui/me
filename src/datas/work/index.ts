@@ -10,7 +10,7 @@ import { yueXiuHui } from './yuexiuhui'
 import { yzyTemplate } from './yzy-tmplate'
 
 /** 作品列表 */
-export const worksList: WorksTypes.Works[] = [
+export const workList: Work.Work[] = [
   fangBao,
   yzyTemplate,
   wkView,

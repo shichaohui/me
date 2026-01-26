@@ -42,7 +42,7 @@
 
 <script setup lang="ts">
 defineProps<{
-  game: GameTypes.Game
+  game: Game.Game
 }>()
 
 // 获取链接打开方式

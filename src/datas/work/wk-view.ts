@@ -1,8 +1,8 @@
 import { uniqueId } from 'lodash'
-import logo from '@/assets/images/works/wk-view.jpg'
+import logo from '@/assets/images/work/wk-view.jpg'
 
 /** wk-view */
-export const wkView: WorksTypes.Works = {
+export const wkView: Work.Work = {
   id: uniqueId(),
   name: 'wk-view',
   types: ['Android', 'iOS', '微信小程序', 'H5'],

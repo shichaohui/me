@@ -1,8 +1,8 @@
 import { uniqueId } from 'lodash'
-import logo from '@/assets/images/works/yzy-template.jpg'
+import logo from '@/assets/images/work/yzy-template.jpg'
 
 /** 悦自研标准框架 */
-export const yzyTemplate: WorksTypes.Works = {
+export const yzyTemplate: Work.Work = {
   id: uniqueId(),
   name: '悦自研标准框架',
   types: ['Web'],
@@ -13,9 +13,10 @@ export const yzyTemplate: WorksTypes.Works = {
     '代码规范（Prettier、Eslint、Stylelint）',
     '接口请求封装（Axios、axios-mock-adapter）',
     '统一认证单点登录（基于 JWT）',
-    '错误页面（403、404、500）',
     '公共组件库（全局样式、表格组件、svg 图标、文件上传、Excel 导入等）',
     '公共业务封装（下载中心等）',
+    '动态路由和错误页面（403、404、500）',
+    '动态权限校验（菜单权限、按钮权限）',
     '多环境部署配置（Docker、阿里云）',
     'cli 脚手架工具（创建项目、生成页面、生成组件、生成 sass snippets 等）',
     '完善的开发文档',

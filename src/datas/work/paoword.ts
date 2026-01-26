@@ -1,8 +1,8 @@
 import { uniqueId } from 'lodash'
-import logo from '@/assets/images/works/paoword.jpg'
+import logo from '@/assets/images/work/paoword.jpg'
 
 /** 泡单词 */
-export const paoword: WorksTypes.Works = {
+export const paoword: Work.Work = {
   id: uniqueId(),
   name: '泡单词',
   types: ['Android'],

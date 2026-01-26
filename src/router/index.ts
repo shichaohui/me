@@ -19,9 +19,9 @@ const router = createRouter({
       component: () => import('@/views/note/index.vue'),
     },
     {
-      name: 'works',
-      path: '/works',
-      component: () => import('@/views/works/index.vue'),
+      name: 'work',
+      path: '/work',
+      component: () => import('@/views/work/index.vue'),
     },
   ],
 })

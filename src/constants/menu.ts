@@ -8,7 +8,7 @@ export interface MenuItem {
 const menu: MenuItem[] = [
   {
     name: '作品',
-    url: '/works',
+    url: '/work',
   },
   {
     name: '游戏',

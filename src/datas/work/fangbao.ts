@@ -1,8 +1,8 @@
 import { uniqueId } from 'lodash'
-import logo from '@/assets/images/works/fangbao.jpg'
+import logo from '@/assets/images/work/fangbao.jpg'
 
 /** 越秀房宝 */
-export const fangBao: WorksTypes.Works = {
+export const fangBao: Work.Work = {
   id: uniqueId(),
   name: '越秀房宝',
   types: ['微信小程序', 'H5', 'Web'],

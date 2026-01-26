@@ -1,8 +1,8 @@
 import { uniqueId } from 'lodash'
-import logo from '@/assets/images/works/yizhi.jpg'
+import logo from '@/assets/images/work/yizhi.jpg'
 
 /** 伊智官网 */
-export const yiZhiWebSite: WorksTypes.Works = {
+export const yiZhiWebSite: Work.Work = {
   id: uniqueId(),
   name: '伊智官网',
   types: ['Web'],

@@ -11,6 +11,17 @@ const DARK_MODE_STORAGE_KEY = 'dark-mode'
 // 当前是否为暗黑模式
 const isDarkMode = ref(localStorage.getItem(DARK_MODE_STORAGE_KEY) !== 'false')
 
+// 黑暗模式切换处理
+function handleDarkModeChange() {
+  if (isDarkMode.value) {
+    document.documentElement.classList.add('dark')
+  } else {
+    document.documentElement.classList.remove('dark')
+  }
+  localStorage.setItem(DARK_MODE_STORAGE_KEY, String(isDarkMode.value))
+  setElementPrimaryColor(themeColor.value, isDarkMode.value)
+}
+
 // 预定义颜色列表
 const predefineColors = [
   '#DF0029',
@@ -48,27 +59,17 @@ function setElementPrimaryColor(color: string, isDark: boolean = false): void {
   }
 }
 
-// 黑暗模式切换处理
-function handleDarkModeChange() {
-  if (isDarkMode.value) {
-    document.documentElement.classList.add('dark')
-  } else {
-    document.documentElement.classList.remove('dark')
-  }
-  localStorage.setItem(DARK_MODE_STORAGE_KEY, String(isDarkMode.value))
-  setElementPrimaryColor(themeColor.value, isDarkMode.value)
-}
-
 // 主题色更改处理
-function handleThemeColorChange() {
-  localStorage.setItem(THEME_COLOR_STORAGE_KEY, themeColor.value)
-  setElementPrimaryColor(themeColor.value, isDarkMode.value)
+function handleThemeColorChange(color: string | null) {
+  color ??= themeColor.value
+  localStorage.setItem(THEME_COLOR_STORAGE_KEY, color)
+  setElementPrimaryColor(color, isDarkMode.value)
 }
 
 // 初始化主题
 onMounted(() => {
   handleDarkModeChange()
-  handleThemeColorChange()
+  handleThemeColorChange(themeColor.value)
 })
 </script>
 
@@ -88,11 +89,11 @@ onMounted(() => {
       </template>
     </el-switch>
     <el-color-picker
-      v-model="themeColor"
       size="small"
+      :model-value="themeColor"
       :predefine="predefineColors"
-      :value-on-clear="themeColor"
-      @change="handleThemeColorChange"
+      @change="themeColor = $event || themeColor"
+      @active-change="handleThemeColorChange"
     />
   </el-space>
 </template>

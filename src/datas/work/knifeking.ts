@@ -1,11 +1,11 @@
 import { uniqueId } from 'lodash'
-import logo from '@/assets/images/works/knife_king.jpg'
+import logo from '@/assets/images/work/knife_king.jpg'
 
 /** 菜市场刀王 id */
 export const knifeKingId = uniqueId()
 
 /** 菜市场刀王 */
-export const knifeKing: WorksTypes.Works = {
+export const knifeKing: Work.Work = {
   id: knifeKingId,
   name: '菜市场刀王',
   types: ['微信小游戏'],

@@ -1,8 +1,8 @@
 import { uniqueId } from 'lodash'
-import logo from '@/assets/images/works/gank.jpg'
+import logo from '@/assets/images/work/gank.jpg'
 
 /** 干货 */
-export const gank: WorksTypes.Works = {
+export const gank: Work.Work = {
   id: uniqueId(),
   name: '干货',
   types: ['Android', 'iOS'],

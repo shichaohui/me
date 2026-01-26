@@ -1,9 +1,9 @@
 import { uniqueId } from 'lodash'
 import logoColorUp from '@/assets/images/game/logos/color_up.jpg'
-import logoKnifeKing from '@/assets/images/works/knife_king.jpg'
-import { knifeKingId } from '../works/knifeking'
+import logoKnifeKing from '@/assets/images/work/knife_king.jpg'
+import { knifeKingId } from '../work/knifeking'
 
-const colorUp: GameTypes.Game = {
+const colorUp: Game.Game = {
   id: uniqueId(),
   name: '七彩蹦蹦',
   logo: logoColorUp,
@@ -13,12 +13,12 @@ const colorUp: GameTypes.Game = {
   playUrl: `https://shichaohui.github.io/games/ColorUp/index.html`,
 }
 
-const knifeKing: GameTypes.Game = {
+const knifeKing: Game.Game = {
   id: uniqueId(),
   name: '菜市场刀王',
   logo: logoKnifeKing,
   desc: '使用 Cocos Creator 开发的基于飞刀投掷机制的微信小游戏。',
-  detailUrl: `${import.meta.env.BASE_URL}#/works?id=${knifeKingId}`,
+  detailUrl: `${import.meta.env.BASE_URL}#/work?id=${knifeKingId}`,
 }
 
-export const gameList: GameTypes.Game[] = [colorUp, knifeKing]
+export const gameList: Game.Game[] = [colorUp, knifeKing]

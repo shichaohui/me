@@ -1,7 +1,7 @@
 /**
  * 游戏相关的类型声明
  */
-declare namespace GameTypes {
+declare namespace Game {
   /**
    * 游戏
    */
