@@ -1,10 +1,10 @@
 <template>
   <el-container>
-    <el-aside :width="isMobile ? '64px' : '200px'">
+    <el-aside class="relative w-auto overflow-visible">
       <el-menu
         class="h-full"
         :default-active="activeWork.id"
-        :collapse="isMobile"
+        :collapse="isMenuCollapse"
         @select="handleSelectMenuItem"
       >
         <el-menu-item v-for="work in workListWithOthers" :index="work.id">
@@ -12,6 +12,13 @@
           <span class="ml-2">{{ work.name }}</span>
         </el-menu-item>
       </el-menu>
+      <div
+        class="absolute top-5 right-0 translate-x-[40%] bg-(--el-bg-color) border rounded-full flex px-0.5 py-1 cursor-pointer"
+        @click="isMenuCollapse = !isMenuCollapse"
+      >
+        <el-icon v-if="isMenuCollapse"><IconEpArrowRight /></el-icon>
+        <el-icon v-else><IconEpArrowLeft /></el-icon>
+      </div>
     </el-aside>
     <el-main ref="workContent">
       <OthersWork v-if="activeWork.id === othersId" />
@@ -34,8 +41,8 @@ import WorkDetail from './WorkDetail.vue'
 const router = useRouter()
 const { id } = router.currentRoute.value.query
 
-// 是否移动端
-const isMobile = device.isMobile()
+// 是否折叠菜单
+const isMenuCollapse = ref(device.isMobile())
 
 // 其他作品 id
 const othersId = uniqueId()

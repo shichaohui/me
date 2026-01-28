@@ -6,7 +6,11 @@
       v-for="(list, index) in userBadgeList"
       :key="index"
     >
-      <img class="mt-2 mx-2 rounded-full" v-for="badge in list" :src="badge" />
+      <img
+        class="mt-2 mx-2 rounded-full shadow-2xs shadow-white"
+        v-for="badge in list"
+        :src="badge"
+      />
     </div>
   </div>
 </template>

@@ -5,13 +5,18 @@
         <FluidCursor v-if="activeMenuIndex === '/'" class="top-15" />
         <SleekLineCursor v-else />
       </template>
-      <el-menu mode="horizontal" :default-active="activeMenuIndex" @select="handleSelectMenuItem">
+      <el-menu
+        class="pr-24"
+        mode="horizontal"
+        :default-active="activeMenuIndex"
+        @select="handleSelectMenuItem"
+      >
         <img
           class="rounded-full m-2 ml-4 cursor-pointer border border-(--el-border-color)"
           :src="avatarImg"
           @click="handleClickAvatar"
         />
-        <template v-for="item in menu" :key="item.url">
+        <template v-for="item in menuList" :key="item.name">
           <el-sub-menu v-if="item.children?.length" :index="item.url">
             <template #title>{{ item.name }}</template>
             <el-menu-item v-for="subItem in item.children" :index="subItem.url">
@@ -40,7 +45,7 @@ import avatarImg from '@/assets/images/avatar.jpg'
 import ThemeSwitch from '@/components/theme/ThemeSwitch.vue'
 import { FluidCursor } from '@/components/ui/fluid-cursor'
 import SleekLineCursor from '@/components/ui/sleek-line-cursor/SleekLineCursor.vue'
-import menu from '@/constants/menu'
+import menuList from '@/constants/menu'
 import device from '@/utils/device'
 
 const isMobile = device.isMobile()
